@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 10,
+    "ontologyName": "FaBiO, the FRBR-aligned Bibliographic Ontology",
+    "ontologyVersion": "2.2",
+    "allowedNamespaces": [
+      "core: http://purl.org/vocab/frbr/core#",
+      "dc: http://purl.org/dc/elements/1.1/",
+      "dcterms: http://purl.org/dc/terms/",
+      "fabio: http://purl.org/spar/fabio/",
+      "ns1: http://prismstandard.org/namespaces/basic/2.0/",
+      "owl: http://www.w3.org/2002/07/owl#",
+      "rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs: http://www.w3.org/2000/01/rdf-schema#",
+      "schema: https://schema.org/",
+      "schemaHttp: http://schema.org/",
+      "sh: http://www.w3.org/ns/shacl#",
+      "skos: http://www.w3.org/2004/02/skos/core#",
+      "vann: http://purl.org/vocab/vann/",
+      "xsd: http://www.w3.org/2001/XMLSchema#"
+    ],
+    "totalColumns": 29,
+    "mappedColumns": 20,
+    "unmappedColumns": 9,
+    "warnings": [
+      "9 column(s) were flagged as unmapped to preserve strict ontology compliance."
+    ]
+  },
+  "validationReport": {
+    "classesUsed": [
+      "core:Endeavour",
+      "core:Work",
+      "fabio:Book",
+      "fabio:BookChapter",
+      "fabio:ConferencePaper",
+      "fabio:ConferenceProceedings",
+      "fabio:DataFile",
+      "fabio:DataRepository",
+      "fabio:DoctoralThesis",
+      "fabio:Journal",
+      "fabio:JournalArticle",
+      "fabio:MastersThesis",
+      "fabio:Series",
+      "fabio:WebContent"
+    ],
+    "propertiesUsed": [
+      "core:partOf",
+      "core:relatedEndeavour",
+      "dcterms:identifier",
+      "dcterms:modified",
+      "dcterms:title",
+      "fabio:hasPublicationYear",
+      "fabio:hasSequenceIdentifier",
+      "fabio:hasURL",
+      "ns1:isbn",
+      "ns1:issueIdentifier",
+      "ns1:pageRange",
+      "ns1:volume"
+    ],
+    "namespacesUsed": [
+      "http://prismstandard.org/namespaces/basic/2.0/",
+      "http://purl.org/dc/terms/",
+      "http://purl.org/spar/fabio/",
+      "http://purl.org/vocab/frbr/core#"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Unmapped columns should remain excluded unless a stricter ontology extension is added.",
+      "No supplementary lookup files were available for confidence boosting or foreign-key confirmation."
+    ]
+  },
+  "lowConfidenceMappings": [],
+  "invalidMappings": [],
+  "unmappedColumns": [
+    {
+      "columnName": "publtype",
+      "reason": "Values such as 'encyclopedia', 'version', and 'withdrawn' mix publication form and status, and no precise valid property exists in the parsed ontology.",
+      "suggestion": "Map after a controlled vocabulary or status ontology is added.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "authors",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "editors",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "month",
+      "reason": "Month alone is an incomplete temporal fragment and should not be forced into a full publication-date property.",
+      "suggestion": "Combine with year during data cleaning if a complete publication date is needed.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "publisher",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "school",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "note",
+      "reason": "Free-text notes are heterogeneous and do not safely align with a single existing ontology property.",
+      "suggestion": "Split notes into typed subfields before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "cdrom",
+      "reason": "CD-ROM file paths look like local distribution artifacts, but no precise compliant property is available.",
+      "suggestion": "Keep as provenance metadata or add a storage/location ontology.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "address",
+      "reason": "The ontology references publication places in object property ranges, but the corresponding place class is not available in the parsed classes list.",
+      "suggestion": "Re-parse the ontology with supporting FRBR classes or leave this field out of KG generation.",
+      "severity": "warning"
+    }
+  ]
+}

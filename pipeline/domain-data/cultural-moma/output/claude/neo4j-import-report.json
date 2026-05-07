@@ -1,0 +1,45 @@
+{
+  "status": "success",
+  "duration": 64253,
+  "throughput": {
+    "nodesPerSecond": 9133,
+    "relationshipsPerSecond": 49594
+  },
+  "imported": {
+    "nodes": 369356,
+    "relationships": 960593,
+    "nodesByLabel": {
+      "WebResource": 190365,
+      "ProvidedCHO": 157457,
+      "Agent": 14095,
+      "TimeSpan": 7269,
+      "Place": 125,
+      "Concept": 45
+    },
+    "relationshipsByType": {
+      "CREATOR": 156195,
+      "HASTYPE": 157457,
+      "SUBJECT": 157457,
+      "TEMPORAL": 155444,
+      "ISSHOWNAT": 100094,
+      "ISSHOWNBY": 90881,
+      "HASMET": 143065
+    }
+  },
+  "optimization": {
+    "constraintsCreated": 7,
+    "indexesCreated": 7,
+    "batchSize": {
+      "nodes": 5000,
+      "relationships": 2500
+    }
+  },
+  "validation": {
+    "expectedNodes": 369356,
+    "actualNodes": 369356,
+    "expectedRelationships": 960593,
+    "actualRelationships": 960593,
+    "orphanedNodes": 0
+  },
+  "errors": []
+}

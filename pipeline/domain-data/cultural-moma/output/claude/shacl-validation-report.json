@@ -1,0 +1,174 @@
+{
+  "validationTimestamp": "2026-03-09T22:41:51.354432",
+  "validationMethod": "n10s SHACL validation (neosemantics)",
+  "shapesFile": "domain-data/cultural-moma/validation/edm-shacl-shapes-v2.ttl",
+  "summary": {
+    "overallStatus": "PASS_WITH_FINDINGS",
+    "totalShapesValidated": 6,
+    "totalNodesValidated": 369356,
+    "totalFindings": 2790,
+    "findingsBySeverity": {
+      "Violation": 59,
+      "Warning": 2731,
+      "Info": 0
+    },
+    "overallConformanceRate": 99.24
+  },
+  "shapesDetail": [
+    {
+      "shape": "ProvidedCHOShape",
+      "targetClass": "ProvidedCHO",
+      "totalNodes": 157457,
+      "conformingNodes": 157398,
+      "nonConformingNodes": 59,
+      "conformanceRate": 99.96,
+      "violations": 59,
+      "warnings": 0,
+      "infos": 0
+    },
+    {
+      "shape": "AgentShape",
+      "targetClass": "Agent",
+      "totalNodes": 14095,
+      "conformingNodes": 11364,
+      "nonConformingNodes": 2731,
+      "conformanceRate": 80.62,
+      "violations": 0,
+      "warnings": 2731,
+      "infos": 0
+    },
+    {
+      "shape": "ConceptShape",
+      "targetClass": "Concept",
+      "totalNodes": 45,
+      "conformingNodes": 45,
+      "nonConformingNodes": 0,
+      "conformanceRate": 100.0,
+      "violations": 0,
+      "warnings": 0,
+      "infos": 0
+    },
+    {
+      "shape": "TimeSpanShape",
+      "targetClass": "TimeSpan",
+      "totalNodes": 7269,
+      "conformingNodes": 7269,
+      "nonConformingNodes": 0,
+      "conformanceRate": 100.0,
+      "violations": 0,
+      "warnings": 0,
+      "infos": 0
+    },
+    {
+      "shape": "PlaceShape",
+      "targetClass": "Place",
+      "totalNodes": 125,
+      "conformingNodes": 125,
+      "nonConformingNodes": 0,
+      "conformanceRate": 100.0,
+      "violations": 0,
+      "warnings": 0,
+      "infos": 0
+    },
+    {
+      "shape": "WebResourceShape",
+      "targetClass": "WebResource",
+      "totalNodes": 190365,
+      "conformingNodes": 190365,
+      "nonConformingNodes": 0,
+      "conformanceRate": 100.0,
+      "violations": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  ],
+  "violationDetails": [
+    {
+      "nodeType": "ProvidedCHO",
+      "propertyPath": "Title",
+      "severity": "Violation",
+      "constraintComponent": "MinCountConstraintComponent",
+      "customMessage": "EDM Violation: ProvidedCHO must have dc:title (or dc:description). Source: EDM Mapping Guidelines, edm:ProvidedCHO, dc:title",
+      "resultMessage": "cardinality (0) is outside the defined min-max limits",
+      "count": 59,
+      "sampleFocusNodes": [
+        241376,
+        243428,
+        243569,
+        243579,
+        243630
+      ]
+    },
+    {
+      "nodeType": "Agent",
+      "propertyPath": "prefLabel_DisplayName",
+      "severity": "Warning",
+      "constraintComponent": "CountConstraintComponent",
+      "customMessage": "EDM Warning: Agent should have skos:prefLabel (prefLabel_DisplayName). Source: EDM Mapping Guidelines, edm:Agent, skos:prefLabel",
+      "resultMessage": "cardinality (0) is outside the defined min-max limits",
+      "count": 2731,
+      "sampleFocusNodes": [
+        80009,
+        80010,
+        80013,
+        80016,
+        80017
+      ]
+    }
+  ],
+  "sampleViolatingNodes": {
+    "ProvidedCHO_missingTitle": [
+      {
+        "nodeId": 241376,
+        "id": "http://data.example.org/providedcho/127137",
+        "accession": "FC-Template",
+        "issue": "Missing Title property"
+      },
+      {
+        "nodeId": 243428,
+        "id": "http://data.example.org/providedcho/131547",
+        "accession": "FC1275",
+        "issue": "Missing Title property"
+      },
+      {
+        "nodeId": 243569,
+        "id": "http://data.example.org/providedcho/131707",
+        "accession": "FC1435",
+        "issue": "Missing Title property"
+      }
+    ],
+    "Agent_missingPrefLabel": [
+      {
+        "nodeId": 80009,
+        "id": "http://data.example.org/agent/6969-8134",
+        "constituentId": "6969, 8134",
+        "issue": "Missing prefLabel_DisplayName (composite agent)"
+      },
+      {
+        "nodeId": 80010,
+        "id": "http://data.example.org/agent/6956-6957",
+        "constituentId": "6956, 6957",
+        "issue": "Missing prefLabel_DisplayName (composite agent)"
+      },
+      {
+        "nodeId": 80013,
+        "id": "http://data.example.org/agent/7661-8131-8180",
+        "constituentId": "7661, 8131, 8180",
+        "issue": "Missing prefLabel_DisplayName (composite agent)"
+      }
+    ]
+  },
+  "analysis": {
+    "criticalFindings": [
+      "59 ProvidedCHO nodes (0.04%) lack a Title property - these appear to be template/placeholder records (e.g., FC-Template accession numbers from the Fluxus Collection Gift)."
+    ],
+    "warningFindings": [
+      "2,731 Agent nodes (19.4%) lack prefLabel_DisplayName - these are composite/collaborative agents (multi-constituent IDs like '6969, 8134') generated when artworks have multiple creators merged into a single agent node."
+    ],
+    "recommendations": [
+      "Investigate the 59 ProvidedCHO nodes without titles - consider adding titles from other metadata fields or marking as incomplete records.",
+      "For composite Agent nodes, consider deriving a display name by concatenating constituent names or using a generic label like 'Multiple Artists'.",
+      "All other shapes (Concept, TimeSpan, Place, WebResource) passed validation with 100% conformance."
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "success",
+  "duration": 22966,
+  "throughput": {
+    "nodesPerSecond": 0,
+    "relationshipsPerSecond": 136998
+  },
+  "imported": {
+    "nodes": 1581327,
+    "relationships": 2368553,
+    "nodesByLabel": {
+      "Feature": 790717,
+      "Geometry": 790610
+    },
+    "relationshipsByType": {
+      "hasGeometry": 790610,
+      "sfWithin": 1577943
+    }
+  },
+  "optimization": {
+    "constraintsCreated": 2,
+    "indexesCreated": 5,
+    "batchSize": {
+      "nodes": 5000,
+      "relationships": 2500
+    }
+  },
+  "validation": {
+    "expectedNodes": 1581327,
+    "actualNodes": 1581327,
+    "expectedRelationships": 2368553,
+    "actualRelationships": 2368553,
+    "orphanedNodes": 0
+  },
+  "errors": []
+}

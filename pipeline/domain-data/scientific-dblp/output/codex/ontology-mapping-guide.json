@@ -1,0 +1,302 @@
+{
+  "commonPatterns": [
+    {
+      "scenario": "Endeavour as a core entity (30 ontology links)",
+      "ontologyClass": "core:Endeavour",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:hasCharacterCount",
+        "fabio:hasCopyrightYear",
+        "fabio:hasElectronicArticleIdentifier",
+        "fabio:hasHandle",
+        "fabio:hasNationalLibraryOfMedicineJournalId",
+        "fabio:hasPageCount",
+        "fabio:hasPlaceOfPublication",
+        "fabio:hasPubMedCentralId",
+        "fabio:hasPubMedId",
+        "fabio:hasSequenceIdentifier",
+        "fabio:hasShortTitle",
+        "fabio:hasSICI",
+        "fabio:hasSubjectTerm",
+        "fabio:hasSubtitle",
+        "fabio:hasURL",
+        "fabio:hasVolumeCount",
+        "ns1:doi",
+        "ns1:edition",
+        "ns1:eIssn",
+        "ns1:endingPage",
+        "ns1:isbn",
+        "ns1:issn",
+        "ns1:issueIdentifier",
+        "ns1:keyword",
+        "ns1:pageRange",
+        "ns1:publicationDate",
+        "ns1:startingPage",
+        "ns1:versionIdentifier",
+        "ns1:volume",
+        "ns1:wordCount"
+      ],
+      "relationships": [
+        "fabio:hasPlaceOfPublication: core:Endeavour -> core:Place",
+        "fabio:hasSubjectTerm: core:Endeavour -> fabio:SubjectTerm"
+      ]
+    },
+    {
+      "scenario": "Item as a important entity (4 ontology links)",
+      "ontologyClass": "core:Item",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:isPortrayalOf",
+        "fabio:isRepresentationOf"
+      ],
+      "relationships": [
+        "core:Expression -[fabio:hasRepresentation]-> core:Item -[fabio:isPortrayalOf]-> core:Work",
+        "core:Item -[fabio:isPortrayalOf]-> core:Work -[fabio:hasManifestation]-> core:Manifestation",
+        "core:Manifestation -[fabio:isManifestationOf]-> core:Work -[fabio:hasPortrayal]-> core:Item",
+        "core:Work -[fabio:hasPortrayal]-> core:Item -[fabio:isRepresentationOf]-> core:Expression",
+        "fabio:hasPortrayal: core:Work -> core:Item",
+        "fabio:hasRepresentation: core:Expression -> core:Item",
+        "fabio:isPortrayalOf: core:Item -> core:Work",
+        "fabio:isRepresentationOf: core:Item -> core:Expression"
+      ]
+    },
+    {
+      "scenario": "Work as a important entity (4 ontology links)",
+      "ontologyClass": "core:Work",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:hasManifestation",
+        "fabio:hasPortrayal"
+      ],
+      "relationships": [
+        "core:Expression -[fabio:hasRepresentation]-> core:Item -[fabio:isPortrayalOf]-> core:Work",
+        "core:Item -[fabio:isPortrayalOf]-> core:Work -[fabio:hasManifestation]-> core:Manifestation",
+        "core:Manifestation -[fabio:isManifestationOf]-> core:Work -[fabio:hasPortrayal]-> core:Item",
+        "core:Work -[fabio:hasPortrayal]-> core:Item -[fabio:isRepresentationOf]-> core:Expression",
+        "fabio:hasManifestation: core:Work -> core:Manifestation",
+        "fabio:hasPortrayal: core:Work -> core:Item",
+        "fabio:isManifestationOf: core:Manifestation -> core:Work",
+        "fabio:isPortrayalOf: core:Item -> core:Work"
+      ]
+    },
+    {
+      "scenario": "item as a important entity (4 ontology links)",
+      "ontologyClass": "fabio:Item",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:hasAccessDate",
+        "fabio:hasDepositDate",
+        "fabio:isStoredOn"
+      ],
+      "relationships": [
+        "fabio:isStoredOn: fabio:Item -> fabio:StorageMedium",
+        "fabio:stores: fabio:StorageMedium -> fabio:Item"
+      ]
+    },
+    {
+      "scenario": "Expression as a important entity (2 ontology links)",
+      "ontologyClass": "core:Expression",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:hasRepresentation"
+      ],
+      "relationships": [
+        "core:Expression -[fabio:hasRepresentation]-> core:Item -[fabio:isPortrayalOf]-> core:Work",
+        "core:Work -[fabio:hasPortrayal]-> core:Item -[fabio:isRepresentationOf]-> core:Expression",
+        "fabio:hasRepresentation: core:Expression -> core:Item",
+        "fabio:isRepresentationOf: core:Item -> core:Expression"
+      ]
+    },
+    {
+      "scenario": "Manifestation as a important entity (2 ontology links)",
+      "ontologyClass": "core:Manifestation",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:isManifestationOf"
+      ],
+      "relationships": [
+        "core:Item -[fabio:isPortrayalOf]-> core:Work -[fabio:hasManifestation]-> core:Manifestation",
+        "core:Manifestation -[fabio:isManifestationOf]-> core:Work -[fabio:hasPortrayal]-> core:Item",
+        "fabio:hasManifestation: core:Work -> core:Manifestation",
+        "fabio:isManifestationOf: core:Manifestation -> core:Work"
+      ]
+    },
+    {
+      "scenario": "storage medium as a important entity (2 ontology links)",
+      "ontologyClass": "fabio:StorageMedium",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:stores"
+      ],
+      "relationships": [
+        "fabio:isStoredOn: fabio:Item -> fabio:StorageMedium",
+        "fabio:stores: fabio:StorageMedium -> fabio:Item"
+      ]
+    },
+    {
+      "scenario": "concept as a important entity (2 ontology links)",
+      "ontologyClass": "skos:Concept",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "skos:inScheme"
+      ],
+      "relationships": [
+        "fabio:isSchemeOf: skos:ConceptScheme -> skos:Concept",
+        "skos:inScheme: skos:Concept -> skos:ConceptScheme"
+      ]
+    },
+    {
+      "scenario": "concept scheme as a important entity (2 ontology links)",
+      "ontologyClass": "skos:ConceptScheme",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:isSchemeOf"
+      ],
+      "relationships": [
+        "fabio:isSchemeOf: skos:ConceptScheme -> skos:Concept",
+        "skos:inScheme: skos:Concept -> skos:ConceptScheme"
+      ]
+    },
+    {
+      "scenario": "academic proceedings as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:AcademicProceedings",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "analog manifestation as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:AnalogManifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "announcement as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Announcement",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "anthology as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Anthology",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "article as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Article",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "artistic work as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:ArtisticWork",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "blog as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Blog",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "book as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Book",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "brief report as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:BriefReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "case report as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:CaseReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "catalog as a important entity (0 ontology links)",
+      "ontologyClass": "fabio:Catalog",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    }
+  ],
+  "allowedNamespaces": [
+    "http://prismstandard.org/namespaces/basic/2.0/",
+    "http://purl.org/dc/elements/1.1/",
+    "http://purl.org/dc/terms/",
+    "http://purl.org/spar/fabio/",
+    "http://purl.org/vocab/frbr/core#",
+    "http://purl.org/vocab/vann/",
+    "http://schema.org/",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "http://www.w3.org/2000/01/rdf-schema#",
+    "http://www.w3.org/2001/XMLSchema#",
+    "http://www.w3.org/2002/07/owl#",
+    "http://www.w3.org/2004/02/skos/core#",
+    "http://www.w3.org/ns/shacl#",
+    "https://schema.org/"
+  ],
+  "constraints": [
+    "fabio:hasAccessDate: fabio:Item -> xsd:dateTime",
+    "fabio:hasCharacterCount: core:Endeavour -> xsd:positiveInteger",
+    "fabio:hasCopyrightYear: core:Endeavour -> xsd:gYear",
+    "fabio:hasDepositDate: fabio:Item -> xsd:dateTime",
+    "fabio:hasElectronicArticleIdentifier: core:Endeavour -> xsd:string",
+    "fabio:hasHandle: core:Endeavour -> xsd:string",
+    "fabio:hasManifestation: core:Work -> core:Manifestation",
+    "fabio:hasNationalLibraryOfMedicineJournalId: core:Endeavour -> xsd:string",
+    "fabio:hasPageCount: core:Endeavour -> xsd:positiveInteger",
+    "fabio:hasPlaceOfPublication: core:Endeavour -> core:Place",
+    "fabio:hasPortrayal: core:Work -> core:Item",
+    "fabio:hasPubMedCentralId: core:Endeavour -> xsd:string",
+    "fabio:hasPubMedId: core:Endeavour -> xsd:string",
+    "fabio:hasRepresentation: core:Expression -> core:Item",
+    "fabio:hasSequenceIdentifier: core:Endeavour -> xsd:string",
+    "fabio:hasShortTitle: core:Endeavour -> xsd:string",
+    "fabio:hasSICI: core:Endeavour -> xsd:string",
+    "fabio:hasSubjectTerm: core:Endeavour -> fabio:SubjectTerm",
+    "fabio:hasSubtitle: core:Endeavour -> xsd:string",
+    "fabio:hasURL: core:Endeavour -> xsd:anyURI",
+    "fabio:hasVolumeCount: core:Endeavour -> xsd:nonNegativeInteger",
+    "fabio:isManifestationOf: core:Manifestation -> core:Work",
+    "fabio:isPortrayalOf: core:Item -> core:Work",
+    "fabio:isRepresentationOf: core:Item -> core:Expression",
+    "fabio:isSchemeOf: skos:ConceptScheme -> skos:Concept",
+    "fabio:isStoredOn: fabio:Item -> fabio:StorageMedium",
+    "fabio:stores: fabio:StorageMedium -> fabio:Item",
+    "ns1:doi: core:Endeavour -> xsd:string",
+    "ns1:edition: core:Endeavour -> xsd:string",
+    "ns1:eIssn: core:Endeavour -> xsd:string",
+    "ns1:endingPage: core:Endeavour -> xsd:string",
+    "ns1:isbn: core:Endeavour -> xsd:string",
+    "ns1:issn: core:Endeavour -> xsd:string",
+    "ns1:issueIdentifier: core:Endeavour -> xsd:string",
+    "ns1:keyword: core:Endeavour -> xsd:string",
+    "ns1:pageRange: core:Endeavour -> xsd:string",
+    "ns1:publicationDate: core:Endeavour -> xsd:string",
+    "ns1:startingPage: core:Endeavour -> xsd:string",
+    "ns1:versionIdentifier: core:Endeavour -> xsd:string",
+    "ns1:volume: core:Endeavour -> xsd:string",
+    "ns1:wordCount: core:Endeavour -> xsd:positiveInteger",
+    "Prefer the most specific class available in the subclass hierarchy for each entity.",
+    "Respect every rdfs:domain and rdfs:range assignment when constructing triples.",
+    "skos:inScheme: skos:Concept -> skos:ConceptScheme",
+    "Treat owl:inverseOf links as semantically paired properties.",
+    "Use only classes and properties defined in the parsed ontology namespaces or referenced external vocabularies."
+  ]
+}

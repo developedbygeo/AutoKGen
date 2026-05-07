@@ -1,0 +1,59 @@
+node_modules
+.neo4j-mcp.env
+.env
+.claude/
+Artifacts/
+dist/
+*.log
+data/output/
+data/logs/
+data-test/output/
+data-test/logs/
+prompts/*-logged.sh
+
+
+# === Original/raw datasets and reference data (blanket ignored) ===
+domain-data/cultural-moma/input
+domain-data/scientific-dblp/input
+domain-data/geospatial/input/
+domain-data/geospatial/supplementary-files/
+domain-data/scientific-dblp/logs
+
+
+# === Output files >100MB (regardless of provider subdir) ===
+
+# cultural-moma
+domain-data/cultural-moma/output/graph-data.ttl
+domain-data/cultural-moma/output/graph-data.json
+domain-data/cultural-moma/output/graph-import.cypher
+domain-data/cultural-moma/output/claude/graph-data.ttl
+domain-data/cultural-moma/output/claude/graph-data.json
+domain-data/cultural-moma/output/claude/graph-import.cypher
+domain-data/cultural-moma/output/codex/graph-data.json
+domain-data/cultural-moma/output/codex/graph-import.cypher
+domain-data/cultural-moma/output/codex/shacl-validation-report.json
+
+# geospatial
+domain-data/geospatial/output/dataset-cleaned.csv
+domain-data/geospatial/output/graph-data.ttl
+domain-data/geospatial/output/graph-data.json
+domain-data/geospatial/output/graph-import.cypher
+domain-data/geospatial/output/claude/dataset-cleaned.csv
+domain-data/geospatial/output/claude/graph-data.ttl
+domain-data/geospatial/output/claude/graph-data.json
+domain-data/geospatial/output/claude/graph-import.cypher
+domain-data/geospatial/output/codex/.graph-nodes.ndjson
+domain-data/geospatial/output/codex/.graph-relationships.ndjson
+
+# scientific-dblp
+domain-data/scientific-dblp/output/dataset-cleaned.csv
+domain-data/scientific-dblp/output/graph-data.ttl
+domain-data/scientific-dblp/output/graph-data.json
+domain-data/scientific-dblp/output/graph-import.cypher
+domain-data/scientific-dblp/output/claude/dataset-cleaned.csv
+domain-data/scientific-dblp/output/claude/graph-data.ttl
+domain-data/scientific-dblp/output/claude/graph-data.json
+domain-data/scientific-dblp/output/claude/graph-import.cypher
+
+
+domain-data/geospatial/output/*/graph-data.ttl

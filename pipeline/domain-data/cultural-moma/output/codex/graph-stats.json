@@ -1,0 +1,437 @@
+{
+  "summary": {
+    "totalNodes": 261823,
+    "totalRelationships": 181762,
+    "avgDegree": 1.3884,
+    "density": 0.00000265
+  },
+  "nodeStatistics": {
+    "byType": {
+      "Agent": 14095,
+      "Provided CHO": 157457,
+      "Web Resource": 90271
+    },
+    "withIssues": 0,
+    "compliant": 261823
+  },
+  "relationshipStatistics": {
+    "byType": {
+      "isShownAt": 90881,
+      "object": 90881
+    },
+    "withIssues": 9213,
+    "compliant": 181762
+  },
+  "complianceMetrics": {
+    "overallScore": 100,
+    "validNodesPercent": 100,
+    "validRelationshipsPercent": 95.18,
+    "unmappedDataPercent": 88.55
+  },
+  "issues": [
+    {
+      "type": "compliance_score_inferred",
+      "severity": "warning",
+      "count": 1,
+      "examples": [
+        "Compliance score was missing or non-positive in mapping-strategy.json; inferred 100 from derived-from-compliant-mappings."
+      ]
+    },
+    {
+      "type": "missing_relationship_endpoint",
+      "severity": "warning",
+      "count": 9213,
+      "examples": [
+        "Missing relationship endpoint for http://www.europeana.eu/schemas/edm/isShownAt"
+      ]
+    }
+  ],
+  "validationMetrics": {
+    "validNodes": 261823,
+    "invalidNodes": 0,
+    "validRelationships": 181762,
+    "invalidRelationships": 9213,
+    "violationsByType": {
+      "missing_relationship_endpoint": 9213
+    }
+  },
+  "unmappedColumns": {
+    "count": 34,
+    "configured": [
+      "AccessionNumber",
+      "Artist",
+      "ArtistBio",
+      "ArtistBio_artists",
+      "BeginDate",
+      "BeginDate_artists",
+      "Cataloged",
+      "Circumference (cm)",
+      "Classification",
+      "CreditLine",
+      "Date",
+      "DateAcquired",
+      "Department",
+      "Depth (cm)",
+      "Diameter (cm)",
+      "Dimensions",
+      "DisplayName",
+      "Duration (sec.)",
+      "EndDate",
+      "EndDate_artists",
+      "Gender",
+      "Gender_artists",
+      "Height (cm)",
+      "Length (cm)",
+      "Medium",
+      "Nationality",
+      "Nationality_artists",
+      "OnView",
+      "Seat Height (cm)",
+      "Title",
+      "ULAN",
+      "Weight (kg)",
+      "Width (cm)",
+      "Wiki QID"
+    ],
+    "encounteredValues": {
+      "AccessionNumber": {
+        "nonEmptyCount": 157457,
+        "examples": [
+          "885.1996",
+          "1.1995",
+          "1.1997",
+          "2.1995",
+          "2.1997"
+        ]
+      },
+      "Artist": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "Otto Wagner",
+          "Christian de Portzamparc",
+          "Emil Hoppe",
+          "Bernard Tschumi",
+          "Louis I. Kahn"
+        ]
+      },
+      "ArtistBio": {
+        "nonEmptyCount": 151376,
+        "examples": [
+          "(Austrian, 1841–1918)",
+          "(French, born 1944)",
+          "(Austrian, 1876–1957)",
+          "(French and Swiss, born Switzerland 1944)",
+          "(American, born Estonia. 1901–1974)"
+        ]
+      },
+      "ArtistBio_artists": {
+        "nonEmptyCount": 151376,
+        "examples": [
+          "Austrian, 1841–1918",
+          "French, born 1944",
+          "Austrian, 1876–1957",
+          "French and Swiss, born Switzerland 1944",
+          "American, born Estonia. 1901–1974"
+        ]
+      },
+      "BeginDate": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "(1841)",
+          "(1944)",
+          "(1876)",
+          "(1901)",
+          "(1878)"
+        ]
+      },
+      "BeginDate_artists": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "1841",
+          "1944",
+          "1876",
+          "1901",
+          "1878"
+        ]
+      },
+      "Cataloged": {
+        "nonEmptyCount": 157457,
+        "examples": [
+          "Y",
+          "N"
+        ]
+      },
+      "Circumference (cm)": {
+        "nonEmptyCount": 10,
+        "examples": [
+          "68.5",
+          "81.2802",
+          "83.8",
+          "23.5",
+          "34.0"
+        ]
+      },
+      "Classification": {
+        "nonEmptyCount": 157457,
+        "examples": [
+          "Architecture",
+          "Mies van der Rohe Archive",
+          "Design",
+          "Illustrated Book",
+          "Print"
+        ]
+      },
+      "CreditLine": {
+        "nonEmptyCount": 155895,
+        "examples": [
+          "Fractional and promised gift of Jo Carole and Ronald S. Lauder",
+          "Gift of the architect in honor of Lily Auchincloss",
+          "Gift of Jo Carole and Ronald S. Lauder",
+          "Purchase and partial gift of the architect in honor of Lily Auchincloss",
+          "Purchase"
+        ]
+      },
+      "Date": {
+        "nonEmptyCount": 155185,
+        "examples": [
+          "1896",
+          "1987",
+          "1903",
+          "1980",
+          "1976-77"
+        ]
+      },
+      "DateAcquired": {
+        "nonEmptyCount": 150756,
+        "examples": [
+          "1996-04-09",
+          "1995-01-17",
+          "1997-01-15",
+          "1966-01-11",
+          "1980-01-08"
+        ]
+      },
+      "Department": {
+        "nonEmptyCount": 157457,
+        "examples": [
+          "Architecture & Design",
+          "Drawings & Prints",
+          "Painting & Sculpture",
+          "Photography",
+          "Media and Performance"
+        ]
+      },
+      "Depth (cm)": {
+        "nonEmptyCount": 17967,
+        "examples": [
+          "1.3",
+          "3.8",
+          "87.3127",
+          "2.9",
+          "3.5"
+        ]
+      },
+      "Diameter (cm)": {
+        "nonEmptyCount": 1469,
+        "examples": [
+          "17.78",
+          "13.97",
+          "7.4613",
+          "11.43",
+          "29.9"
+        ]
+      },
+      "Dimensions": {
+        "nonEmptyCount": 148789,
+        "examples": [
+          "19 1/8 x 66 1/2\" (48.6 x 168.9 cm)",
+          "16 x 11 3/4\" (40.6 x 29.8 cm)",
+          "13 1/2 x 12 1/2\" (34.3 x 31.8 cm)",
+          "20 x 20\" (50.8 x 50.8 cm)",
+          "15 1/8 x 7 1/2\" (38.4 x 19.1 cm)"
+        ]
+      },
+      "DisplayName": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "Otto Wagner",
+          "Christian de Portzamparc",
+          "Emil Hoppe",
+          "Bernard Tschumi",
+          "Louis I. Kahn"
+        ]
+      },
+      "Duration (sec.)": {
+        "nonEmptyCount": 1953,
+        "examples": [
+          "111600.0",
+          "255.0",
+          "840.0",
+          "1191.0",
+          "0.0"
+        ]
+      },
+      "EndDate": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "(1918)",
+          "(0)",
+          "(1957)",
+          "(1974)",
+          "(1969)"
+        ]
+      },
+      "EndDate_artists": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "1918",
+          "0",
+          "1957",
+          "1974",
+          "1969"
+        ]
+      },
+      "Gender": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "(male)",
+          "(male) (male)",
+          "(male) (female)",
+          "(male) (male) (male)",
+          "(female) (male) ()"
+        ]
+      },
+      "Gender_artists": {
+        "nonEmptyCount": 148298,
+        "examples": [
+          "male",
+          "male|female",
+          "female|male",
+          "female",
+          "gender non-conforming"
+        ]
+      },
+      "Height (cm)": {
+        "nonEmptyCount": 128075,
+        "examples": [
+          "48.6",
+          "40.6401",
+          "34.3",
+          "50.8",
+          "38.4"
+        ]
+      },
+      "Length (cm)": {
+        "nonEmptyCount": 711,
+        "examples": [
+          "17.8",
+          "19.0",
+          "18.1",
+          "17.78",
+          "20.955"
+        ]
+      },
+      "Medium": {
+        "nonEmptyCount": 148196,
+        "examples": [
+          "Ink and cut-and-pasted painted pages on paper",
+          "Paint and colored pencil on print",
+          "Graphite, pen, color pencil, ink, and gouache on tracing paper",
+          "Photographic reproduction with colored synthetic laminate",
+          "Graphite, color pencil, ink, and gouache on tracing paper"
+        ]
+      },
+      "Nationality": {
+        "nonEmptyCount": 156195,
+        "examples": [
+          "(Austrian)",
+          "(French)",
+          "()",
+          "(American)",
+          "(German)"
+        ]
+      },
+      "Nationality_artists": {
+        "nonEmptyCount": 150834,
+        "examples": [
+          "Austrian",
+          "French",
+          "American",
+          "German",
+          "Dutch"
+        ]
+      },
+      "OnView": {
+        "nonEmptyCount": 1316,
+        "examples": [
+          "\"MoMA, Floor 4, 417\"",
+          "\"MoMA, Floor 3, 3 North\"",
+          "\"MoMA, Floor 5, 511\"",
+          "\"MoMA, Floor 1, 1 South\"",
+          "\"MoMA, Floor 5, 516\""
+        ]
+      },
+      "Title": {
+        "nonEmptyCount": 157395,
+        "examples": [
+          "Ferdinandsbrücke Project, Vienna, Austria (Elevation, preliminary version)",
+          "City of Music, National Superior Conservatory of Music and Dance, Paris, France, View from interior courtyard",
+          "Villa project, outside Vienna, Austria (Elevation)",
+          "The Manhattan Transcripts Project, New York, New York, Introductory panel to Episode 1: The Park",
+          "Villa project, outside Vienna, Austria (Exterior perspective)"
+        ]
+      },
+      "ULAN": {
+        "nonEmptyCount": 112951,
+        "examples": [
+          "500016971",
+          "500024982",
+          "500232997",
+          "500022322",
+          "500027669"
+        ]
+      },
+      "Weight (kg)": {
+        "nonEmptyCount": 296,
+        "examples": [
+          "90.7194",
+          "625.9639",
+          "0.4536",
+          "30.391",
+          "112.00007334000001"
+        ]
+      },
+      "Width (cm)": {
+        "nonEmptyCount": 127149,
+        "examples": [
+          "168.9",
+          "29.8451",
+          "31.8",
+          "50.8",
+          "19.1"
+        ]
+      },
+      "Wiki QID": {
+        "nonEmptyCount": 114670,
+        "examples": [
+          "Q84287",
+          "Q312838",
+          "Q1336246",
+          "Q123966",
+          "Q210134"
+        ]
+      }
+    }
+  },
+  "supplementary": {
+    "indexFound": false,
+    "filesLoaded": [],
+    "referenceNodesCreated": 0,
+    "enrichmentRelationshipsCreated": 0
+  },
+  "complianceResolution": {
+    "score": 100,
+    "source": "derived-from-compliant-mappings",
+    "inferred": true
+  }
+}

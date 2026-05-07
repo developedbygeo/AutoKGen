@@ -1,0 +1,370 @@
+{
+  "coreClasses": [
+    {
+      "prefixed": "geo:SpatialObject",
+      "label": "Spatial Object",
+      "definition": "Anything spatial (being or having a shape, position or an extent)."
+    },
+    {
+      "prefixed": "geo:Geometry",
+      "label": "Geometry",
+      "definition": "A coherent set of direct positions in space. The positions are held within a Spatial Reference System (SRS)."
+    },
+    {
+      "prefixed": "geo:Feature",
+      "label": "Feature",
+      "definition": "A discrete spatial phenomenon in a universe of discourse."
+    },
+    {
+      "prefixed": "geo:SpatialObjectCollection",
+      "label": "Spatial Object Collection",
+      "definition": "A collection of individual Spatial Objects."
+    }
+  ],
+  "keyObjectProperties": [
+    {
+      "prefixed": "geo:defaultGeometry",
+      "label": "default geometry",
+      "domain": "geo:Feature",
+      "range": "geo:Geometry"
+    },
+    {
+      "prefixed": "geo:hasGeometry",
+      "label": "has geometry",
+      "domain": "geo:Feature",
+      "range": "geo:Geometry"
+    },
+    {
+      "prefixed": "geo:hasDefaultGeometry",
+      "label": "has default geometry",
+      "domain": "geo:Feature",
+      "range": "geo:Geometry"
+    },
+    {
+      "prefixed": "geo:ehContains",
+      "label": "contains",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehCoveredBy",
+      "label": "covered by",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehCovers",
+      "label": "covers",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehDisjoint",
+      "label": "disjoint",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfDisjoint",
+      "label": "disjoint",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehEquals",
+      "label": "equals",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfEquals",
+      "label": "equals",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehInside",
+      "label": "inside",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehMeet",
+      "label": "meet",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfTouches",
+      "label": "touches",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:ehOverlap",
+      "label": "overlap",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:hasBoundingBox",
+      "label": "has bounding box",
+      "domain": "geo:Feature",
+      "range": "geo:Geometry"
+    },
+    {
+      "prefixed": "geo:hasCentroid",
+      "label": "has centroid",
+      "domain": "geo:Feature",
+      "range": "geo:Geometry"
+    },
+    {
+      "prefixed": "geo:hasLength",
+      "label": "has length",
+      "domain": "geo:SpatialObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasSize",
+      "label": "has size",
+      "domain": "geo:SpatialObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasPerimeterLength",
+      "label": "has perimeter length",
+      "domain": "geo:SpatialObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasArea",
+      "label": "has area",
+      "domain": "geo:SpatialObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasVolume",
+      "label": "has volume",
+      "domain": "geo:SpatialObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasSpatialResolution",
+      "label": "has spatial resolution",
+      "domain": "geo:Geometry",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:hasSpatialAccuracy",
+      "label": "has spatial accuracy",
+      "domain": "geo:Geometry",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "geo:rcc8dc",
+      "label": "disconnected",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8ec",
+      "label": "externally connected",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8eq",
+      "label": "equals",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8ntpp",
+      "label": "non-tangential proper part",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8ntppi",
+      "label": "non-tangential proper part inverse",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8po",
+      "label": "partially overlapping",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8tpp",
+      "label": "tangential proper part",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:rcc8tppi",
+      "label": "tangential proper part inverse",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfContains",
+      "label": "contains",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfCrosses",
+      "label": "crosses",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfIntersects",
+      "label": "intersects",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfOverlaps",
+      "label": "overlaps",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    },
+    {
+      "prefixed": "geo:sfWithin",
+      "label": "within",
+      "domain": "geo:SpatialObject",
+      "range": "geo:SpatialObject"
+    }
+  ],
+  "keyDataProperties": [
+    {
+      "prefixed": "geo:asGML",
+      "label": "as GML",
+      "domain": "geo:Geometry",
+      "range": "geo:gmlLiteral"
+    },
+    {
+      "prefixed": "geo:hasSerialization",
+      "label": "has serialization",
+      "domain": "geo:Geometry",
+      "range": "rdfs:Literal"
+    },
+    {
+      "prefixed": "geo:asWKT",
+      "label": "as WKT",
+      "domain": "geo:Geometry",
+      "range": "geo:wktLiteral"
+    },
+    {
+      "prefixed": "geo:asGeoJSON",
+      "label": "as GeoJSON",
+      "domain": "geo:Geometry",
+      "range": "geo:geoJSONLiteral"
+    },
+    {
+      "prefixed": "geo:asKML",
+      "label": "as KML",
+      "domain": "geo:Geometry",
+      "range": "geo:kmlLiteral"
+    },
+    {
+      "prefixed": "geo:asDGGS",
+      "label": "as DGGS",
+      "domain": "geo:Geometry",
+      "range": "geo:dggsLiteral"
+    },
+    {
+      "prefixed": "geo:coordinateDimension",
+      "label": "coordinate dimension",
+      "domain": "geo:Geometry",
+      "range": "xsd:integer"
+    },
+    {
+      "prefixed": "geo:dimension",
+      "label": "dimension",
+      "domain": "geo:Geometry",
+      "range": "xsd:integer"
+    },
+    {
+      "prefixed": "geo:isEmpty",
+      "label": "is empty",
+      "domain": "geo:Geometry",
+      "range": "xsd:boolean"
+    },
+    {
+      "prefixed": "geo:isSimple",
+      "label": "is simple",
+      "domain": "geo:Geometry",
+      "range": "xsd:boolean"
+    },
+    {
+      "prefixed": "geo:spatialDimension",
+      "label": "spatial dimension",
+      "domain": "geo:Geometry",
+      "range": "xsd:integer"
+    },
+    {
+      "prefixed": "geo:hasMetricSpatialResolution",
+      "label": "has spatial resolution in meters",
+      "domain": "geo:Geometry",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricSpatialAccuracy",
+      "label": "has spatial accuracy in meters",
+      "domain": "geo:Geometry",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricLength",
+      "label": "has length in meters",
+      "domain": "geo:SpatialObject",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricSize",
+      "label": "has metric size",
+      "domain": "geo:SpatialObject",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricPerimeterLength",
+      "label": "has perimeter length in meters",
+      "domain": "geo:SpatialObject",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricArea",
+      "label": "has area in square meters",
+      "domain": "geo:SpatialObject",
+      "range": "xsd:double"
+    },
+    {
+      "prefixed": "geo:hasMetricVolume",
+      "label": "has volume in cubic meters",
+      "domain": "geo:SpatialObject",
+      "range": "xsd:double"
+    }
+  ],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "wgs84_pos: (http://www.w3.org/2003/01/geo/wgs84_pos#)",
+    "geo: (http://www.opengis.net/ont/geosparql#)",
+    "spec11: (http://www.opengis.net/doc/IS/geosparql/1.1#)"
+  ],
+  "ontologyVersion": "1.1"
+}

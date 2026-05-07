@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns="http://example.org/ontology/moma#"
+         xml:base="http://example.org/ontology/moma">
+
+  <owl:Ontology rdf:about="http://example.org/ontology/moma">
+    <rdfs:label>MoMA Collection Ontology</rdfs:label>
+    <rdfs:comment>Automatically generated ontology for MoMA (Museum of Modern Art) collection data. This ontology models artworks, artists (agents), and related metadata.</rdfs:comment>
+    <owl:versionInfo>1.0.0 (auto-generated)</owl:versionInfo>
+  </owl:Ontology>
+
+  <!-- ===================================== -->
+  <!-- Classes                               -->
+  <!-- ===================================== -->
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#Artwork">
+    <rdfs:label>Artwork</rdfs:label>
+    <rdfs:comment>ObjectID is unique for each row (100% cardinality), indicating each row represents a distinct artwork. Columns like Title, Medium, Dimensions, Date support this. (Confidence: 0.98)</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#Agent">
+    <rdfs:label>Agent</rdfs:label>
+    <rdfs:comment>ConstituentID identifies artists (4 unique values for 19 rows), with associated properties: Artist name, ArtistBio, Nationality, BeginDate, EndDate, Gender. Multiple artworks can be created by the same agent. (Confidence: 0.95)</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#Place">
+    <rdfs:label>Place</rdfs:label>
+    <rdfs:comment>Nationality column contains geographic/cultural identifiers (Austrian, French). Places are referenced as artist nationalities. (Confidence: 0.85)</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#TimeSpan">
+    <rdfs:label>TimeSpan</rdfs:label>
+    <rdfs:comment>BeginDate and EndDate columns represent temporal intervals (artist lifespans). Pattern matches CIDOC-CRM and similar temporal ontologies. (Confidence: 0.9)</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#Department">
+    <rdfs:label>Department</rdfs:label>
+    <rdfs:comment>Department column identifies organizational units ("Architecture & Design"). Low confidence due to single value in sample, but semantically meaningful. (Confidence: 0.8)</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/ontology/moma#Acquisition">
+    <rdfs:label>Acquisition</rdfs:label>
+    <rdfs:comment>DateAcquired and CreditLine suggest acquisition events. Medium confidence as this could also be modeled as properties of Artwork. (Confidence: 0.75)</rdfs:comment>
+  </owl:Class>
+
+  <!-- ===================================== -->
+  <!-- Object Properties                     -->
+  <!-- ===================================== -->
+
+  <owl:ObjectProperty rdf:about="http://example.org/ontology/moma#createdBy">
+    <rdfs:label>createdBy</rdfs:label>
+    <rdfs:comment>ConstituentID in artwork records references the creating agent. Standard museum relationship pattern. (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/moma#Agent"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/ontology/moma#hasLifespan">
+    <rdfs:label>hasLifespan</rdfs:label>
+    <rdfs:comment>BeginDate and EndDate columns represent agent birth/death dates, forming a temporal span. (Confidence: 0.9)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/moma#TimeSpan"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/ontology/moma#hasNationality">
+    <rdfs:label>hasNationality</rdfs:label>
+    <rdfs:comment>Nationality column links agents to geographic/cultural places. (Confidence: 0.88)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/moma#Place"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/ontology/moma#belongsToDepartment">
+    <rdfs:label>belongsToDepartment</rdfs:label>
+    <rdfs:comment>Department column indicates organizational classification of artworks. (Confidence: 0.82)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/moma#Department"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/ontology/moma#acquiredThrough">
+    <rdfs:label>acquiredThrough</rdfs:label>
+    <rdfs:comment>DateAcquired and CreditLine suggest acquisition events linking artworks. (Confidence: 0.75)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/moma#Acquisition"/>
+  </owl:ObjectProperty>
+
+  <!-- ===================================== -->
+  <!-- Data Properties                       -->
+  <!-- ===================================== -->
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#title">
+    <rdfs:label>title</rdfs:label>
+    <rdfs:comment>Title is the primary descriptive name of the artwork (Confidence: 0.98)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#creationDate">
+    <rdfs:label>creationDate</rdfs:label>
+    <rdfs:comment>Date represents when the artwork was created (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#medium">
+    <rdfs:label>medium</rdfs:label>
+    <rdfs:comment>Medium describes the materials and techniques used (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#dimensions">
+    <rdfs:label>dimensions</rdfs:label>
+    <rdfs:comment>Dimensions provides size description in text format (Confidence: 0.92)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#height">
+    <rdfs:label>height</rdfs:label>
+    <rdfs:comment>Numeric height measurement in centimeters (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#width">
+    <rdfs:label>width</rdfs:label>
+    <rdfs:comment>Numeric width measurement in centimeters (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#accessionNumber">
+    <rdfs:label>accessionNumber</rdfs:label>
+    <rdfs:comment>Unique identifier for museum cataloging (Confidence: 0.98)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#classification">
+    <rdfs:label>classification</rdfs:label>
+    <rdfs:comment>Type/category of the artwork (e.g., Architecture) (Confidence: 0.9)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#creditLine">
+    <rdfs:label>creditLine</rdfs:label>
+    <rdfs:comment>Provenance and acquisition credit information (Confidence: 0.88)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#url">
+    <rdfs:label>url</rdfs:label>
+    <rdfs:comment>Web link to artwork page (Confidence: 0.98)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#imageUrl">
+    <rdfs:label>imageUrl</rdfs:label>
+    <rdfs:comment>Web link to artwork image (Confidence: 0.95)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#cataloged">
+    <rdfs:label>cataloged</rdfs:label>
+    <rdfs:comment>Boolean indicator (Y/N) of cataloging status (Confidence: 0.92)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Artwork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#displayName">
+    <rdfs:label>displayName</rdfs:label>
+    <rdfs:comment>Primary name/label for the agent (Confidence: 0.98)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#biography">
+    <rdfs:label>biography</rdfs:label>
+    <rdfs:comment>Biographical information about the agent (Confidence: 0.92)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#gender">
+    <rdfs:label>gender</rdfs:label>
+    <rdfs:comment>Gender of the agent (Confidence: 0.9)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#begin">
+    <rdfs:label>begin</rdfs:label>
+    <rdfs:comment>Start year of temporal span (Confidence: 0.88)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#TimeSpan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#end">
+    <rdfs:label>end</rdfs:label>
+    <rdfs:comment>End year of temporal span (Confidence: 0.88)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#TimeSpan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#name">
+    <rdfs:label>name</rdfs:label>
+    <rdfs:comment>Name/label of the place/nationality (Confidence: 0.85)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Place"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#name">
+    <rdfs:label>name</rdfs:label>
+    <rdfs:comment>Name of the organizational department (Confidence: 0.88)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Department"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#acquisitionDate">
+    <rdfs:label>acquisitionDate</rdfs:label>
+    <rdfs:comment>Date when the artwork was acquired (Confidence: 0.92)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Acquisition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/ontology/moma#creditLine">
+    <rdfs:label>creditLine</rdfs:label>
+    <rdfs:comment>Description of acquisition source and method (Confidence: 0.85)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/moma#Acquisition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>

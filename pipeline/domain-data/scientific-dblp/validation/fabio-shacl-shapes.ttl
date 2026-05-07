@@ -1,0 +1,498 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix neo4j: <neo4j://graph.schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#
+# FaBiO SHACL Shapes for DBLP Bibliographic Knowledge Graph
+# Grounded in FaBiO OWL Ontology v2.2 (http://purl.org/spar/fabio/)
+#
+# Sources:
+#   - FaBiO OWL: https://github.com/SPAROntologies/fabio/blob/master/docs/current/fabio.owl
+#   - FRBR Core: http://purl.org/vocab/frbr/core
+#   - PRISM: http://prismstandard.org/namespaces/basic/2.0/
+#   - Dublin Core: http://purl.org/dc/elements/1.1/ and http://purl.org/dc/terms/
+#   - FOAF: http://xmlns.com/foaf/0.1/
+#
+# Property Mapping (Neo4j property → FaBiO/DC/FRBR/PRISM URI):
+#
+#   Publication nodes (JournalArticle, ConferencePaper, Chapter, Book, etc.):
+#     title                → dc:title / dcterms:title
+#     identifier           → dc:identifier / dcterms:identifier
+#     pageRange            → fabio:hasPageRange (no direct FaBiO property; maps to prism:pageRange)
+#     hasURL               → fabio:hasURL (OWL: DatatypeProperty, subPropertyOf dcterms:identifier,
+#                            domain frbr:Endeavour, range xsd:anyURI)
+#     hasPublicationYear   → fabio:hasPublicationYear (OWL: DatatypeProperty + FunctionalProperty,
+#                            subPropertyOf dcterms:issued, range xsd:gYear)
+#     abstract             → dcterms:abstract
+#     modified             → dcterms:modified
+#     publicationDate      → prism:publicationDate
+#     isbn                 → prism:isbn (OWL: DatatypeProperty + FunctionalProperty, domain frbr:Endeavour)
+#     volume               → prism:volume
+#     issueIdentifier      → prism:issueIdentifier
+#
+#   Person:
+#     name                 → foaf:name
+#
+#   Organization:
+#     (name/label)         → foaf:name
+#
+#   Relationships:
+#     CREATOR              → dcterms:creator / dc:creator (range: foaf:Person)
+#     PARTOF               → frbr:partOf (OWL: ObjectProperty, "is part of" per FRBR spec)
+#     PUBLISHER            → dc:publisher / dcterms:publisher (range: foaf:Organization)
+#
+# Class Hierarchy from FaBiO OWL:
+#   fabio:JournalArticle   → subClassOf fabio:Article
+#   fabio:ConferencePaper  → subClassOf fabio:ProceedingsPaper
+#   fabio:BookChapter      → subClassOf fabio:Book (as chapter)
+#   fabio:Book             → subClassOf fabio:Expression
+#   fabio:ConferenceProceedings → subClassOf fabio:AcademicProceedings
+#   fabio:AcademicProceedings  → subClassOf fabio:ExpressionCollection
+#   fabio:Journal          → subClassOf fabio:Periodical → fabio:ExpressionCollection
+#   fabio:BookSeries       → subClassOf fabio:Series
+#   fabio:DoctoralThesis   → subClassOf fabio:Thesis
+#   fabio:MastersThesis    → subClassOf fabio:Thesis
+#   fabio:DataFile         → subClassOf fabio:Expression
+#   fabio:WebContent       → subClassOf fabio:Expression
+#
+
+
+# ============================================================
+# JournalArticle Shape (fabio:JournalArticle)
+# OWL: subClassOf fabio:Article; partOf restriction to Journal
+# ============================================================
+
+neo4j:JournalArticleShape a sh:NodeShape ;
+  sh:targetClass neo4j:JournalArticle ;
+
+  # dc:title — every bibliographic resource should have a title
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: JournalArticle must have dc:title. Source: Dublin Core; FaBiO bibliographic resource requirement" ;
+  ] ;
+
+  # fabio:hasPublicationYear — FunctionalProperty in OWL (max 1), subPropertyOf dcterms:issued
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is a FunctionalProperty (max 1). Source: FaBiO OWL, fabio:hasPublicationYear" ;
+  ] ;
+
+  # fabio:hasURL — subPropertyOf dcterms:identifier, domain frbr:Endeavour, range xsd:anyURI
+  sh:property [
+    sh:path neo4j:hasURL ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: fabio:hasURL (subPropertyOf dcterms:identifier). Source: FaBiO OWL" ;
+  ] ;
+
+  # dc:identifier
+  sh:property [
+    sh:path neo4j:identifier ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dc:identifier. Source: Dublin Core" ;
+  ] ;
+
+  # CREATOR → dcterms:creator, must point to Person
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: dcterms:creator (CREATOR) must point to a Person (foaf:Person). Source: Dublin Core / FOAF" ;
+  ] ;
+
+  # PARTOF → frbr:partOf, JournalArticle should be partOf Journal or AcademicProceedings
+  sh:property [
+    sh:path neo4j:PARTOF ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: frbr:partOf (PARTOF) — JournalArticle is typically partOf a Journal. Source: FaBiO OWL, JournalArticle subClassOf restriction on frbr:partOf" ;
+  ] ;
+
+  # PUBLISHER → dc:publisher, must point to Organization
+  sh:property [
+    sh:path neo4j:PUBLISHER ;
+    sh:class neo4j:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dc:publisher (PUBLISHER) must point to Organization (foaf:Organization). Source: Dublin Core / FOAF" ;
+  ] .
+
+
+# ============================================================
+# ConferencePaper Shape (fabio:ConferencePaper)
+# OWL: subClassOf fabio:ProceedingsPaper
+# ============================================================
+
+neo4j:ConferencePaperShape a sh:NodeShape ;
+  sh:targetClass neo4j:ConferencePaper ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: ConferencePaper must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is FunctionalProperty (max 1). Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: dcterms:creator (CREATOR) must point to Person. Source: Dublin Core / FOAF" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:PARTOF ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: frbr:partOf (PARTOF) — ConferencePaper is typically partOf AcademicProceedings. Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:PUBLISHER ;
+    sh:class neo4j:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dc:publisher must point to Organization. Source: Dublin Core / FOAF" ;
+  ] .
+
+
+# ============================================================
+# Chapter Shape (fabio:BookChapter)
+# OWL: subClassOf fabio:Book (as expression); partOf restriction
+# ============================================================
+
+neo4j:ChapterShape a sh:NodeShape ;
+  sh:targetClass neo4j:Chapter ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: Chapter must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is FunctionalProperty (max 1). Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: dcterms:creator must point to Person. Source: Dublin Core / FOAF" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:PARTOF ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: frbr:partOf — Chapter is typically partOf a Book or AcademicProceedings. Source: FaBiO OWL" ;
+  ] .
+
+
+# ============================================================
+# Book Shape (fabio:Book)
+# OWL: subClassOf fabio:Expression
+# ============================================================
+
+neo4j:BookShape a sh:NodeShape ;
+  sh:targetClass neo4j:Book ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: Book must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is FunctionalProperty (max 1). Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: dcterms:creator must point to Person. Source: Dublin Core / FOAF" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:PUBLISHER ;
+    sh:class neo4j:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dc:publisher must point to Organization. Source: Dublin Core / FOAF" ;
+  ] .
+
+
+# ============================================================
+# ConferenceProceedings Shape (fabio:ConferenceProceedings)
+# OWL: subClassOf fabio:AcademicProceedings
+# ============================================================
+
+neo4j:ConferenceProceedingsShape a sh:NodeShape ;
+  sh:targetClass neo4j:ConferenceProceedings ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: ConferenceProceedings must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dcterms:creator (editor) must point to Person. Source: Dublin Core / FOAF" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:PUBLISHER ;
+    sh:class neo4j:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dc:publisher must point to Organization. Source: Dublin Core / FOAF" ;
+  ] ;
+
+  # PARTOF → can be partOf Series or Journal
+  sh:property [
+    sh:path neo4j:PARTOF ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: frbr:partOf — ConferenceProceedings may be partOf a Series or Journal. Source: FaBiO OWL" ;
+  ] .
+
+
+# ============================================================
+# DoctoralThesis Shape (fabio:DoctoralThesis)
+# OWL: subClassOf fabio:Thesis
+# ============================================================
+
+neo4j:DoctoralThesisShape a sh:NodeShape ;
+  sh:targetClass neo4j:DoctoralThesis ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: DoctoralThesis must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is FunctionalProperty (max 1). Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: DoctoralThesis must have at least one creator. Source: Dublin Core" ;
+  ] .
+
+
+# ============================================================
+# MastersThesis Shape (fabio:MastersThesis)
+# OWL: subClassOf fabio:Thesis
+# ============================================================
+
+neo4j:MastersThesisShape a sh:NodeShape ;
+  sh:targetClass neo4j:MastersThesis ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: MastersThesis must have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:hasPublicationYear ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: fabio:hasPublicationYear is FunctionalProperty (max 1). Source: FaBiO OWL" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: MastersThesis must have at least one creator. Source: Dublin Core" ;
+  ] .
+
+
+# ============================================================
+# DataFile Shape (fabio:DataFile)
+# OWL: subClassOf fabio:Expression; realization of fabio:Dataset
+# ============================================================
+
+neo4j:DataFileShape a sh:NodeShape ;
+  sh:targetClass neo4j:DataFile ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: DataFile should have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dcterms:creator must point to Person. Source: Dublin Core / FOAF" ;
+  ] .
+
+
+# ============================================================
+# WebContent Shape (fabio:WebContent)
+# OWL: subClassOf fabio:Expression
+# ============================================================
+
+neo4j:WebContentShape a sh:NodeShape ;
+  sh:targetClass neo4j:WebContent ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FaBiO Warning: WebContent should have dc:title. Source: Dublin Core" ;
+  ] ;
+
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "FaBiO Info: dcterms:creator must point to Person. Source: Dublin Core / FOAF" ;
+  ] .
+
+
+# ============================================================
+# AcademicProceedings Shape (fabio:AcademicProceedings)
+# OWL: subClassOf fabio:ExpressionCollection
+# ============================================================
+
+neo4j:AcademicProceedingsShape a sh:NodeShape ;
+  sh:targetClass neo4j:AcademicProceedings ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: AcademicProceedings must have dc:title. Source: Dublin Core" ;
+  ] .
+
+
+# ============================================================
+# Journal Shape (fabio:Journal)
+# OWL: subClassOf fabio:Periodical → fabio:ExpressionCollection
+# ============================================================
+
+neo4j:JournalShape a sh:NodeShape ;
+  sh:targetClass neo4j:Journal ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: Journal must have dc:title. Source: Dublin Core" ;
+  ] .
+
+
+# ============================================================
+# Series Shape (fabio:BookSeries / fabio:Series)
+# OWL: subClassOf fabio:Series → fabio:ExpressionCollection
+# ============================================================
+
+neo4j:SeriesShape a sh:NodeShape ;
+  sh:targetClass neo4j:Series ;
+
+  sh:property [
+    sh:path neo4j:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FaBiO Violation: Series must have dc:title. Source: Dublin Core" ;
+  ] .
+
+
+# ============================================================
+# Person Shape (foaf:Person)
+# Not a FaBiO class, but used alongside it for agents
+# ============================================================
+
+neo4j:PersonShape a sh:NodeShape ;
+  sh:targetClass neo4j:Person ;
+
+  # foaf:name — every person should have a name
+  sh:property [
+    sh:path neo4j:name ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "FOAF Violation: Person must have foaf:name. Source: FOAF vocabulary" ;
+  ] .
+
+
+# ============================================================
+# Organization Shape (foaf:Organization)
+# Not a FaBiO class, but used alongside for publishers
+# ============================================================
+
+neo4j:OrganizationShape a sh:NodeShape ;
+  sh:targetClass neo4j:Organization ;
+
+  sh:property [
+    sh:path neo4j:name ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "FOAF Warning: Organization should have foaf:name. Source: FOAF vocabulary" ;
+  ] .

@@ -1,0 +1,415 @@
+{
+  "ontology": {
+    "title": "GeoSPARQL Ontology",
+    "version": "1.1",
+    "description": "An RDF/OWL vocabulary for representing spatial information"
+  },
+  "counts": {
+    "classes": 6,
+    "objectProperties": 36,
+    "dataProperties": 18,
+    "externalVocabularies": 26
+  },
+  "coreClasses": [
+    {
+      "class": "geo:SpatialObject",
+      "label": "Spatial Object",
+      "role": "core",
+      "description": "Anything spatial (being or having a shape, position or an extent)."
+    },
+    {
+      "class": "geo:Geometry",
+      "label": "Geometry",
+      "role": "core",
+      "description": "A coherent set of direct positions in space. The positions are held within a Spatial Reference System (SRS)."
+    },
+    {
+      "class": "geo:Feature",
+      "label": "Feature",
+      "role": "core",
+      "description": "A discrete spatial phenomenon in a universe of discourse."
+    },
+    {
+      "class": "geo:FeatureCollection",
+      "label": "Feature Collection",
+      "role": "auxiliary",
+      "description": "A collection of individual Features."
+    },
+    {
+      "class": "geo:GeometryCollection",
+      "label": "Geometry Collection",
+      "role": "auxiliary",
+      "description": "A collection of individual Geometries."
+    },
+    {
+      "class": "geo:SpatialObjectCollection",
+      "label": "Spatial Object Collection",
+      "role": "core",
+      "description": "A collection of individual Spatial Objects."
+    }
+  ],
+  "propertyConnections": [
+    {
+      "property": "geo:defaultGeometry",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ]
+    },
+    {
+      "property": "geo:ehContains",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehCoveredBy",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehCovers",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehDisjoint",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehEquals",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehInside",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehMeet",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:ehOverlap",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:hasArea",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasBoundingBox",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ]
+    },
+    {
+      "property": "geo:hasCentroid",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ]
+    },
+    {
+      "property": "geo:hasDefaultGeometry",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ]
+    },
+    {
+      "property": "geo:hasGeometry",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ]
+    },
+    {
+      "property": "geo:hasLength",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasPerimeterLength",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasSize",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasSpatialAccuracy",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasSpatialResolution",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:hasVolume",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": []
+    },
+    {
+      "property": "geo:rcc8dc",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8ec",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8eq",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8ntpp",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8ntppi",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8po",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8tpp",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:rcc8tppi",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:sfContains",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    },
+    {
+      "property": "geo:sfCrosses",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ]
+    }
+  ],
+  "propertyChains": [
+    "geo:Feature -[geo:defaultGeometry]-> geo:Geometry -[geo:hasSpatialAccuracy]-> (unspecified)",
+    "geo:Feature -[geo:defaultGeometry]-> geo:Geometry -[geo:hasSpatialResolution]-> (unspecified)",
+    "geo:Feature -[geo:hasBoundingBox]-> geo:Geometry -[geo:hasSpatialAccuracy]-> (unspecified)",
+    "geo:Feature -[geo:hasBoundingBox]-> geo:Geometry -[geo:hasSpatialResolution]-> (unspecified)",
+    "geo:Feature -[geo:hasCentroid]-> geo:Geometry -[geo:hasSpatialAccuracy]-> (unspecified)",
+    "geo:Feature -[geo:hasCentroid]-> geo:Geometry -[geo:hasSpatialResolution]-> (unspecified)",
+    "geo:Feature -[geo:hasDefaultGeometry]-> geo:Geometry -[geo:hasSpatialAccuracy]-> (unspecified)",
+    "geo:Feature -[geo:hasDefaultGeometry]-> geo:Geometry -[geo:hasSpatialResolution]-> (unspecified)",
+    "geo:Feature -[geo:hasGeometry]-> geo:Geometry -[geo:hasSpatialAccuracy]-> (unspecified)",
+    "geo:Feature -[geo:hasGeometry]-> geo:Geometry -[geo:hasSpatialResolution]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehContains]-> geo:SpatialObject -[geo:hasArea]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehContains]-> geo:SpatialObject -[geo:hasLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehContains]-> geo:SpatialObject -[geo:hasPerimeterLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehContains]-> geo:SpatialObject -[geo:hasSize]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehContains]-> geo:SpatialObject -[geo:hasVolume]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCoveredBy]-> geo:SpatialObject -[geo:hasArea]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCoveredBy]-> geo:SpatialObject -[geo:hasLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCoveredBy]-> geo:SpatialObject -[geo:hasPerimeterLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCoveredBy]-> geo:SpatialObject -[geo:hasSize]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCoveredBy]-> geo:SpatialObject -[geo:hasVolume]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCovers]-> geo:SpatialObject -[geo:hasArea]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCovers]-> geo:SpatialObject -[geo:hasLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCovers]-> geo:SpatialObject -[geo:hasPerimeterLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCovers]-> geo:SpatialObject -[geo:hasSize]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehCovers]-> geo:SpatialObject -[geo:hasVolume]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehDisjoint]-> geo:SpatialObject -[geo:hasArea]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehDisjoint]-> geo:SpatialObject -[geo:hasLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehDisjoint]-> geo:SpatialObject -[geo:hasPerimeterLength]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehDisjoint]-> geo:SpatialObject -[geo:hasSize]-> (unspecified)",
+    "geo:SpatialObject -[geo:ehDisjoint]-> geo:SpatialObject -[geo:hasVolume]-> (unspecified)"
+  ],
+  "allowedNamespaces": [
+    "http://dbpedia.org/resource/",
+    "http://purl.org/dc/elements/1.1/",
+    "http://purl.org/dc/terms/",
+    "http://purl.org/vocab/vann/",
+    "http://schema.org/",
+    "http://www.opengis.net/doc/AS/dggs/",
+    "http://www.opengis.net/doc/IS/geosparql/",
+    "http://www.opengis.net/doc/IS/geosparql/1.1#",
+    "http://www.opengis.net/ont/",
+    "http://www.opengis.net/ont/geosparql/",
+    "http://www.opengis.net/ont/geosparql#",
+    "http://www.opengis.net/spec/geosparql/1.0/req/core/",
+    "http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/",
+    "http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/",
+    "http://www.opengis.net/spec/geosparql/1.1/req/core/",
+    "http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/",
+    "http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "http://www.w3.org/2000/01/rdf-schema#",
+    "http://www.w3.org/2001/XMLSchema#",
+    "http://www.w3.org/2002/07/owl#",
+    "http://www.w3.org/2004/02/skos/core#",
+    "https://defs.opengis.net/org/",
+    "https://orcid.org/",
+    "https://portal.ogc.org/files/",
+    "https://schema.org/",
+    "https://tools.ietf.org/html/",
+    "https://www.ogc.org/",
+    "https://www.ogc.org/standards/",
+    "https://www.ogc.org/standards/kml/"
+  ],
+  "constraints": [
+    "Class geo:FeatureCollection restricted by rdfs:member; allValuesFrom=geo:Feature",
+    "Class geo:GeometryCollection restricted by rdfs:member; allValuesFrom=geo:Geometry",
+    "Class geo:SpatialObjectCollection restricted by rdfs:member; allValuesFrom=geo:SpatialObject",
+    "geo:asDGGS: geo:Geometry -> geo:dggsLiteral",
+    "geo:asGeoJSON: geo:Geometry -> geo:geoJSONLiteral",
+    "geo:asGML: geo:Geometry -> geo:gmlLiteral",
+    "geo:asKML: geo:Geometry -> geo:kmlLiteral",
+    "geo:asWKT: geo:Geometry -> geo:wktLiteral",
+    "geo:coordinateDimension: geo:Geometry -> xsd:integer",
+    "geo:defaultGeometry: geo:Feature -> geo:Geometry",
+    "geo:dimension: geo:Geometry -> xsd:integer",
+    "geo:ehContains: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehCoveredBy: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehCovers: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehDisjoint: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehEquals: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehInside: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehMeet: geo:SpatialObject -> geo:SpatialObject",
+    "geo:ehOverlap: geo:SpatialObject -> geo:SpatialObject",
+    "geo:hasBoundingBox: geo:Feature -> geo:Geometry",
+    "geo:hasCentroid: geo:Feature -> geo:Geometry",
+    "geo:hasDefaultGeometry: geo:Feature -> geo:Geometry",
+    "geo:hasGeometry: geo:Feature -> geo:Geometry",
+    "geo:hasMetricArea: geo:SpatialObject -> xsd:double",
+    "geo:hasMetricLength: geo:SpatialObject -> xsd:double",
+    "geo:hasMetricPerimeterLength: geo:SpatialObject -> xsd:double",
+    "geo:hasMetricSize: geo:SpatialObject -> xsd:double",
+    "geo:hasMetricSpatialAccuracy: geo:Geometry -> xsd:double",
+    "geo:hasMetricSpatialResolution: geo:Geometry -> xsd:double",
+    "geo:hasMetricVolume: geo:SpatialObject -> xsd:double",
+    "geo:hasSerialization: geo:Geometry -> rdfs:Literal",
+    "geo:isEmpty: geo:Geometry -> xsd:boolean",
+    "geo:isSimple: geo:Geometry -> xsd:boolean",
+    "geo:rcc8dc: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8ec: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8eq: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8ntpp: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8ntppi: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8po: geo:SpatialObject -> geo:SpatialObject",
+    "geo:rcc8tpp: geo:SpatialObject -> geo:SpatialObject"
+  ]
+}

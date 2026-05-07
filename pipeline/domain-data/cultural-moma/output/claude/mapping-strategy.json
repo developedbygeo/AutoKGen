@@ -1,0 +1,492 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 95,
+    "ontologyName": "Europeana Data Model (EDM) vocabulary",
+    "ontologyVersion": "5.2.4",
+    "allowedNamespaces": [
+      "rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs: http://www.w3.org/2000/01/rdf-schema#",
+      "owl: http://www.w3.org/2002/07/owl#",
+      "xsd: http://www.w3.org/2001/XMLSchema#",
+      "skos: http://www.w3.org/2004/02/skos/core#",
+      "dc: http://purl.org/dc/elements/1.1/",
+      "dcterms: http://purl.org/dc/terms/",
+      "dcmitype: http://purl.org/dc/dcmitype/",
+      "foaf: http://xmlns.com/foaf/0.1/",
+      "vann: http://purl.org/vocab/vann/",
+      "voaf: http://purl.org/vocommons/voaf#",
+      "adms: http://www.w3.org/ns/adms#",
+      "radion: http://www.w3.org/ns/radion#",
+      "schema_http: http://schema.org/",
+      "schema: https://schema.org/",
+      "prov: http://www.w3.org/ns/prov#",
+      "ore: http://www.openarchives.org/ore/terms/",
+      "wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#",
+      "crm: http://www.cidoc-crm.org/cidoc-crm/",
+      "frbr_core: http://purl.org/vocab/frbr/core#",
+      "frbroo: http://iflastandards.info/ns/fr/frbr/frbroo/",
+      "abc: http://metadata.net/harmony/abc#",
+      "DOLCE-Lite: http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#",
+      "edm: http://www.europeana.eu/schemas/edm/"
+    ],
+    "totalColumns": 38,
+    "mappedColumns": 32,
+    "unmappedColumns": 6,
+    "warnings": [
+      "Attribute Cataloged: low confidence (0.5) — flagged for review"
+    ]
+  },
+  "entityMappings": [
+    {
+      "columnName": "ObjectID",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "confidence": 0.95,
+      "reasoning": "ObjectID is the primary identifier for each artwork record. Each row represents a cultural heritage object, which maps directly to edm:ProvidedCHO — the central class in EDM for representing cultural heritage objects. High cardinality integer with unique values per row.",
+      "identifierColumn": "ObjectID",
+      "requiredProperties": [
+        "http://purl.org/dc/elements/1.1/title",
+        "http://purl.org/dc/elements/1.1/creator",
+        "http://purl.org/dc/elements/1.1/date",
+        "http://purl.org/dc/elements/1.1/type"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "ConstituentID",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/Agent",
+      "confidence": 0.95,
+      "reasoning": "ConstituentID identifies individual artists/creators. The edm:Agent class is defined for \"people, either individually or in groups, who have the potential to perform intentional actions.\" Artists clearly fit this definition. Examples in the ontology include \"Leonardo da Vinci\" which matches the MoMA artist data pattern.",
+      "identifierColumn": "ConstituentID",
+      "requiredProperties": [
+        "http://www.europeana.eu/schemas/edm/begin",
+        "http://www.europeana.eu/schemas/edm/end"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "Nationality_artists",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/Place",
+      "confidence": 0.7,
+      "reasoning": "Nationality_artists column contains country/region-level geographic references (e.g., \"Austrian\", \"French\", \"American\"). edm:Place represents \"an extent in space, in particular on the surface of the earth.\" Nationalities serve as place-based provenance for agents. Medium confidence because nationality is adjectival, not a proper place name.",
+      "identifierColumn": "Nationality_artists",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "Date",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/TimeSpan",
+      "confidence": 0.85,
+      "reasoning": "The Date column contains creation dates/periods for artworks (e.g., \"1896\", \"1976-77\"). edm:TimeSpan represents \"abstract temporal extents having a beginning, an end and a duration.\" These date values naturally map to time spans for the creation period of cultural heritage objects.",
+      "identifierColumn": "Date",
+      "requiredProperties": [
+        "http://www.europeana.eu/schemas/edm/begin",
+        "http://www.europeana.eu/schemas/edm/end"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "Classification",
+      "ontologyClass": "http://www.w3.org/2004/02/skos/core#Concept",
+      "confidence": 0.9,
+      "reasoning": "Classification column has low cardinality (37 unique values like \"Architecture\", \"Design\", \"Print\"). skos:Concept is part of the EDM ontology for representing controlled vocabularies and categorization. Classification types fit this as a thesaurus/taxonomy of object types.",
+      "identifierColumn": "Classification",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "Department",
+      "ontologyClass": "http://www.w3.org/2004/02/skos/core#Concept",
+      "confidence": 0.85,
+      "reasoning": "Department column has very low cardinality (8 unique values: \"Architecture & Design\", \"Drawings & Prints\", etc.). These organizational categories map to skos:Concept as a controlled vocabulary of museum departments.",
+      "identifierColumn": "Department",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "URL",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.9,
+      "reasoning": "URL column contains web resource links to artwork pages on moma.org (e.g., \"https://www.moma.org/collection/works/2\"). edm:WebResource is defined as \"Information Resources that have at least one Web Representation and at least a URI.\" Direct match.",
+      "identifierColumn": "URL",
+      "requiredProperties": [],
+      "compliant": true
+    }
+  ],
+  "attributeMappings": [
+    {
+      "columnName": "Title",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/title",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "dc:title is a core Dublin Core property for the name given to a resource. Title column contains artwork names which is the primary label/title for each cultural heritage object.",
+      "compliant": true
+    },
+    {
+      "columnName": "Medium",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.85,
+      "reasoning": "dc:format describes the file format, physical medium, or dimensions of a resource. Medium column describes the physical materials used (e.g., \"Ink and cut-and-pasted painted pages on paper\"), which is the physical medium/format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Dimensions",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.75,
+      "reasoning": "dc:format covers physical dimensions. Dimensions column contains size descriptions (e.g., \"19 1/8 x 66 1/2\" (48.6 x 168.9 cm)\"). While format is broad, dc:format is the standard EDM property for physical description. Lower confidence since individual measurement columns also exist.",
+      "compliant": true
+    },
+    {
+      "columnName": "CreditLine",
+      "ontologyProperty": "http://purl.org/dc/terms/provenance",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.85,
+      "reasoning": "dcterms:provenance describes the history of ownership or custody. CreditLine indicates acquisition method and donor information (e.g., \"Gift of the architect\"), which is provenance metadata.",
+      "compliant": true
+    },
+    {
+      "columnName": "AccessionNumber",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/identifier",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.9,
+      "reasoning": "dc:identifier is for an unambiguous reference to the resource within a given context. AccessionNumber (e.g., \"885.1996\") is the museum's formal identifier for each artwork, distinct from the system ObjectID.",
+      "compliant": true
+    },
+    {
+      "columnName": "DateAcquired",
+      "ontologyProperty": "http://purl.org/dc/terms/provenance",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:date",
+      "confidence": 0.75,
+      "reasoning": "dcterms:provenance covers ownership history. DateAcquired records when MoMA acquired the work, which is a provenance date. An alternative would be dcterms:issued but provenance better captures acquisition timing.",
+      "compliant": true
+    },
+    {
+      "columnName": "Cataloged",
+      "ontologyProperty": "http://www.europeana.eu/schemas/edm/type",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.5,
+      "reasoning": "Cataloged is a boolean-like field (Y/N) indicating cataloging status. edm:type is a broad data property for material type. Low confidence — this is administrative metadata with limited ontology fit.",
+      "compliant": true
+    },
+    {
+      "columnName": "DisplayName",
+      "ontologyProperty": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.9,
+      "reasoning": "skos:prefLabel is the preferred label in SKOS, widely used in EDM for naming entities. DisplayName contains the canonical display name for artists. The skos namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "ArtistBio_artists",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/description",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.8,
+      "reasoning": "dc:description provides a textual description of a resource. ArtistBio_artists contains biographical summaries (e.g., \"Austrian, 1841–1918\") which serve as concise descriptions of agents.",
+      "compliant": true
+    },
+    {
+      "columnName": "Gender_artists",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/description",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.6,
+      "reasoning": "No specific gender property exists in EDM or its declared namespaces. dc:description can hold additional descriptive attributes. Gender_artists has clean values (\"male\", \"female\", \"non-binary\") as descriptive metadata for agents. Lower confidence because dc:description is a catch-all.",
+      "compliant": true
+    },
+    {
+      "columnName": "BeginDate_artists",
+      "ontologyProperty": "http://www.europeana.eu/schemas/edm/begin",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "edm:begin \"denotes the start date of a period of time.\" BeginDate_artists contains birth years for artists (e.g., 1841, 1944). Direct match to the edm:begin data property for agents.",
+      "compliant": true
+    },
+    {
+      "columnName": "EndDate_artists",
+      "ontologyProperty": "http://www.europeana.eu/schemas/edm/end",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "edm:end \"denotes the end date of a period of time.\" EndDate_artists contains death years for artists (e.g., 1918, 1957). 0 values indicate living artists. Direct match to the edm:end data property.",
+      "compliant": true
+    },
+    {
+      "columnName": "Wiki QID",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/identifier",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.85,
+      "reasoning": "dc:identifier provides unambiguous references. Wiki QID values (e.g., \"Q84287\") are Wikidata identifiers that uniquely reference artists in an external knowledge base.",
+      "compliant": true
+    },
+    {
+      "columnName": "ULAN",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/identifier",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "datatype": "xsd:string",
+      "confidence": 0.85,
+      "reasoning": "dc:identifier for external identifiers. ULAN values (e.g., \"500016971\") are Getty Union List of Artist Names identifiers — an established authority file for artists.",
+      "compliant": true
+    },
+    {
+      "columnName": "Height (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Height (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Width (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Width (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Depth (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Depth (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Length (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Length (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Circumference (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Circumference (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Diameter (cm)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Diameter (cm) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Weight (kg)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Weight (kg) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "Duration (sec.)",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/format",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:float",
+      "confidence": 0.7,
+      "reasoning": "dc:format covers physical dimensions and characteristics. Duration (sec.) provides specific measurement data. Multiple dimension columns map to the same property as different aspects of physical format.",
+      "compliant": true
+    },
+    {
+      "columnName": "OnView",
+      "ontologyProperty": "http://purl.org/dc/elements/1.1/coverage",
+      "propertyType": "data",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "datatype": "xsd:string",
+      "confidence": 0.65,
+      "reasoning": "dc:coverage can indicate spatial location. OnView contains gallery locations (e.g., \"MoMA, Floor 4, 417\") indicating where the artwork is currently displayed. An alternative is edm:currentLocation but that expects edm:Place range. dc:coverage is more flexible for string values.",
+      "compliant": true
+    }
+  ],
+  "relationshipMappings": [
+    {
+      "columnName": "Artist",
+      "ontologyRelationship": "http://purl.org/dc/elements/1.1/creator",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "confidence": 0.95,
+      "reasoning": "Artist column links artworks to their creators. dc:creator is a standard Dublin Core property used within EDM for relating cultural heritage objects to their creators/agents. The ConstituentID provides the foreign key link.",
+      "compliant": true
+    },
+    {
+      "columnName": "Classification",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/hasType",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.w3.org/2004/02/skos/core#Concept",
+      "confidence": 0.9,
+      "reasoning": "edm:hasType relates a resource to concepts it belongs to in a type system. Classification values (\"Architecture\", \"Design\", \"Print\") are exactly the kind of type categorization this property was designed for. The range is edm:NonInformationResource, and skos:Concept is a subclass.",
+      "compliant": true
+    },
+    {
+      "columnName": "Department",
+      "ontologyRelationship": "http://purl.org/dc/elements/1.1/subject",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.w3.org/2004/02/skos/core#Concept",
+      "confidence": 0.75,
+      "reasoning": "Department represents the organizational subject area of the artwork. dc:subject is a valid EDM property for topical classification. Department values serve as broad subject categorization within the museum structure.",
+      "compliant": true
+    },
+    {
+      "columnName": "URL",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/isShownAt",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.9,
+      "reasoning": "edm:isShownAt provides \"an unambiguous URL reference to the digital object on the provider's web site in its full information context.\" The URL column points to MoMA artwork pages, matching this exactly.",
+      "compliant": true
+    },
+    {
+      "columnName": "ImageURL",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/isShownBy",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.9,
+      "reasoning": "edm:isShownBy provides \"an unambiguous URL reference to the digital object on the provider's web site in the best available resolution/quality.\" ImageURL contains direct image links for artworks.",
+      "compliant": true
+    },
+    {
+      "columnName": "Nationality_artists",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/hasMet",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/Agent",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/Place",
+      "confidence": 0.65,
+      "reasoning": "edm:hasMet is the most general contextual relationship in EDM, relating a resource with objects/phenomena encountered during its existence. An agent's nationality implies a connection to a place. This is the broadest valid EDM relationship for this connection. Moderate confidence because nationality is not a direct \"meeting\" but a cultural association.",
+      "compliant": true
+    },
+    {
+      "columnName": "Date",
+      "ontologyRelationship": "http://purl.org/dc/terms/temporal",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/TimeSpan",
+      "confidence": 0.85,
+      "reasoning": "dcterms:temporal is a valid EDM property for temporal aspects. The Date column provides creation date/period for artworks, which is a temporal characteristic of the cultural heritage object.",
+      "compliant": true
+    }
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "Nationality",
+      "reason": "Duplicate of Nationality_artists with parenthesized formatting. The clean version (Nationality_artists) is mapped instead.",
+      "suggestion": "Use Nationality_artists column for mapping; Nationality contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "BeginDate",
+      "reason": "Duplicate of BeginDate_artists with parenthesized formatting. The clean version (BeginDate_artists) is mapped instead.",
+      "suggestion": "Use BeginDate_artists column for mapping; BeginDate contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "EndDate",
+      "reason": "Duplicate of EndDate_artists with parenthesized formatting. The clean version (EndDate_artists) is mapped instead.",
+      "suggestion": "Use EndDate_artists column for mapping; EndDate contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Gender",
+      "reason": "Duplicate of Gender_artists with parenthesized formatting. The clean version (Gender_artists) is mapped instead.",
+      "suggestion": "Use Gender_artists column for mapping; Gender contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "ArtistBio",
+      "reason": "Duplicate of ArtistBio_artists with parenthesized formatting. The clean version (ArtistBio_artists) is mapped instead.",
+      "suggestion": "Use ArtistBio_artists column for mapping; ArtistBio contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Seat Height (cm)",
+      "reason": "Column has 0 values (100% missing). No data to map.",
+      "suggestion": "Exclude from graph generation — no usable data.",
+      "severity": "info"
+    }
+  ],
+  "validationReport": {
+    "classesUsed": [
+      "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "http://www.europeana.eu/schemas/edm/Agent",
+      "http://www.europeana.eu/schemas/edm/Place",
+      "http://www.europeana.eu/schemas/edm/TimeSpan",
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.europeana.eu/schemas/edm/WebResource"
+    ],
+    "propertiesUsed": [
+      "http://purl.org/dc/elements/1.1/title",
+      "http://purl.org/dc/elements/1.1/format",
+      "http://purl.org/dc/terms/provenance",
+      "http://purl.org/dc/elements/1.1/identifier",
+      "http://www.europeana.eu/schemas/edm/type",
+      "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "http://purl.org/dc/elements/1.1/description",
+      "http://www.europeana.eu/schemas/edm/begin",
+      "http://www.europeana.eu/schemas/edm/end",
+      "http://purl.org/dc/elements/1.1/coverage",
+      "http://purl.org/dc/elements/1.1/creator",
+      "http://www.europeana.eu/schemas/edm/hasType",
+      "http://purl.org/dc/elements/1.1/subject",
+      "http://www.europeana.eu/schemas/edm/isShownAt",
+      "http://www.europeana.eu/schemas/edm/isShownBy",
+      "http://www.europeana.eu/schemas/edm/hasMet",
+      "http://purl.org/dc/terms/temporal"
+    ],
+    "namespacesUsed": [
+      "http://www.europeana.eu/schemas/edm/",
+      "http://www.w3.org/2004/02/skos/core#",
+      "http://purl.org/dc/elements/1.1/",
+      "http://purl.org/dc/terms/"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Review 1 mapping(s) with confidence < 0.6",
+      "Consider modeling ore:Aggregation as a structural entity linking ProvidedCHO to WebResources",
+      "Use edm:currentLocation (object property with range edm:Place) for physical gallery location if a Place entity can be created from OnView values"
+    ]
+  }
+}

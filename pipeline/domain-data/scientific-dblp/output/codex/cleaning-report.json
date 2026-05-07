@@ -1,0 +1,88 @@
+{
+  "originalRows": 12358922,
+  "cleanedRows": 12358922,
+  "rowsRemoved": 0,
+  "issues": [],
+  "typeCoercions": [
+    {
+      "column": "booktitle",
+      "successCount": 3962856,
+      "failCount": 0
+    },
+    {
+      "column": "chapter",
+      "successCount": 2,
+      "failCount": 0
+    },
+    {
+      "column": "ee",
+      "successCount": 8165346,
+      "failCount": 0
+    },
+    {
+      "column": "isbn",
+      "successCount": 81321,
+      "failCount": 0
+    },
+    {
+      "column": "journal",
+      "successCount": 4188985,
+      "failCount": 0
+    },
+    {
+      "column": "key",
+      "successCount": 12358922,
+      "failCount": 0
+    },
+    {
+      "column": "mdate",
+      "successCount": 12358922,
+      "failCount": 0
+    },
+    {
+      "column": "number",
+      "successCount": 2581130,
+      "failCount": 0
+    },
+    {
+      "column": "pages",
+      "successCount": 6893752,
+      "failCount": 0
+    },
+    {
+      "column": "publnr",
+      "successCount": 4684,
+      "failCount": 0
+    },
+    {
+      "column": "series",
+      "successCount": 38832,
+      "failCount": 0
+    },
+    {
+      "column": "stream",
+      "successCount": 735035,
+      "failCount": 0
+    },
+    {
+      "column": "title",
+      "successCount": 12354945,
+      "failCount": 0
+    },
+    {
+      "column": "url",
+      "successCount": 8405458,
+      "failCount": 0
+    },
+    {
+      "column": "volume",
+      "successCount": 4222501,
+      "failCount": 0
+    },
+    {
+      "column": "year",
+      "successCount": 8341815,
+      "failCount": 0
+    }
+  ]
+}

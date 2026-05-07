@@ -1,0 +1,186 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix neo4j: <neo4j://graph.schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#
+# GeoSPARQL SHACL Shapes for GeoNames Knowledge Graph
+# Grounded in GeoSPARQL OWL Ontology v1.1 (http://www.opengis.net/ont/geosparql#)
+#
+# Sources:
+#   - GeoSPARQL OWL 1.1: http://www.opengis.net/ont/geosparql (OGC standard)
+#   - GeoSPARQL Spec: http://www.opengis.net/doc/IS/geosparql/1.1
+#   - GeoNames: http://www.geonames.org/
+#
+# Class Hierarchy from GeoSPARQL OWL:
+#   geo:SpatialObject (top)
+#     ├── geo:Feature (disjoint with Geometry)
+#     └── geo:Geometry (disjoint with Feature)
+#
+# Property Mapping (Neo4j property → GeoSPARQL/GeoNames URI):
+#
+#   Feature:
+#     label          → rdfs:label / skos:prefLabel (the name of the geographic feature)
+#     type           → gn:featureCode (GeoNames feature classification code)
+#     typeLabel      → (human-readable label for feature code)
+#     spatial        → gn:parentCountry or dcterms:spatial (spatial context identifier)
+#     spatialLabel   → (human-readable label for spatial context)
+#     notation       → geo:asWKT / geo:hasSerialization (WKT point notation for the feature)
+#     altLabel       → skos:altLabel (alternative name)
+#     hiddenLabel    → skos:hiddenLabel
+#     isPartOf       → gn:parentFeature / dcterms:isPartOf (administrative hierarchy)
+#     isPartOfLabel  → (human-readable label for parent)
+#     population     → gn:population (xsd:integer)
+#     elevation      → gn:elevation (meters)
+#     modified       → dcterms:modified
+#     temporal       → dcterms:temporal
+#
+#   Relationships:
+#     hasGeometry    → geo:hasGeometry (OWL: domain geo:Feature, range geo:Geometry)
+#     sfWithin       → geo:sfWithin (OWL: domain geo:SpatialObject, range geo:SpatialObject)
+#
+#   Geometry:
+#     (properties TBD — likely contains WKT serialization as geo:asWKT)
+#
+
+
+# ============================================================
+# Feature Shape (geo:Feature)
+# OWL: rdfs:Class, owl:Class; subClassOf geo:SpatialObject;
+#      disjointWith geo:Geometry
+# Spec: http://www.opengis.net/spec/geosparql/1.1/req/core/feature-class
+# "A discrete spatial phenomenon in a universe of discourse."
+# ============================================================
+
+neo4j:FeatureShape a sh:NodeShape ;
+  sh:targetClass neo4j:Feature ;
+
+  # rdfs:label — every geographic feature should have a name
+  sh:property [
+    sh:path neo4j:label ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "GeoSPARQL Violation: Feature must have rdfs:label (name). Source: GeoNames data requirement; rdfs:label" ;
+  ] ;
+
+  # skos:altLabel — alternative name
+  sh:property [
+    sh:path neo4j:altLabel ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "GeoSPARQL Info: skos:altLabel (alternative name). Source: SKOS vocabulary" ;
+  ] ;
+
+  # gn:featureCode (type) — GeoNames classification
+  sh:property [
+    sh:path neo4j:type ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "GeoSPARQL Warning: Feature should have a feature type classification (gn:featureCode). Source: GeoNames ontology" ;
+  ] ;
+
+  # spatial — spatial context (country/region)
+  sh:property [
+    sh:path neo4j:spatial ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "GeoSPARQL Warning: Feature should have spatial context. Source: GeoNames data model" ;
+  ] ;
+
+  # notation — WKT point representation stored on Feature
+  # Maps to geo:asWKT via geo:hasSerialization (OWL: domain geo:Geometry, range rdfs:Literal)
+  # In this graph, the WKT notation is stored directly on the Feature node
+  sh:property [
+    sh:path neo4j:notation ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "GeoSPARQL Warning: Feature should have WKT notation (geo:asWKT serialization). Source: GeoSPARQL OWL, geo:hasSerialization" ;
+  ] ;
+
+  # population — gn:population
+  sh:property [
+    sh:path neo4j:population ;
+    sh:maxCount 1 ;
+    sh:severity sh:Info ;
+    sh:message "GeoSPARQL Info: population (gn:population). Source: GeoNames ontology" ;
+  ] ;
+
+  # elevation — gn:elevation
+  sh:property [
+    sh:path neo4j:elevation ;
+    sh:maxCount 1 ;
+    sh:severity sh:Info ;
+    sh:message "GeoSPARQL Info: elevation (gn:elevation). Source: GeoNames ontology" ;
+  ] ;
+
+  # dcterms:modified
+  sh:property [
+    sh:path neo4j:modified ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "GeoSPARQL Info: dcterms:modified. Source: Dublin Core" ;
+  ] ;
+
+  # geo:hasGeometry relationship — CORE GeoSPARQL requirement
+  # OWL: ObjectProperty, domain geo:Feature, range geo:Geometry
+  # Spec: http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties
+  # "A spatial representation for a given Feature."
+  sh:property [
+    sh:path neo4j:hasGeometry ;
+    sh:minCount 1 ;
+    sh:class neo4j:Geometry ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Violation ;
+    sh:message "GeoSPARQL Violation: Feature must have at least one geo:hasGeometry pointing to a Geometry. Source: GeoSPARQL OWL, geo:hasGeometry (domain: Feature, range: Geometry)" ;
+  ] ;
+
+  # geo:sfWithin relationship — Simple Features spatial relation
+  # OWL: ObjectProperty, domain geo:SpatialObject, range geo:SpatialObject
+  # Spec: http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations
+  # "States that the subject SpatialObject is spatially within the object SpatialObject."
+  # In GeoNames, this represents administrative containment (city within country, etc.)
+  sh:property [
+    sh:path neo4j:sfWithin ;
+    sh:class neo4j:Feature ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "GeoSPARQL Info: geo:sfWithin must point to another Feature (geo:SpatialObject). Source: GeoSPARQL OWL, geo:sfWithin (domain: SpatialObject, range: SpatialObject)" ;
+  ] .
+
+
+# ============================================================
+# Geometry Shape (geo:Geometry)
+# OWL: rdfs:Class, owl:Class; subClassOf geo:SpatialObject;
+#      disjointWith geo:Feature
+# Spec: http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-class
+# "A coherent set of direct positions in space."
+#
+# Key OWL properties on Geometry:
+#   geo:hasSerialization — domain Geometry, range rdfs:Literal
+#   geo:asWKT — subPropertyOf hasSerialization, domain Geometry, range geo:wktLiteral
+#   geo:coordinateDimension — domain Geometry, range xsd:integer
+#   geo:dimension — domain Geometry, range xsd:integer
+#   geo:spatialDimension — domain Geometry, range xsd:integer
+#   geo:isEmpty — domain Geometry, range xsd:boolean
+#   geo:isSimple — domain Geometry, range xsd:boolean
+# ============================================================
+
+neo4j:GeometryShape a sh:NodeShape ;
+  sh:targetClass neo4j:Geometry ;
+
+  # Geometry must have a serialization — this is the core purpose of the class
+  # OWL: geo:hasSerialization, domain geo:Geometry, range rdfs:Literal
+  # The specific serialization (WKT, GML, GeoJSON) is a subproperty
+  # In the Neo4j graph, the Geometry node should carry the actual coordinates
+  # Check if there's a WKT or similar property — if Geometry nodes only serve
+  # as relationship targets, they may have minimal properties.
+  # We validate that Geometry nodes exist and are properly linked.
+  sh:property [
+    sh:path neo4j:uri ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "GeoSPARQL Violation: Geometry must have a URI identifier. Source: GeoSPARQL OWL, geo:Geometry" ;
+  ] .

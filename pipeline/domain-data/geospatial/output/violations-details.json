@@ -1,0 +1,38 @@
+[
+  {
+    "type": "missing_class_instances",
+    "category": "structure",
+    "severity": "info",
+    "property": "SpatialObject",
+    "count": 0,
+    "description": "No instances of ontology class \"SpatialObject\" found in the graph. This class may not be applicable to this dataset.",
+    "examples": []
+  },
+  {
+    "type": "missing_class_instances",
+    "category": "structure",
+    "severity": "info",
+    "property": "FeatureCollection",
+    "count": 0,
+    "description": "No instances of ontology class \"FeatureCollection\" found in the graph. This class may not be applicable to this dataset.",
+    "examples": []
+  },
+  {
+    "type": "missing_class_instances",
+    "category": "structure",
+    "severity": "info",
+    "property": "SpatialObjectCollection",
+    "count": 0,
+    "description": "No instances of ontology class \"SpatialObjectCollection\" found in the graph. This class may not be applicable to this dataset.",
+    "examples": []
+  },
+  {
+    "type": "missing_class_instances",
+    "category": "structure",
+    "severity": "info",
+    "property": "GeometryCollection",
+    "count": 0,
+    "description": "No instances of ontology class \"GeometryCollection\" found in the graph. This class may not be applicable to this dataset.",
+    "examples": []
+  }
+]

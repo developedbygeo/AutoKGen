@@ -1,0 +1,144 @@
+================================================================================
+  ONTOLOGY VALIDATION REPORT
+================================================================================
+
+  Ontology:    FaBiO, the FRBR-aligned Bibliographic Ontology v2.2
+  Validated:   2026-02-24T12:45:13.241Z
+  Graph:       /home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json
+
+--------------------------------------------------------------------------------
+  COMPLIANCE SCORE: 90/100 (Grade B)
+  STATUS: COMPLIANT
+--------------------------------------------------------------------------------
+
+  GRAPH STATISTICS
+    Total Nodes:            16,480,647
+    Total Relationships:    40,900,485
+    Nodes Analyzed:         16,480,647
+    Relationships Analyzed: 40,900,485
+
+  ISSUE SUMMARY
+    Errors:   2
+    Warnings: 7
+    Info:     1
+
+  VIOLATIONS BY CATEGORY
+    class: 2
+    dataProperty: 7
+    structure: 1
+
+  ONTOLOGY REQUIREMENTS
+    Valid Labels:          FAIL (2 invalid)
+    Valid Namespaces:      PASS
+    Domain/Range:          FAIL (7 violations)
+    Required Properties:   PASS
+
+--------------------------------------------------------------------------------
+  DETAILED VIOLATIONS
+--------------------------------------------------------------------------------
+
+  [ERROR] invalid_label (class)
+    Property: Person
+    Count:    4,097,863
+    Label "Person" is not defined in the ontology. Found 4,097,863 nodes with this label.
+    Examples:
+      - ID: http://data.example.org/person/manish-singh-0001 | Labels: [Person, Resource] | Co-labels: Resource
+      - ID: http://data.example.org/person/tien-tsin-wong | Labels: [Person, Resource] | Co-labels: Resource
+      - ID: http://data.example.org/person/sylvia-c-pont | Labels: [Person, Resource] | Co-labels: Resource
+
+  [ERROR] invalid_label (class)
+    Property: Organization
+    Count:    2,343
+    Label "Organization" is not defined in the ontology. Found 2,343 nodes with this label.
+    Examples:
+      - ID: http://data.example.org/organization/springer | Labels: [Organization, Resource] | Co-labels: Resource
+      - ID: http://data.example.org/organization/igi-global | Labels: [Organization, Resource] | Co-labels: Resource
+      - ID: http://data.example.org/organization/taylor-francis | Labels: [Organization, Resource] | Co-labels: Resource
+
+  [WARNING] domain_violation (dataProperty)
+    Property: hasURL
+    Count:    71,037
+    Data property "hasURL" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/chapter/reference-vision-x14bd | Labels: [Chapter, Resource] | Property "hasURL" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/chapter/reference-vision-singh14 | Labels: [Chapter, Resource] | Property "hasURL" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/chapter/reference-vision-x14ii | Labels: [Chapter, Resource] | Property "hasURL" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: issueIdentifier
+    Count:    298
+    Data property "issueIdentifier" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/conferenceproceedings/conf-termgraph-2004 | Labels: [ConferenceProceedings, Resource] | Property "issueIdentifier" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/conf-termgraph-2002 | Labels: [ConferenceProceedings, Resource] | Property "issueIdentifier" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/conf-termgraph-2007 | Labels: [ConferenceProceedings, Resource] | Property "issueIdentifier" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: hasSequenceIdentifier
+    Count:    4,684
+    Data property "hasSequenceIdentifier" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/conferencepaper/conf-sc-butlerymj24 | Labels: [ConferencePaper, Resource] | Property "hasSequenceIdentifier" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/journalarticle/journals-eccc-yekhanin06 | Labels: [JournalArticle, Resource] | Property "hasSequenceIdentifier" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/journalarticle/journals-eccc-viderman11 | Labels: [JournalArticle, Resource] | Property "hasSequenceIdentifier" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: publicationDate
+    Count:    19,386
+    Data property "publicationDate" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/datafile/data-12-oveeal25 | Labels: [DataFile, Resource] | Property "publicationDate" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/datafile/data-12-yousheng25 | Labels: [DataFile, Resource] | Property "publicationDate" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/datafile/data-12-carusb25a | Labels: [DataFile, Resource] | Property "publicationDate" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: isbn
+    Count:    52,101
+    Data property "isbn" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/conferenceproceedings/reference-med-2013 | Labels: [ConferenceProceedings, Resource] | Property "isbn" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/reference-genetic-2015 | Labels: [ConferenceProceedings, Resource] | Property "isbn" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/series-isrl-2023-238 | Labels: [ConferenceProceedings, Resource] | Property "isbn" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: volume
+    Count:    28,606
+    Data property "volume" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/conferenceproceedings/series-isrl-2023-238 | Labels: [ConferenceProceedings, Resource] | Property "volume" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/series-isrl-97 | Labels: [ConferenceProceedings, Resource] | Property "volume" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/conferenceproceedings/series-sapere-2013-5 | Labels: [ConferenceProceedings, Resource] | Property "volume" should only be on [Endeavour] nodes
+
+  [WARNING] domain_violation (dataProperty)
+    Property: pageRange
+    Count:    63,325
+    Data property "pageRange" found on nodes outside its domain. Expected domain: [Endeavour].
+    Examples:
+      - ID: http://data.example.org/chapter/reference-vision-x14bd | Labels: [Chapter, Resource] | Property "pageRange" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/chapter/reference-vision-singh14 | Labels: [Chapter, Resource] | Property "pageRange" should only be on [Endeavour] nodes
+      - ID: http://data.example.org/chapter/reference-vision-x14ii | Labels: [Chapter, Resource] | Property "pageRange" should only be on [Endeavour] nodes
+
+  [INFO] orphaned_nodes (structure)
+    Property: graph_connectivity
+    Count:    8,140
+    8,140 orphaned node(s) (0.05% of graph) have no relationships.
+    Examples:
+      - ID: http://data.example.org/datafile/data-12-camarasev21c | Labels: [Resource] | 4,070 orphaned nodes with labels [Resource]
+      - ID: http://data.example.org/webcontent/homepages-52-3971-4 | Labels: [WebContent] | 2,243 orphaned nodes with labels [WebContent]
+      - ID: http://data.example.org/datafile/data-12-camarasev21c | Labels: [DataFile] | 1,814 orphaned nodes with labels [DataFile]
+
+--------------------------------------------------------------------------------
+  RECOMMENDATIONS
+--------------------------------------------------------------------------------
+
+  [HIGH] Review and fix 2 invalid label(s): Person, Organization
+    Reasoning: Non-ontology labels indicate mapping errors or data outside the domain model.
+    Impact:    Improves class-level compliance and query reliability.
+
+  [MEDIUM] Fix 7 domain/range constraint violation(s).
+    Reasoning: Relationships connecting wrong node types violate the ontology schema.
+    Impact:    Ensures semantic correctness of relationships.
+
+================================================================================
+  Report generated at 2026-02-24T12:45:13.241Z
+================================================================================

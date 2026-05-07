@@ -1,0 +1,607 @@
+{
+  "commonPatterns": [
+    {
+      "scenario": "Endeavour (core entity, 30 connections)",
+      "ontologyClass": "frbr:Endeavour",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "prism:doi",
+        "fabio:hasShortTitle",
+        "prism:versionIdentifier",
+        "fabio:hasSICI",
+        "fabio:hasCharacterCount",
+        "prism:startingPage",
+        "prism:edition",
+        "fabio:hasPubMedId",
+        "fabio:hasCopyrightYear",
+        "fabio:hasElectronicArticleIdentifier",
+        "fabio:hasVolumeCount",
+        "fabio:hasURL",
+        "prism:issueIdentifier",
+        "fabio:hasSequenceIdentifier",
+        "fabio:hasHandle",
+        "prism:endingPage",
+        "fabio:hasPageCount",
+        "fabio:hasPubMedCentralId",
+        "prism:publicationDate",
+        "prism:issn"
+      ],
+      "relationships": [
+        "fabio:hasPlaceOfPublication -> frbr:Place",
+        "fabio:hasSubjectTerm -> fabio:SubjectTerm"
+      ]
+    },
+    {
+      "scenario": "item (important entity, 4 connections)",
+      "ontologyClass": "fabio:Item",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "fabio:hasAccessDate",
+        "fabio:hasDepositDate"
+      ],
+      "relationships": [
+        "fabio:isStoredOn -> fabio:StorageMedium",
+        "fabio:StorageMedium -> fabio:stores -> fabio:Item"
+      ]
+    },
+    {
+      "scenario": "Item (important entity, 4 connections)",
+      "ontologyClass": "frbr:Item",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "frbr:Work -> fabio:hasPortrayal -> frbr:Item",
+        "fabio:isPortrayalOf -> frbr:Work",
+        "frbr:Expression -> fabio:hasRepresentation -> frbr:Item",
+        "fabio:isRepresentationOf -> frbr:Expression"
+      ]
+    },
+    {
+      "scenario": "Work (important entity, 4 connections)",
+      "ontologyClass": "frbr:Work",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "fabio:hasPortrayal -> frbr:Item",
+        "frbr:Manifestation -> fabio:isManifestationOf -> frbr:Work",
+        "fabio:hasManifestation -> frbr:Manifestation",
+        "frbr:Item -> fabio:isPortrayalOf -> frbr:Work"
+      ]
+    },
+    {
+      "scenario": "Expression (important entity, 2 connections)",
+      "ontologyClass": "frbr:Expression",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "fabio:hasRepresentation -> frbr:Item",
+        "frbr:Item -> fabio:isRepresentationOf -> frbr:Expression"
+      ]
+    },
+    {
+      "scenario": "concept (important entity, 2 connections)",
+      "ontologyClass": "skos:Concept",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "skos:ConceptScheme -> fabio:isSchemeOf -> skos:Concept",
+        "skos:inScheme -> skos:ConceptScheme"
+      ]
+    },
+    {
+      "scenario": "Manifestation (important entity, 2 connections)",
+      "ontologyClass": "frbr:Manifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "fabio:isManifestationOf -> frbr:Work",
+        "frbr:Work -> fabio:hasManifestation -> frbr:Manifestation"
+      ]
+    },
+    {
+      "scenario": "concept scheme (important entity, 2 connections)",
+      "ontologyClass": "skos:ConceptScheme",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "fabio:isSchemeOf -> skos:Concept",
+        "skos:Concept -> skos:inScheme -> skos:ConceptScheme"
+      ]
+    },
+    {
+      "scenario": "storage medium (important entity, 2 connections)",
+      "ontologyClass": "fabio:StorageMedium",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "fabio:Item -> fabio:isStoredOn -> fabio:StorageMedium",
+        "fabio:stores -> fabio:Item"
+      ]
+    },
+    {
+      "scenario": "periodical (important entity, 0 connections)",
+      "ontologyClass": "fabio:Periodical",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "vocabulary (important entity, 0 connections)",
+      "ontologyClass": "fabio:Vocabulary",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "work (important entity, 0 connections)",
+      "ontologyClass": "fabio:Work",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "news item (important entity, 0 connections)",
+      "ontologyClass": "fabio:NewsItem",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "anthology (important entity, 0 connections)",
+      "ontologyClass": "fabio:Anthology",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "work collection (important entity, 0 connections)",
+      "ontologyClass": "fabio:WorkCollection",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "thesis (important entity, 0 connections)",
+      "ontologyClass": "fabio:Thesis",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "brief report (important entity, 0 connections)",
+      "ontologyClass": "fabio:BriefReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "report (important entity, 0 connections)",
+      "ontologyClass": "fabio:Report",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "expression (important entity, 0 connections)",
+      "ontologyClass": "fabio:Expression",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "chapter (important entity, 0 connections)",
+      "ontologyClass": "fabio:Chapter",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "metadata (important entity, 0 connections)",
+      "ontologyClass": "fabio:Metadata",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "table (important entity, 0 connections)",
+      "ontologyClass": "fabio:Table",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "movie (important entity, 0 connections)",
+      "ontologyClass": "fabio:Movie",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "article (important entity, 0 connections)",
+      "ontologyClass": "fabio:Article",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "digital item (important entity, 0 connections)",
+      "ontologyClass": "fabio:DigitalItem",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "case report (important entity, 0 connections)",
+      "ontologyClass": "fabio:CaseReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "literary artistic work (important entity, 0 connections)",
+      "ontologyClass": "fabio:LiteraryArtisticWork",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "proceedings paper (important entity, 0 connections)",
+      "ontologyClass": "fabio:ProceedingsPaper",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "analog manifestation (important entity, 0 connections)",
+      "ontologyClass": "fabio:AnalogManifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "image (important entity, 0 connections)",
+      "ontologyClass": "fabio:Image",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "editorial (important entity, 0 connections)",
+      "ontologyClass": "fabio:Editorial",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "opinion (important entity, 0 connections)",
+      "ontologyClass": "fabio:Opinion",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "report document (important entity, 0 connections)",
+      "ontologyClass": "fabio:ReportDocument",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "academic proceedings (important entity, 0 connections)",
+      "ontologyClass": "fabio:AcademicProceedings",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "instructional work (important entity, 0 connections)",
+      "ontologyClass": "fabio:InstructionalWork",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "notebook (important entity, 0 connections)",
+      "ontologyClass": "fabio:Notebook",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "review (important entity, 0 connections)",
+      "ontologyClass": "fabio:Review",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "specification (important entity, 0 connections)",
+      "ontologyClass": "fabio:Specification",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "policy document (important entity, 0 connections)",
+      "ontologyClass": "fabio:PolicyDocument",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "vocabulary document (important entity, 0 connections)",
+      "ontologyClass": "fabio:VocabularyDocument",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "periodical issue (important entity, 0 connections)",
+      "ontologyClass": "fabio:PeriodicalIssue",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "database (important entity, 0 connections)",
+      "ontologyClass": "fabio:Database",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "series (important entity, 0 connections)",
+      "ontologyClass": "fabio:Series",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "uncontrolled vocabulary (important entity, 0 connections)",
+      "ontologyClass": "fabio:UncontrolledVocabulary",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "comment (important entity, 0 connections)",
+      "ontologyClass": "fabio:Comment",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "collected works (important entity, 0 connections)",
+      "ontologyClass": "fabio:CollectedWorks",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "musical composition (important entity, 0 connections)",
+      "ontologyClass": "fabio:MusicalComposition",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "catalog (important entity, 0 connections)",
+      "ontologyClass": "fabio:Catalog",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "manifestation (important entity, 0 connections)",
+      "ontologyClass": "fabio:Manifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "news report (important entity, 0 connections)",
+      "ontologyClass": "fabio:NewsReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "specification document (important entity, 0 connections)",
+      "ontologyClass": "fabio:SpecificationDocument",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "announcement (important entity, 0 connections)",
+      "ontologyClass": "fabio:Announcement",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "scholarly work (important entity, 0 connections)",
+      "ontologyClass": "fabio:ScholarlyWork",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "print object (important entity, 0 connections)",
+      "ontologyClass": "fabio:PrintObject",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "expression collection (important entity, 0 connections)",
+      "ontologyClass": "fabio:ExpressionCollection",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "controlled vocabulary (important entity, 0 connections)",
+      "ontologyClass": "fabio:ControlledVocabulary",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "page (important entity, 0 connections)",
+      "ontologyClass": "fabio:Page",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "computer program (important entity, 0 connections)",
+      "ontologyClass": "fabio:ComputerProgram",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "digital manifestation (important entity, 0 connections)",
+      "ontologyClass": "fabio:DigitalManifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "micropost (important entity, 0 connections)",
+      "ontologyClass": "fabio:Micropost",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "entry (important entity, 0 connections)",
+      "ontologyClass": "fabio:Entry",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "wiki entry (important entity, 0 connections)",
+      "ontologyClass": "fabio:WikiEntry",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "manuscript (important entity, 0 connections)",
+      "ontologyClass": "fabio:Manuscript",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "book (important entity, 0 connections)",
+      "ontologyClass": "fabio:Book",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "correction (important entity, 0 connections)",
+      "ontologyClass": "fabio:Correction",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "dataset (important entity, 0 connections)",
+      "ontologyClass": "fabio:Dataset",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "policy (important entity, 0 connections)",
+      "ontologyClass": "fabio:Policy",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "periodical volume (important entity, 0 connections)",
+      "ontologyClass": "fabio:PeriodicalVolume",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "trial report (important entity, 0 connections)",
+      "ontologyClass": "fabio:TrialReport",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "repository (important entity, 0 connections)",
+      "ontologyClass": "fabio:Repository",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "blog (important entity, 0 connections)",
+      "ontologyClass": "fabio:Blog",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "web manifestation (important entity, 0 connections)",
+      "ontologyClass": "fabio:WebManifestation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "web content (important entity, 0 connections)",
+      "ontologyClass": "fabio:WebContent",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    },
+    {
+      "scenario": "artistic work (important entity, 0 connections)",
+      "ontologyClass": "fabio:ArtisticWork",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    }
+  ],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "frbr: (http://purl.org/vocab/frbr/core#)",
+    "prism: (http://prismstandard.org/namespaces/basic/2.0/)",
+    "fabio: (http://purl.org/spar/fabio/)"
+  ],
+  "constraints": [
+    "ONLY use classes and properties defined in or referenced by the parsed ontology files",
+    "Do NOT invent custom classes or properties outside the ontology namespaces",
+    "Respect rdfs:domain and rdfs:range constraints on all properties",
+    "Use rdfs:subClassOf hierarchies to choose the most specific applicable class",
+    "Properties with owl:FunctionalProperty type should have at most one value",
+    "Inverse property pairs (owl:inverseOf) should be consistently applied",
+    "owl:equivalentProperty pairs should be treated as interchangeable",
+    "owl:disjointWith constraints must not be violated",
+    "owl:Restriction constraints (allValuesFrom, someValuesFrom) must be respected",
+    "FaBiO classes follow FRBR: Work -> Expression -> Manifestation -> Item hierarchy",
+    "Properties from external vocabularies (FRBR, DC Terms, PRISM, SKOS) are valid for use"
+  ]
+}

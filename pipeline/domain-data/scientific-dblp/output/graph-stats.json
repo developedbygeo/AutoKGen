@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "totalNodes": 16480647,
+    "totalRelationships": 44806328,
+    "avgDegree": 5.4374,
+    "density": 1.6496e-7
+  },
+  "nodeStatistics": {
+    "byType": {
+      "fabio:Chapter": 71037,
+      "fabio:AcademicProceedings": 18245,
+      "foaf:Person": 4097863,
+      "fabio:Book": 21348,
+      "foaf:Organization": 2343,
+      "fabio:ConferenceProceedings": 63493,
+      "fabio:Series": 1640,
+      "fabio:MastersThesis": 27,
+      "fabio:DataFile": 21345,
+      "fabio:JournalArticle": 4188780,
+      "fabio:ConferencePaper": 3826881,
+      "fabio:DoctoralThesis": 150280,
+      "fabio:Journal": 2059,
+      "fabio:WebContent": 4015306
+    },
+    "withIssues": 4100206,
+    "compliant": 12380441
+  },
+  "relationshipStatistics": {
+    "byType": {
+      "frbr:partOf": 12087962,
+      "dcterms:creator": 32601067,
+      "dcterms:publisher": 108745,
+      "frbr:relatedEndeavour": 8554
+    },
+    "withIssues": 0,
+    "compliant": 44806328
+  },
+  "complianceMetrics": {
+    "overallScore": 82,
+    "validNodesPercent": 75.12,
+    "validRelationshipsPercent": 100,
+    "unmappedDataPercent": 2.54
+  },
+  "issues": [
+    {
+      "type": "invalid-property",
+      "severity": "warning",
+      "count": 30934278,
+      "examples": [
+        "Domain mismatch: prism:pageRange domain does not include fabio:Chapter",
+        "Domain mismatch: fabio:hasURL domain does not include fabio:Chapter",
+        "Domain mismatch: fabio:hasURL domain does not include fabio:Chapter"
+      ]
+    },
+    {
+      "type": "external-class",
+      "severity": "info",
+      "count": 4100206,
+      "examples": [
+        "External class foaf:Person used for Manish Singh 0001",
+        "External class foaf:Person used for Tien-Tsin Wong",
+        "External class foaf:Person used for Sylvia C. Pont"
+      ]
+    }
+  ]
+}

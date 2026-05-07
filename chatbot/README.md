@@ -36,7 +36,7 @@ pnpm build
 ### 2. Install dependencies
 
 ```bash
-cd autonomous-kg-generation-chatbot
+cd agentic-kg-artifact-chatbot
 pnpm install
 ```
 

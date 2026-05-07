@@ -1,0 +1,94 @@
+[
+  {
+    "category": "structure",
+    "type": "orphaned_nodes",
+    "property": "graph_connectivity",
+    "severity": "warning",
+    "count": 80671,
+    "description": "Nodes with no incoming or outgoing relationships were found.",
+    "examples": [
+      {
+        "nodeId": "http://data.example.org/agent/6210",
+        "labels": [
+          "Agent"
+        ],
+        "properties": {}
+      },
+      {
+        "nodeId": "http://data.example.org/agent/7470",
+        "labels": [
+          "Agent"
+        ],
+        "properties": {}
+      },
+      {
+        "nodeId": "http://data.example.org/agent/7605",
+        "labels": [
+          "Agent"
+        ],
+        "properties": {}
+      },
+      {
+        "nodeId": "http://data.example.org/agent/7056",
+        "labels": [
+          "Agent"
+        ],
+        "properties": {}
+      },
+      {
+        "nodeId": "http://data.example.org/provided-cho/9",
+        "labels": [
+          "Provided CHO"
+        ],
+        "properties": {}
+      }
+    ],
+    "fixStrategies": [
+      {
+        "strategy": "review_orphaned_nodes",
+        "cypherQuery": "MATCH (n) WHERE NOT (n)--() RETURN n.id, labels(n), properties(n) LIMIT 50;",
+        "description": "Review orphaned nodes before reconnecting or deleting them.",
+        "risk": "safe"
+      },
+      {
+        "strategy": "delete_orphaned_nodes",
+        "cypherQuery": "// Destructive: uncomment only after review\n// MATCH (n) WHERE NOT (n)--() DELETE n;",
+        "description": "Delete disconnected nodes that have no valid place in the graph.",
+        "risk": "destructive"
+      }
+    ]
+  },
+  {
+    "category": "structure",
+    "type": "missing_core_class_instances",
+    "property": "core_entity_classes",
+    "severity": "warning",
+    "count": 9,
+    "description": "At least one ontology-derived core entity class has no instances in Neo4j.",
+    "examples": [
+      {
+        "context": "http://www.europeana.eu/schemas/edm/NonInformationResource"
+      },
+      {
+        "context": "http://www.europeana.eu/schemas/edm/Event"
+      },
+      {
+        "context": "http://www.europeana.eu/schemas/edm/EuropeanaObject"
+      },
+      {
+        "context": "http://www.europeana.eu/schemas/edm/InformationResource"
+      },
+      {
+        "context": "http://www.europeana.eu/schemas/edm/Place"
+      }
+    ],
+    "fixStrategies": [
+      {
+        "strategy": "review_missing_core_classes",
+        "cypherQuery": "MATCH (n) UNWIND labels(n) AS label RETURN label, count(*) AS count ORDER BY count DESC;",
+        "description": "Compare populated labels with core classes derived from the ontology mapping guide.",
+        "risk": "safe"
+      }
+    ]
+  }
+]

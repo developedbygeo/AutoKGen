@@ -1,0 +1,765 @@
+{
+  "metadata": {
+    "title": "GeoSPARQL Ontology",
+    "version": "1.1",
+    "description": "An RDF/OWL vocabulary for representing spatial information",
+    "sourceFiles": [
+      "geo.ttl"
+    ],
+    "namespaces": {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "vann": "http://purl.org/vocab/vann/",
+      "schema_http": "http://schema.org/",
+      "schema": "https://schema.org/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "wgs84_pos": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+      "geo": "http://www.opengis.net/ont/geosparql#",
+      "spec11": "http://www.opengis.net/doc/IS/geosparql/1.1#"
+    }
+  },
+  "classes": [
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#Feature",
+      "label": "Feature",
+      "definition": "A discrete spatial phenomenon in a universe of discourse.",
+      "comment": "A Feature represents a uniquely identifiable phenomenon, for example a river or an apple. While such phenomena (and therefore the Features used to represent them) are bounded, their boundaries may be crisp (e.g., the declared boundaries of a state), vague (e.g., the delineation of a valley versus its neighboring mountains), and change with time (e.g., a storm front). While discrete in nature, Features may be created from continuous observations, such as an isochrone that determines the region that can be reached by ambulance within 5 minutes.",
+      "superClasses": [
+        "geo:SpatialObject"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.4",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.5",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.6",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.8",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.3.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.3.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.4",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.7",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.9",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.1"
+      ]
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#Geometry",
+      "label": "Geometry",
+      "definition": "A coherent set of direct positions in space. The positions are held within a Spatial Reference System (SRS).",
+      "comment": "Geometry can be used as a representation of the shape, extent or location of a Feature and may exist as a self-contained entity.",
+      "superClasses": [
+        "geo:SpatialObject"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.4",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.5",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.6",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.2.8",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.3.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.3.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.3",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.2.4",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.3.1"
+      ]
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#SpatialObject",
+      "label": "Spatial Object",
+      "definition": "Anything spatial (being or having a shape, position or an extent).",
+      "comment": "Subclasses of this class are expected to be used for instance data.",
+      "superClasses": [],
+      "equivalentClasses": [],
+      "examples": [
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.1.2",
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.1.1"
+      ]
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#FeatureCollection",
+      "label": "Feature Collection",
+      "definition": "A collection of individual Features.",
+      "comment": "",
+      "superClasses": [
+        "geo:SpatialObjectCollection"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.6"
+      ]
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#SpatialObjectCollection",
+      "label": "Spatial Object Collection",
+      "definition": "A collection of individual Spatial Objects.",
+      "comment": "This is the superclass of Feature Collection and Geometry Collection.",
+      "superClasses": [
+        "rdfs:Container"
+      ],
+      "equivalentClasses": [],
+      "examples": []
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#GeometryCollection",
+      "label": "Geometry Collection",
+      "definition": "A collection of individual Geometries.",
+      "comment": "",
+      "superClasses": [
+        "geo:SpatialObjectCollection"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "http://www.opengis.net/doc/IS/geosparql/1.1#B.1.1.7"
+      ]
+    }
+  ],
+  "objectProperties": [
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#defaultGeometry",
+      "label": "default geometry",
+      "definition": "The default Geometry to be used in spatial calculations. It is usually the most detailed Geometry.",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ],
+      "superProperties": [
+        "geo:hasGeometry"
+      ],
+      "inverseOf": "eq:geo:hasDefaultGeometry"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasGeometry",
+      "label": "has geometry",
+      "definition": "A spatial representation for a given Feature.",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasDefaultGeometry",
+      "label": "has default geometry",
+      "definition": "The default Geometry to be used in spatial calculations. It is usually the most detailed Geometry.",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ],
+      "superProperties": [
+        "geo:hasGeometry"
+      ],
+      "inverseOf": "eq:geo:defaultGeometry"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehContains",
+      "label": "contains",
+      "definition": "States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*TFF*FF*",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehCoveredBy",
+      "label": "covered by",
+      "definition": "States that the subject SpatialObject is spatially covered by the object SpatialObject. DE-9IM: TFF*TFT**",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehCovers",
+      "label": "covers",
+      "definition": "States that the subject SpatialObject spatially covers the object SpatialObject. DE-9IM: T*TFT*FF*",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehDisjoint",
+      "label": "disjoint",
+      "definition": "States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FF*FF****",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:sfDisjoint"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfDisjoint",
+      "label": "disjoint",
+      "definition": "States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FF*FF****",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:ehDisjoint"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehEquals",
+      "label": "equals",
+      "definition": "States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:sfEquals"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfEquals",
+      "label": "equals",
+      "definition": "States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:ehEquals"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehInside",
+      "label": "inside",
+      "definition": "States that the subject SpatialObject is spatially inside the object SpatialObject. DE-9IM: TFF*FFT**",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehMeet",
+      "label": "meet",
+      "definition": "States that the subject SpatialObject spatially meets the object SpatialObject. DE-9IM: FT******* ^ F**T***** ^ F***T****",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:sfTouches"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfTouches",
+      "label": "touches",
+      "definition": "States that the subject SpatialObject spatially touches the object SpatialObject. DE-9IM: FT******* ^ F**T***** ^ F***T****",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": "eq:geo:ehMeet"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#ehOverlap",
+      "label": "overlap",
+      "definition": "States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: T*T***T**",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasBoundingBox",
+      "label": "has bounding box",
+      "definition": "The minimum or smallest bounding or enclosing box of a given Feature.",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ],
+      "superProperties": [
+        "geo:hasGeometry"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasCentroid",
+      "label": "has centroid",
+      "definition": "The arithmetic mean position of all the Geometry points of a given Feature.",
+      "domain": [
+        "geo:Feature"
+      ],
+      "range": [
+        "geo:Geometry"
+      ],
+      "superProperties": [
+        "geo:hasGeometry"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasLength",
+      "label": "has length",
+      "definition": "The length of a Spatial Object.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [],
+      "superProperties": [
+        "geo:hasSize"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasSize",
+      "label": "has size",
+      "definition": "Subproperties of this property are used to indicate the size of a Spatial Object as a measurement or estimate of one or more dimensions of the Spatial Object's spatial presence.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasPerimeterLength",
+      "label": "has perimeter length",
+      "definition": "The length of the perimeter of a Spatial Object.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [],
+      "superProperties": [
+        "geo:hasSize"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasArea",
+      "label": "has area",
+      "definition": "The area of a Spatial Object.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [],
+      "superProperties": [
+        "geo:hasSize"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasVolume",
+      "label": "has volume",
+      "definition": "The volume of a three-dimensional Spatial Object.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [],
+      "superProperties": [
+        "geo:hasSize"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasSpatialResolution",
+      "label": "has spatial resolution",
+      "definition": "The spatial resolution of a Geometry.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasSpatialAccuracy",
+      "label": "has spatial accuracy",
+      "definition": "The positional accuracy of the coordinates of a Geometry.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8dc",
+      "label": "disconnected",
+      "definition": "States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FFTFFTTTT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8ec",
+      "label": "externally connected",
+      "definition": "States that the subject SpatialObject spatially meets the object SpatialObject. DE-9IM: FFTFTTTTT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8eq",
+      "label": "equals",
+      "definition": "States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8ntpp",
+      "label": "non-tangential proper part",
+      "definition": "States that the subject SpatialObject is spatially inside the object SpatialObject. DE-9IM: TFFTFFTTT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8ntppi",
+      "label": "non-tangential proper part inverse",
+      "definition": "States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: TTTFFTFFT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8po",
+      "label": "partially overlapping",
+      "definition": "States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: TTTTTTTTT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8tpp",
+      "label": "tangential proper part",
+      "definition": "States that the subject SpatialObject is spatially covered by the object SpatialObject. DE-9IM: TFFTTFTTT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#rcc8tppi",
+      "label": "tangential proper part inverse",
+      "definition": "States that the subject SpatialObject spatially covers the object SpatialObject. DE-9IM: TTTFTTFFT",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfContains",
+      "label": "contains",
+      "definition": "States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfCrosses",
+      "label": "crosses",
+      "definition": "States that the subject SpatialObject spatially crosses the object SpatialObject. DE-9IM: T*T******",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfIntersects",
+      "label": "intersects",
+      "definition": "States that the subject SpatialObject is not spatially disjoint from the object SpatialObject. DE-9IM: T******** ^ *T******* ^ ***T***** ^ ****T****",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfOverlaps",
+      "label": "overlaps",
+      "definition": "States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: T*T***T**",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#sfWithin",
+      "label": "within",
+      "definition": "States that the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": [
+        "geo:SpatialObject"
+      ],
+      "superProperties": [],
+      "inverseOf": ""
+    }
+  ],
+  "dataProperties": [
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#asGML",
+      "label": "as GML",
+      "definition": "The GML serialization of a Geometry",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "geo:gmlLiteral"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasSerialization",
+      "label": "has serialization",
+      "definition": "Connects a Geometry object with its text-based serialization.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "rdfs:Literal"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#asWKT",
+      "label": "as WKT",
+      "definition": "The WKT serialization of a Geometry",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "geo:wktLiteral"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#asGeoJSON",
+      "label": "as GeoJSON",
+      "definition": "The GeoJSON serialization of a Geometry",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "geo:geoJSONLiteral"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#asKML",
+      "label": "as KML",
+      "definition": "The KML serialization of a Geometry",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "geo:kmlLiteral"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#asDGGS",
+      "label": "as DGGS",
+      "definition": "The Discrete Global Grid System (DGGS) serialization of a Geometry",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "geo:dggsLiteral"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#coordinateDimension",
+      "label": "coordinate dimension",
+      "definition": "The number of measurements or axes needed to describe the position of this Geometry in a coordinate system.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:integer"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#dimension",
+      "label": "dimension",
+      "definition": "The topological dimension of this geometric object, which must be less than or equal to the coordinate dimension. In non-homogeneous collections, this will return the largest topological dimension of the contained objects.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:integer"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#isEmpty",
+      "label": "is empty",
+      "definition": "(true) if this geometric object is the empty Geometry. If true, then this geometric object represents the empty point set for the coordinate space.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:boolean"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#isSimple",
+      "label": "is simple",
+      "definition": "(true) if this geometric object has no anomalous geometric points, such as self intersection or self tangency.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:boolean"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#spatialDimension",
+      "label": "spatial dimension",
+      "definition": "The number of measurements or axes needed to describe the spatial position of this Geometry in a coordinate system.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:integer"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricSpatialResolution",
+      "label": "has spatial resolution in meters",
+      "definition": "The spatial resolution of a Geometry in meters.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricSpatialAccuracy",
+      "label": "has spatial accuracy in meters",
+      "definition": "The positional accuracy of the coordinates of a Geometry in meters.",
+      "domain": [
+        "geo:Geometry"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricLength",
+      "label": "has length in meters",
+      "definition": "The length of a Spatial Object in meters.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricSize",
+      "label": "has metric size",
+      "definition": "Subproperties of this property are used to indicate the size of a Spatial Object, as a measurement or estimate of one or more dimensions of the Spatial Object's spatial presence. Units are always metric (meter, square meter or cubic meter).",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricPerimeterLength",
+      "label": "has perimeter length in meters",
+      "definition": "The length of the perimeter of a Spatial Object in meters.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricArea",
+      "label": "has area in square meters",
+      "definition": "The area of a Spatial Object in square meters.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": "xsd:double"
+    },
+    {
+      "uri": "http://www.opengis.net/ont/geosparql#hasMetricVolume",
+      "label": "has volume in cubic meters",
+      "definition": "The volume of a Spatial Object in cubic meters.",
+      "domain": [
+        "geo:SpatialObject"
+      ],
+      "range": "xsd:double"
+    }
+  ],
+  "externalVocabularies": []
+}

@@ -1,0 +1,79 @@
+========================================================================
+  ONTOLOGY VALIDATION REPORT
+========================================================================
+
+  Ontology:    GeoSPARQL Ontology v1.1
+  Validated:   2026-02-23T16:41:52.942Z
+  Source:      Neo4j
+
+------------------------------------------------------------------------
+  COMPLIANCE SUMMARY
+------------------------------------------------------------------------
+
+  Score:       98/100
+  Grade:       A
+  Status:      COMPLIANT
+
+------------------------------------------------------------------------
+  GRAPH STATISTICS
+------------------------------------------------------------------------
+
+  Total Nodes:           1,581,327
+  Total Relationships:   2,368,553
+  Nodes Analyzed:        1,581,327
+  Rels Analyzed:         2,368,553
+
+------------------------------------------------------------------------
+  ISSUE BREAKDOWN
+------------------------------------------------------------------------
+
+  Errors:     0
+  Warnings:   0
+  Info:       4
+
+  Top Violations:
+    [INFO] missing_class_instances: 0 instance(s)
+    [INFO] missing_class_instances: 0 instance(s)
+    [INFO] missing_class_instances: 0 instance(s)
+    [INFO] missing_class_instances: 0 instance(s)
+
+------------------------------------------------------------------------
+  ONTOLOGY REQUIREMENTS
+------------------------------------------------------------------------
+
+  Valid Labels:          PASS
+  Valid Namespaces:      PASS
+  Domain/Range:          PASS
+  Required Properties:   PASS
+
+------------------------------------------------------------------------
+  DETAILED VIOLATIONS
+------------------------------------------------------------------------
+
+  1. [INFO] missing_class_instances
+     Category: structure
+     Property: SpatialObject
+     Count:    0
+     No instances of ontology class "SpatialObject" found in the graph. This class may not be applicable to this dataset.
+
+  2. [INFO] missing_class_instances
+     Category: structure
+     Property: FeatureCollection
+     Count:    0
+     No instances of ontology class "FeatureCollection" found in the graph. This class may not be applicable to this dataset.
+
+  3. [INFO] missing_class_instances
+     Category: structure
+     Property: SpatialObjectCollection
+     Count:    0
+     No instances of ontology class "SpatialObjectCollection" found in the graph. This class may not be applicable to this dataset.
+
+  4. [INFO] missing_class_instances
+     Category: structure
+     Property: GeometryCollection
+     Count:    0
+     No instances of ontology class "GeometryCollection" found in the graph. This class may not be applicable to this dataset.
+
+========================================================================
+  End of Report — Score: 98/100 (Grade A)
+========================================================================

@@ -1,0 +1,236 @@
+{
+  "datasetPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/input/dataset-merged.csv",
+  "totalRows": 790613,
+  "totalColumns": 20,
+  "generatedAt": "2026-04-03T16:34:16.683Z",
+  "supplementaryIndexPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/output/codex/supplementary-files-index.json",
+  "supplementaryFilesLoaded": true,
+  "supplementaryFilesInspected": ["admin1CodesASCII.txt", "countryInfo.txt", "featureCodes_en.txt"],
+  "columns": [
+    {
+      "name": "source_file",
+      "inferredType": "string",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7,
+      "sampleValues": ["DE.txt", "ES.txt", "FR.txt", "GB.txt", "IT.txt"]
+    },
+    {
+      "name": "geonameid",
+      "inferredType": "integer",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 790613,
+      "sampleValues": ["1529666", "2038682", "2613222", "2613801", "2619207"],
+      "numericStats": {
+        "min": 5653,
+        "max": 13589325,
+        "mean": 6200896.1346
+      }
+    },
+    {
+      "name": "name",
+      "inferredType": "string",
+      "nonMissingCount": 790611,
+      "missingCount": 2,
+      "missingPercent": 0,
+      "uniqueCount": 579115,
+      "sampleValues": ["Bahnhof Grenzau", "Bahnhof Annaburg", "Süderau", "Scheidebek", "Kadetbank"]
+    },
+    {
+      "name": "asciiname",
+      "inferredType": "string",
+      "nonMissingCount": 790611,
+      "missingCount": 2,
+      "missingPercent": 0,
+      "uniqueCount": 578349,
+      "sampleValues": ["Bahnhof Grenzau", "Bahnhof Annaburg", "Suderau", "Scheidebek", "Kadetbank"]
+    },
+    {
+      "name": "alternatenames",
+      "inferredType": "mixed",
+      "nonMissingCount": 414141,
+      "missingCount": 376472,
+      "missingPercent": 47.62,
+      "uniqueCount": 368393,
+      "sampleValues": [
+        "Bahnhof Grenzau,Grenzau",
+        "Annaburg,Bahnhof Annaburg,Bahnhof Annaburg West",
+        "Jundewatter Muhlenstrom,Jündewatter Mühlenstrom,Sondera,Suderau,Sønderå,Süderau",
+        "Scheidebek,Skelbaek,Skelbæk",
+        "Kadetbank,Kadetbanke"
+      ]
+    },
+    {
+      "name": "latitude",
+      "inferredType": "float",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 542876,
+      "sampleValues": ["50.45663", "51.72858", "54.90848", "54.87306", "54.56667"],
+      "numericStats": {
+        "min": 4.5422,
+        "max": 63.05255,
+        "mean": 48.0533
+      }
+    },
+    {
+      "name": "longitude",
+      "inferredType": "float",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 584866,
+      "sampleValues": ["7.66505", "13.03311", "8.82708", "9.12834", "12.36667"],
+      "numericStats": {
+        "min": -116.01563,
+        "max": 100.05794,
+        "mean": 6.0679
+      }
+    },
+    {
+      "name": "feature_class",
+      "inferredType": "string",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 9,
+      "sampleValues": ["S", "H", "T", "P", "R"]
+    },
+    {
+      "name": "feature_code",
+      "inferredType": "string",
+      "nonMissingCount": 790578,
+      "missingCount": 35,
+      "missingPercent": 0,
+      "uniqueCount": 518,
+      "sampleValues": ["RSTN", "STM", "BNK", "ISLS", "PPLX"],
+      "relatedSupplementaryFile": "featureCodes_en.txt",
+      "supplementaryContext": "featureCodes_en.txt provides lookup values via code with descriptive columns name, description. featureCodes en: A.ADM1\tfirst-order administrative division\ta primary administrative division of a country, such as a state in the United States A.ADM1H\thistorical first-order a..."
+    },
+    {
+      "name": "country_code",
+      "inferredType": "string",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7,
+      "sampleValues": ["DE", "ES", "FR", "GB", "IT"],
+      "relatedSupplementaryFile": "countryInfo.txt",
+      "supplementaryContext": "countryInfo.txt provides lookup values via iso_alpha2, iso_alpha3, iso_numeric, fips_code, currency_code, geonameid, equivalent_fips_code with descriptive columns country, capital, continent, currency_name. countryInfo: AD\tAND\t020\tAN\tAndorra\tAndorra la Vella\t468\t77006\tEU\t.ad\tEUR\tEuro\t376\tAD###\t^(?:AD)*(\\d{3})$\tca\t3041565\tES,FR AE\tARE\t784\tAE\tUnited Arab Emirates\tAbu Dhabi\t82880\t9630..."
+    },
+    {
+      "name": "cc2",
+      "inferredType": "string",
+      "nonMissingCount": 1347,
+      "missingCount": 789266,
+      "missingPercent": 99.83,
+      "uniqueCount": 81,
+      "sampleValues": ["DE,CH", "DE,AT,CH", "DE,NL", "NL", "CH,DE"],
+      "relatedSupplementaryFile": "countryInfo.txt",
+      "supplementaryContext": "countryInfo.txt provides lookup values via iso_alpha2, iso_alpha3, iso_numeric, fips_code, currency_code, geonameid, equivalent_fips_code with descriptive columns country, capital, continent, currency_name. countryInfo: AD\tAND\t020\tAN\tAndorra\tAndorra la Vella\t468\t77006\tEU\t.ad\tEUR\tEuro\t376\tAD###\t^(?:AD)*(\\d{3})$\tca\t3041565\tES,FR AE\tARE\t784\tAE\tUnited Arab Emirates\tAbu Dhabi\t82880\t9630..."
+    },
+    {
+      "name": "admin1_code",
+      "inferredType": "mixed",
+      "nonMissingCount": 789631,
+      "missingCount": 982,
+      "missingPercent": 0.12,
+      "uniqueCount": 81,
+      "sampleValues": ["08", "14", "00", "01", "04"],
+      "relatedSupplementaryFile": "admin1CodesASCII.txt",
+      "supplementaryContext": "admin1CodesASCII.txt provides lookup values via code, geonameid with descriptive columns name, name_ascii. admin1CodesASCII: AD.06\tSant Julià de Loria\tSant Julia de Loria\t3039162 AD.05\tOrdino\tOrdino\t3039676 AD.04\tLa Massana\tLa Massana\t3040131"
+    },
+    {
+      "name": "admin2_code",
+      "inferredType": "mixed",
+      "nonMissingCount": 732531,
+      "missingCount": 58082,
+      "missingPercent": 7.35,
+      "uniqueCount": 1260,
+      "sampleValues": ["00", "083", "091", "097", "059"]
+    },
+    {
+      "name": "admin3_code",
+      "inferredType": "mixed",
+      "nonMissingCount": 671309,
+      "missingCount": 119304,
+      "missingPercent": 15.09,
+      "uniqueCount": 23243,
+      "sampleValues": ["07143", "08336", "09180", "05962", "03254"]
+    },
+    {
+      "name": "admin4_code",
+      "inferredType": "mixed",
+      "nonMissingCount": 392023,
+      "missingCount": 398590,
+      "missingPercent": 50.42,
+      "uniqueCount": 55974,
+      "sampleValues": ["07143032", "08336105", "09180117", "05154040", "14627080"]
+    },
+    {
+      "name": "population",
+      "inferredType": "mixed",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 21584,
+      "sampleValues": ["0", "408046", "267506", "136803", "4537"]
+    },
+    {
+      "name": "elevation",
+      "inferredType": "integer",
+      "nonMissingCount": 59303,
+      "missingCount": 731310,
+      "missingPercent": 92.5,
+      "uniqueCount": 3546,
+      "sampleValues": ["395", "2962", "397", "1348", "1782"],
+      "numericStats": {
+        "min": -60,
+        "max": 4806,
+        "mean": 713.2099
+      }
+    },
+    {
+      "name": "dem",
+      "inferredType": "integer",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 3518,
+      "sampleValues": ["232", "77", "3", "16", "-9999"],
+      "numericStats": {
+        "min": -9999,
+        "max": 4748,
+        "mean": 135.4072
+      }
+    },
+    {
+      "name": "timezone",
+      "inferredType": "string",
+      "nonMissingCount": 777288,
+      "missingCount": 13325,
+      "missingPercent": 1.69,
+      "uniqueCount": 39,
+      "sampleValues": [
+        "Europe/Berlin",
+        "Europe/Copenhagen",
+        "Europe/Zurich",
+        "Europe/Amsterdam",
+        "Europe/Vienna"
+      ]
+    },
+    {
+      "name": "modification_date",
+      "inferredType": "date",
+      "nonMissingCount": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 6121,
+      "sampleValues": ["2020-10-14", "2022-01-16", "2025-01-10", "2023-11-07", "2025-04-17"]
+    }
+  ]
+}

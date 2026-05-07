@@ -1,0 +1,553 @@
+{
+  "metadata": {
+    "validatedAt": "2026-02-24T12:45:13.241Z",
+    "ontologyName": "FaBiO, the FRBR-aligned Bibliographic Ontology",
+    "ontologyVersion": "2.2",
+    "graphSource": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json"
+  },
+  "overallCompliance": {
+    "isCompliant": true,
+    "score": 90,
+    "grade": "B"
+  },
+  "statistics": {
+    "totalNodes": 16480647,
+    "totalRelationships": 40900485,
+    "nodesAnalyzed": 16480647,
+    "relationshipsAnalyzed": 40900485
+  },
+  "violations": [
+    {
+      "category": "class",
+      "type": "invalid_label",
+      "property": "Person",
+      "severity": "error",
+      "count": 4097863,
+      "description": "Label \"Person\" is not defined in the ontology. Found 4,097,863 nodes with this label.",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/person/manish-singh-0001",
+          "labels": ["Person", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/person/tien-tsin-wong",
+          "labels": ["Person", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/person/sylvia-c-pont",
+          "labels": ["Person", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/person/daniel-c-alexander",
+          "labels": ["Person", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/person/kazuhiro-fukui",
+          "labels": ["Person", "Resource"],
+          "context": "Co-labels: Resource"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "remove_label",
+          "cypherQuery": "MATCH (n:`Person`) REMOVE n:`Person`",
+          "description": "Remove invalid label \"Person\" from all nodes",
+          "risk": "moderate"
+        }
+      ]
+    },
+    {
+      "category": "class",
+      "type": "invalid_label",
+      "property": "Organization",
+      "severity": "error",
+      "count": 2343,
+      "description": "Label \"Organization\" is not defined in the ontology. Found 2,343 nodes with this label.",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/organization/springer",
+          "labels": ["Organization", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/organization/igi-global",
+          "labels": ["Organization", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/organization/taylor-francis",
+          "labels": ["Organization", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/organization/crc-press",
+          "labels": ["Organization", "Resource"],
+          "context": "Co-labels: Resource"
+        },
+        {
+          "nodeId": "http://data.example.org/organization/academic-press",
+          "labels": ["Organization", "Resource"],
+          "context": "Co-labels: Resource"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "remove_label",
+          "cypherQuery": "MATCH (n:`Organization`) REMOVE n:`Organization`",
+          "description": "Remove invalid label \"Organization\" from all nodes",
+          "risk": "moderate"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "hasURL",
+      "severity": "warning",
+      "count": 71037,
+      "description": "Data property \"hasURL\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14bd",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"hasURL\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-singh14",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"hasURL\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14ii",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"hasURL\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14m",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"hasURL\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-wong14",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"hasURL\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`hasURL` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`hasURL` LIMIT 20",
+          "description": "Review nodes with \"hasURL\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "issueIdentifier",
+      "severity": "warning",
+      "count": 298,
+      "description": "Data property \"issueIdentifier\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-termgraph-2004",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"issueIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-termgraph-2002",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"issueIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-termgraph-2007",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"issueIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-termgraph-2009",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"issueIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-termgraph-2006",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"issueIdentifier\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`issueIdentifier` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`issueIdentifier` LIMIT 20",
+          "description": "Review nodes with \"issueIdentifier\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "hasSequenceIdentifier",
+      "severity": "warning",
+      "count": 4684,
+      "description": "Data property \"hasSequenceIdentifier\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/conferencepaper/conf-sc-butlerymj24",
+          "labels": ["ConferencePaper", "Resource"],
+          "context": "Property \"hasSequenceIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/journalarticle/journals-eccc-yekhanin06",
+          "labels": ["JournalArticle", "Resource"],
+          "context": "Property \"hasSequenceIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/journalarticle/journals-eccc-viderman11",
+          "labels": ["JournalArticle", "Resource"],
+          "context": "Property \"hasSequenceIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/journalarticle/journals-eccc-dinurk17",
+          "labels": ["JournalArticle", "Resource"],
+          "context": "Property \"hasSequenceIdentifier\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/journalarticle/journals-eccc-beyersdorffcj14",
+          "labels": ["JournalArticle", "Resource"],
+          "context": "Property \"hasSequenceIdentifier\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`hasSequenceIdentifier` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`hasSequenceIdentifier` LIMIT 20",
+          "description": "Review nodes with \"hasSequenceIdentifier\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "publicationDate",
+      "severity": "warning",
+      "count": 19386,
+      "description": "Data property \"publicationDate\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-oveeal25",
+          "labels": ["DataFile", "Resource"],
+          "context": "Property \"publicationDate\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-yousheng25",
+          "labels": ["DataFile", "Resource"],
+          "context": "Property \"publicationDate\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-carusb25a",
+          "labels": ["DataFile", "Resource"],
+          "context": "Property \"publicationDate\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-qi25",
+          "labels": ["DataFile", "Resource"],
+          "context": "Property \"publicationDate\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-duanlr25",
+          "labels": ["DataFile", "Resource"],
+          "context": "Property \"publicationDate\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`publicationDate` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`publicationDate` LIMIT 20",
+          "description": "Review nodes with \"publicationDate\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "isbn",
+      "severity": "warning",
+      "count": 52101,
+      "description": "Data property \"isbn\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/reference-med-2013",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"isbn\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/reference-genetic-2015",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"isbn\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-isrl-2023-238",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"isbn\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-isrl-97",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"isbn\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-sapere-2013-5",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"isbn\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`isbn` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`isbn` LIMIT 20",
+          "description": "Review nodes with \"isbn\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "volume",
+      "severity": "warning",
+      "count": 28606,
+      "description": "Data property \"volume\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-isrl-2023-238",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"volume\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-isrl-97",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"volume\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-sapere-2013-5",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"volume\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-ssw-49",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"volume\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/series-faia-2007-160",
+          "labels": ["ConferenceProceedings", "Resource"],
+          "context": "Property \"volume\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`volume` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`volume` LIMIT 20",
+          "description": "Review nodes with \"volume\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "domain_violation",
+      "property": "pageRange",
+      "severity": "warning",
+      "count": 63325,
+      "description": "Data property \"pageRange\" found on nodes outside its domain. Expected domain: [Endeavour].",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14bd",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"pageRange\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-singh14",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"pageRange\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14ii",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"pageRange\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-x14m",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"pageRange\" should only be on [Endeavour] nodes"
+        },
+        {
+          "nodeId": "http://data.example.org/chapter/reference-vision-wong14",
+          "labels": ["Chapter", "Resource"],
+          "context": "Property \"pageRange\" should only be on [Endeavour] nodes"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_property_placement",
+          "cypherQuery": "MATCH (n) WHERE n.`pageRange` IS NOT NULL AND NOT any(l IN labels(n) WHERE l IN ['Endeavour']) RETURN n.id, labels(n), n.`pageRange` LIMIT 20",
+          "description": "Review nodes with \"pageRange\" outside domain",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "structure",
+      "type": "orphaned_nodes",
+      "property": "graph_connectivity",
+      "severity": "info",
+      "count": 8140,
+      "description": "8,140 orphaned node(s) (0.05% of graph) have no relationships.",
+      "examples": [
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-camarasev21c",
+          "labels": ["Resource"],
+          "context": "4,070 orphaned nodes with labels [Resource]"
+        },
+        {
+          "nodeId": "http://data.example.org/webcontent/homepages-52-3971-4",
+          "labels": ["WebContent"],
+          "context": "2,243 orphaned nodes with labels [WebContent]"
+        },
+        {
+          "nodeId": "http://data.example.org/datafile/data-12-camarasev21c",
+          "labels": ["DataFile"],
+          "context": "1,814 orphaned nodes with labels [DataFile]"
+        },
+        {
+          "nodeId": "http://data.example.org/conferenceproceedings/conf-nlprs-2001",
+          "labels": ["ConferenceProceedings"],
+          "context": "9 orphaned nodes with labels [ConferenceProceedings]"
+        },
+        {
+          "nodeId": "http://data.example.org/journalarticle/dblpnote-neverpublished",
+          "labels": ["JournalArticle"],
+          "context": "3 orphaned nodes with labels [JournalArticle]"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_orphans",
+          "cypherQuery": "MATCH (n) WHERE NOT (n)--() RETURN labels(n) AS labels, count(*) AS count ORDER BY count DESC",
+          "description": "Review orphaned nodes by label",
+          "risk": "safe"
+        },
+        {
+          "strategy": "delete_orphans",
+          "cypherQuery": "// DESTRUCTIVE: Uncomment to delete orphaned nodes\n// MATCH (n) WHERE NOT (n)--() DELETE n",
+          "description": "Delete all orphaned nodes (DESTRUCTIVE)",
+          "risk": "destructive"
+        }
+      ]
+    }
+  ],
+  "violationSummary": {
+    "byCategory": {
+      "class": 2,
+      "dataProperty": 7,
+      "structure": 1
+    },
+    "bySeverity": {
+      "errors": 2,
+      "warnings": 7,
+      "info": 1
+    },
+    "topViolations": [
+      {
+        "type": "invalid_label",
+        "count": 4097863,
+        "severity": "error"
+      },
+      {
+        "type": "domain_violation",
+        "count": 71037,
+        "severity": "warning"
+      },
+      {
+        "type": "domain_violation",
+        "count": 63325,
+        "severity": "warning"
+      },
+      {
+        "type": "domain_violation",
+        "count": 52101,
+        "severity": "warning"
+      },
+      {
+        "type": "domain_violation",
+        "count": 28606,
+        "severity": "warning"
+      },
+      {
+        "type": "domain_violation",
+        "count": 19386,
+        "severity": "warning"
+      },
+      {
+        "type": "orphaned_nodes",
+        "count": 8140,
+        "severity": "info"
+      },
+      {
+        "type": "domain_violation",
+        "count": 4684,
+        "severity": "warning"
+      },
+      {
+        "type": "invalid_label",
+        "count": 2343,
+        "severity": "error"
+      },
+      {
+        "type": "domain_violation",
+        "count": 298,
+        "severity": "warning"
+      }
+    ]
+  },
+  "ontologyRequirements": {
+    "validLabels": {
+      "met": false,
+      "invalid": ["Person", "Organization"]
+    },
+    "validNamespaces": {
+      "met": true,
+      "invalid": []
+    },
+    "validDomainRanges": {
+      "met": false,
+      "violations": 7
+    },
+    "hasRequiredProperties": {
+      "met": true,
+      "missing": []
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Review and fix 2 invalid label(s): Person, Organization",
+      "reasoning": "Non-ontology labels indicate mapping errors or data outside the domain model.",
+      "impact": "Improves class-level compliance and query reliability."
+    },
+    {
+      "priority": "medium",
+      "action": "Fix 7 domain/range constraint violation(s).",
+      "reasoning": "Relationships connecting wrong node types violate the ontology schema.",
+      "impact": "Ensures semantic correctness of relationships."
+    }
+  ]
+}

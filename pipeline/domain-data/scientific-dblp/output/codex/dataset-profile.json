@@ -1,0 +1,415 @@
+{
+  "datasetPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/input/dataset-merged.csv",
+  "totalRows": 12358922,
+  "totalColumns": 29,
+  "fileSizeBytes": 3133336343,
+  "generatedAt": "2026-04-02T12:21:02.511Z",
+  "profilingTimeSec": 106.13,
+  "supplementaryIndexPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/codex/supplementary-files-index.json",
+  "supplementaryFilesLoaded": false,
+  "supplementaryFilesInspected": [],
+  "columns": [
+    {
+      "name": "record_type",
+      "inferredType": "string",
+      "nonMissingCount": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 9,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["incollection", "book", "proceedings", "mastersthesis", "data"]
+    },
+    {
+      "name": "key",
+      "inferredType": "string",
+      "nonMissingCount": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 12207831,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "reference/vision/X14bd",
+        "reference/vision/Singh14",
+        "reference/vision/X14ii",
+        "reference/vision/X14m",
+        "reference/vision/Wong14"
+      ]
+    },
+    {
+      "name": "mdate",
+      "inferredType": "date",
+      "nonMissingCount": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7264,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["2017-07-12", "2019-01-09", "2018-11-02", "2025-09-06", "2020-03-11"]
+    },
+    {
+      "name": "publtype",
+      "inferredType": "string",
+      "nonMissingCount": 992951,
+      "missingCount": 11365971,
+      "missingPercent": 91.97,
+      "uniqueCount": 14,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["encyclopedia", "version", "concept", "informal", "withdrawn"]
+    },
+    {
+      "name": "title",
+      "inferredType": "string",
+      "nonMissingCount": 12354945,
+      "missingCount": 3977,
+      "missingPercent": 0.03,
+      "uniqueCount": 8016327,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "Curvedness.",
+        "Transparency and Translucency.",
+        "Surface Orientation Histogram (Discrete Version of EGI).",
+        "Appearance Scanning.",
+        "Image-Based Lighting."
+      ]
+    },
+    {
+      "name": "authors",
+      "inferredType": "string",
+      "nonMissingCount": 12243862,
+      "missingCount": 115060,
+      "missingPercent": 0.93,
+      "uniqueCount": 9466399,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "Manish Singh 0001",
+        "Tien-Tsin Wong",
+        "Sylvia C. Pont",
+        "Daniel C. Alexander",
+        "Kazuhiro Fukui"
+      ]
+    },
+    {
+      "name": "editors",
+      "inferredType": "string",
+      "nonMissingCount": 49489,
+      "missingCount": 12309433,
+      "missingPercent": 99.6,
+      "uniqueCount": 40154,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "Katsushi Ikeuchi",
+        "Dieter Jaeger|Ranu Jung",
+        "Henk C. A. van Tilborg|Sushil Jajodia",
+        "Henk C. A. van Tilborg",
+        "Janglin Chen|Wayne Cranton|Mark Fihn"
+      ]
+    },
+    {
+      "name": "year",
+      "inferredType": "integer",
+      "nonMissingCount": 8341815,
+      "missingCount": 4017107,
+      "missingPercent": 32.5,
+      "uniqueCount": 91,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["2014", "2005", "2011", "2012", "2018"],
+      "numericStats": {
+        "min": 1936,
+        "max": 2026,
+        "mean": 2014.17
+      }
+    },
+    {
+      "name": "journal",
+      "inferredType": "string",
+      "nonMissingCount": 4188985,
+      "missingCount": 8169937,
+      "missingPercent": 66.11,
+      "uniqueCount": 2061,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "EAI Endorsed Trans. Ubiquitous Environ.",
+        "RLJ",
+        "SIGMOD Record",
+        "SIGMOD Rec.",
+        "World Wide Web"
+      ]
+    },
+    {
+      "name": "booktitle",
+      "inferredType": "string",
+      "nonMissingCount": 3962856,
+      "missingCount": 8396066,
+      "missingPercent": 67.94,
+      "uniqueCount": 18651,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "Computer Vision, A Reference Guide",
+        "Encyclopedia of Computational Neuroscience",
+        "Encyclopedia of Cryptography and Security",
+        "Encyclopedia of Cryptography and Security (2nd Ed.)",
+        "Handbook of Visual Display Technology"
+      ]
+    },
+    {
+      "name": "pages",
+      "inferredType": "mixed",
+      "nonMissingCount": 6893752,
+      "missingCount": 5465170,
+      "missingPercent": 44.22,
+      "uniqueCount": 585396,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": ["159", "815-819", "781", "36", "387-390"]
+    },
+    {
+      "name": "volume",
+      "inferredType": "mixed",
+      "nonMissingCount": 4222501,
+      "missingCount": 8136421,
+      "missingPercent": 65.83,
+      "uniqueCount": 887014,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": ["5233", "11", "3", "2", "1"]
+    },
+    {
+      "name": "number",
+      "inferredType": "mixed",
+      "nonMissingCount": 2581130,
+      "missingCount": 9777792,
+      "missingPercent": 79.12,
+      "uniqueCount": 1280,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["5", "1", "4", "11", "16"]
+    },
+    {
+      "name": "month",
+      "inferredType": "string",
+      "nonMissingCount": 568952,
+      "missingCount": 11789970,
+      "missingPercent": 95.4,
+      "uniqueCount": 91,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["November", "May", "September", "July", "June"]
+    },
+    {
+      "name": "publisher",
+      "inferredType": "string",
+      "nonMissingCount": 108745,
+      "missingCount": 12250177,
+      "missingPercent": 99.12,
+      "uniqueCount": 2450,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["Springer", "IGI Global", "Taylor & Francis", "CRC Press", "Academic Press"]
+    },
+    {
+      "name": "school",
+      "inferredType": "string",
+      "nonMissingCount": 152748,
+      "missingCount": 12206174,
+      "missingPercent": 98.76,
+      "uniqueCount": 3433,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "Diplomarbeit, LMU München, Informatik",
+        "Diplomarbeit, Universität Trier, FB VI, Physische Geographie",
+        "University of California at Santa Barbara, Department of Computer Science, CA, USA",
+        "University of Trier",
+        "Diplomarbeit, Universität Trier, FB IV, Informatik"
+      ]
+    },
+    {
+      "name": "series",
+      "inferredType": "string",
+      "nonMissingCount": 38832,
+      "missingCount": 12320090,
+      "missingPercent": 99.69,
+      "uniqueCount": 1814,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "eXamen.press",
+        "Lecture Notes in Computer Science",
+        "Springer Reference Technik",
+        "Ambient Intelligence and Smart Environments",
+        "Springer Handbooks"
+      ]
+    },
+    {
+      "name": "chapter",
+      "inferredType": "integer",
+      "nonMissingCount": 2,
+      "missingCount": 12358920,
+      "missingPercent": 100,
+      "uniqueCount": 2,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["21", "27"],
+      "numericStats": {
+        "min": 21,
+        "max": 27,
+        "mean": 24
+      }
+    },
+    {
+      "name": "isbn",
+      "inferredType": "string",
+      "nonMissingCount": 81321,
+      "missingCount": 12277601,
+      "missingPercent": 99.34,
+      "uniqueCount": 79771,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "978-0-387-30771-8|978-0-387-31439-6",
+        "978-1-4614-7320-6",
+        "978-1-4419-5905-8",
+        "978-0-387-23473-1",
+        "978-3-540-79566-7"
+      ]
+    },
+    {
+      "name": "ee",
+      "inferredType": "url",
+      "nonMissingCount": 8165346,
+      "missingCount": 4193576,
+      "missingPercent": 33.93,
+      "uniqueCount": 8306864,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "https://doi.org/10.1007/978-0-387-31439-6_100117",
+        "https://doi.org/10.1007/978-0-387-31439-6_559",
+        "https://doi.org/10.1007/978-0-387-31439-6_100229",
+        "https://doi.org/10.1007/978-0-387-31439-6_100189",
+        "https://doi.org/10.1007/978-0-387-31439-6_14"
+      ]
+    },
+    {
+      "name": "url",
+      "inferredType": "string",
+      "nonMissingCount": 8405458,
+      "missingCount": 3953464,
+      "missingPercent": 31.99,
+      "uniqueCount": 8374481,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "db/reference/vision/vision2014.html#X14bd",
+        "db/reference/vision/vision2014.html#Singh14",
+        "db/reference/vision/vision2014.html#X14ii",
+        "db/reference/vision/vision2014.html#X14m",
+        "db/reference/vision/vision2014.html#Wong14"
+      ]
+    },
+    {
+      "name": "crossref",
+      "inferredType": "string",
+      "nonMissingCount": 3897289,
+      "missingCount": 8461633,
+      "missingPercent": 68.47,
+      "uniqueCount": 66126,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "reference/cn/2014",
+        "reference/crypt/2005",
+        "reference/crypt/2011",
+        "reference/vdt/2012",
+        "reference/mc/2018"
+      ]
+    },
+    {
+      "name": "cite",
+      "inferredType": "string",
+      "nonMissingCount": 8554,
+      "missingCount": 12350368,
+      "missingPercent": 99.93,
+      "uniqueCount": 8296,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "conf/stoc/BlumFM88|journals/siamcomp/BlumSMP91|conf/stoc/CanettiGGM00|conf/eurocrypt/Damgard00|conf/stoc/DworkNS98|journals/siamcomp/GoldwasserMR89|journals/jacm/GoldreichMW91|books/cu/Goldreich2001",
+        "conf/crypto/BarkanBK03|conf/sacrypt/BarkanB05|journals/joc/BarkanBK08|conf/indocrypt/BihamD00|conf/fse/BiryukovSW00|journals/tit/EkdahlJ03|conf/sacrypt/MaximovJB04|...|...",
+        "books/aw/Smith2008|...|conf/ches/Weingart00",
+        "series/synthesis/2008Jaeger|...|...|...|conf/smc/JiangLYT04|conf/ipps/Li08a|conf/cis/LiuH09",
+        "journals/pieee/SaltzerS75|conf/sp/ClarkW87|conf/sp/BrewerN89|journals/csur/Landwehr81|journals/sigops/Lampson74|journals/cacm/HarrisonRU76|journals/tods/GriffithsW76|journals/tods/Fagin78|journals/tocs/LampsonABW92|journals/cacm/DennisH66|journals/cacm/Fabry74|journals/csur/Linden76|...|...|journals/computer/SandhuCFY96|journals/computer/Sandhu93|...|...|journals/cacm/Denning76"
+      ]
+    },
+    {
+      "name": "note",
+      "inferredType": "string",
+      "nonMissingCount": 259007,
+      "missingCount": 12099915,
+      "missingPercent": 97.9,
+      "uniqueCount": 159500,
+      "uniqueCountMethod": "approximate",
+      "sampleValues": [
+        "Living reference work, snapshot April 2019",
+        "Diplomarbeit, Universität Trier, FB IV, DBIS/DBLP",
+        "base-search.net (ftubkarlsruhe:oai:EVASTAR-Karlsruhe.de:1000014868)",
+        "long version: ACM Trans. Database Syst. 9(1): 38-71(1984)",
+        "Volume 106 at Springer"
+      ]
+    },
+    {
+      "name": "cdrom",
+      "inferredType": "string",
+      "nonMissingCount": 12537,
+      "missingCount": 12346385,
+      "missingPercent": 99.9,
+      "uniqueCount": 12274,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "SIGIR1988/P117.pdf",
+        "SIGIR1979/P052.pdf",
+        "SIGIR1992/P011.pdf",
+        "SIGIR1999/P293.pdf",
+        "SIGIR1994/P173.pdf"
+      ]
+    },
+    {
+      "name": "publnr",
+      "inferredType": "string",
+      "nonMissingCount": 4684,
+      "missingCount": 12354238,
+      "missingPercent": 99.96,
+      "uniqueCount": 4684,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["40", "TR06-127", "TR11-058", "TR17-089", "TR14-120"]
+    },
+    {
+      "name": "address",
+      "inferredType": "string",
+      "nonMissingCount": 3,
+      "missingCount": 12358919,
+      "missingPercent": 100,
+      "uniqueCount": 1,
+      "uniqueCountMethod": "exact",
+      "sampleValues": ["New York"]
+    },
+    {
+      "name": "stream",
+      "inferredType": "string",
+      "nonMissingCount": 735035,
+      "missingCount": 11623887,
+      "missingPercent": 94.05,
+      "uniqueCount": 2350,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "streams/repo/ieeedataport",
+        "streams/repo/uhhfdr",
+        "streams/repo/zenodo",
+        "streams/repo/darus",
+        "streams/repo/drops"
+      ]
+    },
+    {
+      "name": "rel",
+      "inferredType": "string",
+      "nonMissingCount": 6434,
+      "missingCount": 12352488,
+      "missingPercent": 99.95,
+      "uniqueCount": 1815,
+      "uniqueCountMethod": "exact",
+      "sampleValues": [
+        "data/12/CarusB25b",
+        "data/12/Mohammed25b",
+        "data/11/Kern23f",
+        "data/12/RussoHAB20g",
+        "data/12/FielS10b"
+      ]
+    }
+  ]
+}

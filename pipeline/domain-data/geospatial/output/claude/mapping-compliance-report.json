@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-23T15:13:32.729Z",
+  "ontologyName": "GeoSPARQL Ontology",
+  "ontologyVersion": "1.1",
+  "complianceScore": 70,
+  "grade": "C",
+  "ontologyCompliant": true,
+  "totalColumns": 20,
+  "mappedColumns": 15,
+  "unmappedColumns": 5,
+  "coveragePercent": 75,
+  "entityCount": 2,
+  "attributeCount": 14,
+  "relationshipCount": 3,
+  "classesUsed": [
+    "http://www.opengis.net/ont/geosparql#Feature",
+    "http://www.opengis.net/ont/geosparql#Geometry"
+  ],
+  "propertiesUsed": [
+    "http://www.opengis.net/ont/geosparql#asWKT",
+    "http://www.opengis.net/ont/geosparql#coordinateDimension",
+    "http://www.w3.org/2000/01/rdf-schema#label",
+    "http://www.w3.org/2004/02/skos/core#altLabel",
+    "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+    "http://www.w3.org/2004/02/skos/core#notation",
+    "http://purl.org/dc/terms/type",
+    "http://purl.org/dc/terms/spatial",
+    "https://schema.org/population",
+    "https://schema.org/elevation",
+    "http://purl.org/dc/terms/modified",
+    "http://purl.org/dc/terms/temporal",
+    "http://purl.org/dc/terms/isPartOf",
+    "http://www.opengis.net/ont/geosparql#hasGeometry",
+    "http://www.opengis.net/ont/geosparql#sfWithin"
+  ],
+  "namespacesUsed": [
+    "geo: (http://www.opengis.net/ont/geosparql#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "schema: (https://schema.org/)"
+  ],
+  "customTermsDetected": [],
+  "warnings": [],
+  "recommendations": [
+    "Consider adding admin2Codes and admin3Codes supplementary files to enable finer-grained spatial containment relationships.",
+    "The 'cc2' column (alternate country codes) could model cross-border features via geo:sfIntersects if data quality improves.",
+    "For richer provenance, source_file could be mapped to prov:wasDerivedFrom in a future iteration.",
+    "Feature codes (feature_class + feature_code) could be modeled as skos:Concept instances in a separate concept scheme for richer classification.",
+    "Consider generating geo:asGeoJSON in addition to geo:asWKT for broader interoperability."
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 0,
+    "ontologyName": "Europeana Data Model (EDM) vocabulary",
+    "ontologyVersion": "5.2.4",
+    "allowedNamespaces": [
+      "http://metadata.net/harmony/abc#",
+      "http://www.w3.org/ns/adms#",
+      "http://www.cidoc-crm.org/rdfs/cidoc-crm#",
+      "http://www.cidoc-crm.org/cidoc-crm/",
+      "http://purl.org/dc/elements/1.1/",
+      "http://purl.org/dc/dcmitype/",
+      "http://purl.org/dc/terms/",
+      "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#",
+      "http://www.europeana.eu/schemas/edm/",
+      "http://xmlns.com/foaf/0.1/",
+      "http://purl.org/vocab/frbr/core#",
+      "http://iflastandards.info/ns/fr/frbr/frbroo/",
+      "http://pro.europeana.eu/",
+      "http://www.image.ece.ntua.gr/~ndroso/",
+      "http://www.openarchives.org/ore/terms/",
+      "http://www.w3.org/2002/07/owl#",
+      "http://www.ics.forth.gr/isl/people/",
+      "http://data.semanticweb.org/person/",
+      "http://www.ibi.hu-berlin.de/institut/personen/",
+      "http://www.w3.org/ns/radion#",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "http://www.w3.org/2000/01/rdf-schema#",
+      "https://schema.org/",
+      "http://schema.org/",
+      "http://www.w3.org/2004/02/skos/core#",
+      "http://www.image.ntua.gr/~tzouvaras/",
+      "http://purl.org/vocab/vann/",
+      "http://purl.org/vocommons/voaf#",
+      "http://www.w3.org/2003/01/geo/wgs84_pos#",
+      "http://europeanalabs.eu/wiki/",
+      "http://www.w3.org/2001/XMLSchema#"
+    ],
+    "totalColumns": 38,
+    "mappedColumns": 4,
+    "unmappedColumns": 34,
+    "warnings": []
+  },
+  "entityMappings": [
+    {
+      "columnName": "ConstituentID",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/Agent",
+      "confidence": 0.84,
+      "reasoning": "ConstituentID is a stable person/agent identifier",
+      "identifierColumn": "ConstituentID",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "ObjectID",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "confidence": 0.98,
+      "reasoning": "ObjectID strongly indicates the primary heritage object identifier; high-cardinality identifier-like column",
+      "identifierColumn": "ObjectID",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "URL",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.82,
+      "reasoning": "URL-like column fits WebResource identifiers",
+      "identifierColumn": "URL",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "ImageURL",
+      "ontologyClass": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.82,
+      "reasoning": "URL-like column fits WebResource identifiers",
+      "identifierColumn": "ImageURL",
+      "requiredProperties": [],
+      "compliant": true
+    }
+  ],
+  "attributeMappings": [],
+  "relationshipMappings": [
+    {
+      "columnName": "URL",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/isShownAt",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.9,
+      "reasoning": "public work URL behaves like the landing page / shown-at web resource",
+      "compliant": true
+    },
+    {
+      "columnName": "ImageURL",
+      "ontologyRelationship": "http://www.europeana.eu/schemas/edm/object",
+      "sourceEntity": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "targetEntity": "http://www.europeana.eu/schemas/edm/WebResource",
+      "confidence": 0.82,
+      "reasoning": "image URL behaves like the representative web resource for the object",
+      "compliant": true
+    }
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "Title",
+      "reason": "No valid class or property from ontology-structure.json matched with sufficient confidence.",
+      "suggestion": "Manual review required.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Artist",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "ArtistBio",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Nationality",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "BeginDate",
+      "reason": "Temporal value detected but no safe TimeSpan-centric mapping could be proven with current ontology terms.",
+      "suggestion": "Flag for review rather than attaching edm:begin/end to the wrong entity.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "EndDate",
+      "reason": "Temporal value detected but no safe TimeSpan-centric mapping could be proven with current ontology terms.",
+      "suggestion": "Flag for review rather than attaching edm:begin/end to the wrong entity.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Gender",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Date",
+      "reason": "Temporal value detected but no safe TimeSpan-centric mapping could be proven with current ontology terms.",
+      "suggestion": "Flag for review rather than attaching edm:begin/end to the wrong entity.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Medium",
+      "reason": "No valid class or property from ontology-structure.json matched with sufficient confidence.",
+      "suggestion": "Manual review required.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Dimensions",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "CreditLine",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "AccessionNumber",
+      "reason": "No valid class or property from ontology-structure.json matched with sufficient confidence.",
+      "suggestion": "Manual review required.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Classification",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Department",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "DateAcquired",
+      "reason": "Temporal value detected but no safe TimeSpan-centric mapping could be proven with current ontology terms.",
+      "suggestion": "Flag for review rather than attaching edm:begin/end to the wrong entity.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Cataloged",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "OnView",
+      "reason": "No valid class or property from ontology-structure.json matched with sufficient confidence.",
+      "suggestion": "Manual review required.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Circumference (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Depth (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Diameter (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Height (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Length (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Weight (kg)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Width (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Seat Height (cm)",
+      "reason": "Physical measurement column found, but the parsed EDM subset contains no compliant measurement property.",
+      "suggestion": "Keep unmapped unless measurement ontology terms are added to ontology-structure.json.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Duration (sec.)",
+      "reason": "Temporal value detected but no safe TimeSpan-centric mapping could be proven with current ontology terms.",
+      "suggestion": "Flag for review rather than attaching edm:begin/end to the wrong entity.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "DisplayName",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "ArtistBio_artists",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Nationality_artists",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Gender_artists",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "BeginDate_artists",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "EndDate_artists",
+      "reason": "EDM subset in ontology-structure.json does not expose a valid creator/label property for this column.",
+      "suggestion": "Review manually if the ontology parser should expose Dublin Core or SKOS labeling properties before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "Wiki QID",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    },
+    {
+      "columnName": "ULAN",
+      "reason": "Controlled-value column detected, but no valid ontology property in ontology-structure.json connects it safely.",
+      "suggestion": "Review after expanding available ontology properties or supplementary taxonomies.",
+      "severity": "info"
+    }
+  ],
+  "validationReport": {
+    "classesUsed": [
+      "http://www.europeana.eu/schemas/edm/Agent",
+      "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "http://www.europeana.eu/schemas/edm/WebResource"
+    ],
+    "propertiesUsed": [
+      "http://www.europeana.eu/schemas/edm/isShownAt",
+      "http://www.europeana.eu/schemas/edm/object"
+    ],
+    "namespacesUsed": [
+      "http://www.europeana.eu/schemas/edm/"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Keep unmapped columns under manual review rather than inventing ontology terms.",
+      "If creator/title/measurement mappings are required, extend ontology parsing so the needed properties appear in ontology-structure.json first.",
+      "No supplementary lookup files were available; load them in future runs if domain reference tables are added."
+    ]
+  }
+}

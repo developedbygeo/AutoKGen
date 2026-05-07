@@ -1,0 +1,51 @@
+{
+  "classesUsed": [
+    "fabio:AcademicProceedings",
+    "fabio:Book",
+    "fabio:Chapter",
+    "fabio:ConferencePaper",
+    "fabio:ConferenceProceedings",
+    "fabio:DataFile",
+    "fabio:DoctoralThesis",
+    "fabio:Expression",
+    "fabio:Journal",
+    "fabio:JournalArticle",
+    "fabio:MastersThesis",
+    "fabio:Series",
+    "fabio:WebContent",
+    "foaf:Organization",
+    "foaf:Person"
+  ],
+  "propertiesUsed": [
+    "dcterms:abstract",
+    "dcterms:creator",
+    "dcterms:identifier",
+    "dcterms:modified",
+    "dcterms:publisher",
+    "dcterms:title",
+    "fabio:hasPublicationYear",
+    "fabio:hasSequenceIdentifier",
+    "fabio:hasURL",
+    "frbr:partOf",
+    "frbr:relatedEndeavour",
+    "prism:isbn",
+    "prism:issueIdentifier",
+    "prism:pageRange",
+    "prism:publicationDate",
+    "prism:volume"
+  ],
+  "namespacesUsed": [
+    "dcterms",
+    "fabio",
+    "foaf",
+    "frbr",
+    "prism"
+  ],
+  "customTermsDetected": [],
+  "recommendations": [
+    "6 columns unmapped — review if any contain critical domain data",
+    "During graph generation, use record_type values to instantiate specific FaBiO subclasses",
+    "Authors/editors should be split on \"|\" delimiter to create individual Person entities",
+    "The ee column often contains DOI URLs — extract DOI identifiers using prism:doi during graph generation"
+  ]
+}

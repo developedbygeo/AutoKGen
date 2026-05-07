@@ -1,0 +1,476 @@
+{
+  "dataset": "dataset-merged.csv",
+  "totalRows": 12358922,
+  "totalColumns": 29,
+  "fileSizeBytes": 3133336343,
+  "columns": [
+    {
+      "name": "record_type",
+      "inferredType": "string",
+      "totalValues": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 9,
+      "sampleValues": [
+        "incollection",
+        "book",
+        "proceedings",
+        "mastersthesis",
+        "data"
+      ],
+      "avgLength": 7.6
+    },
+    {
+      "name": "key",
+      "inferredType": "string",
+      "totalValues": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "reference/vision/X14bd",
+        "reference/vision/Singh14",
+        "reference/vision/X14ii",
+        "reference/vision/X14m",
+        "reference/vision/Wong14"
+      ],
+      "avgLength": 21.5
+    },
+    {
+      "name": "mdate",
+      "inferredType": "date",
+      "totalValues": 12358922,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7264,
+      "sampleValues": [
+        "2017-07-12",
+        "2019-01-09",
+        "2018-11-02",
+        "2025-09-06",
+        "2020-03-11"
+      ],
+      "avgLength": 10
+    },
+    {
+      "name": "publtype",
+      "inferredType": "string",
+      "totalValues": 992951,
+      "missingCount": 11365971,
+      "missingPercent": 91.97,
+      "uniqueCount": 14,
+      "sampleValues": [
+        "encyclopedia",
+        "version",
+        "concept",
+        "informal",
+        "withdrawn"
+      ],
+      "avgLength": 8.3
+    },
+    {
+      "name": "title",
+      "inferredType": "string",
+      "totalValues": 12354945,
+      "missingCount": 3977,
+      "missingPercent": 0.03,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Curvedness.",
+        "Transparency and Translucency.",
+        "Surface Orientation Histogram (Discrete Version of EGI).",
+        "Appearance Scanning.",
+        "Image-Based Lighting."
+      ],
+      "avgLength": 56.6
+    },
+    {
+      "name": "authors",
+      "inferredType": "string",
+      "totalValues": 12243862,
+      "missingCount": 115060,
+      "missingPercent": 0.93,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Manish Singh 0001",
+        "Tien-Tsin Wong",
+        "Sylvia C. Pont",
+        "Daniel C. Alexander",
+        "Kazuhiro Fukui"
+      ],
+      "avgLength": 39.3
+    },
+    {
+      "name": "editors",
+      "inferredType": "string",
+      "totalValues": 49489,
+      "missingCount": 12309433,
+      "missingPercent": 99.6,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Katsushi Ikeuchi",
+        "Dieter Jaeger|Ranu Jung",
+        "Henk C. A. van Tilborg|Sushil Jajodia",
+        "Henk C. A. van Tilborg",
+        "Janglin Chen|Wayne Cranton|Mark Fihn"
+      ],
+      "avgLength": 52.6
+    },
+    {
+      "name": "year",
+      "inferredType": "integer",
+      "totalValues": 8341815,
+      "missingCount": 4017107,
+      "missingPercent": 32.5,
+      "uniqueCount": 91,
+      "sampleValues": [
+        "2014",
+        "2005",
+        "2011",
+        "2012",
+        "2018"
+      ],
+      "avgLength": 4,
+      "minNumeric": 1936,
+      "maxNumeric": 2026,
+      "meanNumeric": 2014.17
+    },
+    {
+      "name": "journal",
+      "inferredType": "string",
+      "totalValues": 4188985,
+      "missingCount": 8169937,
+      "missingPercent": 66.11,
+      "uniqueCount": 2061,
+      "sampleValues": [
+        "EAI Endorsed Trans. Ubiquitous Environ.",
+        "RLJ",
+        "SIGMOD Record",
+        "SIGMOD Rec.",
+        "World Wide Web"
+      ],
+      "avgLength": 17.1
+    },
+    {
+      "name": "booktitle",
+      "inferredType": "string",
+      "totalValues": 3962856,
+      "missingCount": 8396066,
+      "missingPercent": 67.94,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Computer Vision, A Reference Guide",
+        "Encyclopedia of Computational Neuroscience",
+        "Encyclopedia of Cryptography and Security",
+        "Encyclopedia of Cryptography and Security (2nd Ed.)",
+        "Handbook of Visual Display Technology"
+      ],
+      "avgLength": 8.3
+    },
+    {
+      "name": "pages",
+      "inferredType": "mixed",
+      "totalValues": 6893752,
+      "missingCount": 5465170,
+      "missingPercent": 44.22,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "159",
+        "815-819",
+        "781",
+        "36",
+        "387-390"
+      ],
+      "avgLength": 6.7
+    },
+    {
+      "name": "volume",
+      "inferredType": "mixed",
+      "totalValues": 4222501,
+      "missingCount": 8136421,
+      "missingPercent": 65.83,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "5233",
+        "11",
+        "3",
+        "2",
+        "1"
+      ],
+      "avgLength": 4.5
+    },
+    {
+      "name": "number",
+      "inferredType": "integer",
+      "totalValues": 2581130,
+      "missingCount": 9777792,
+      "missingPercent": 79.12,
+      "uniqueCount": 1280,
+      "sampleValues": [
+        "5",
+        "1",
+        "4",
+        "11",
+        "16"
+      ],
+      "avgLength": 1.3,
+      "minNumeric": 0,
+      "maxNumeric": 11045,
+      "meanNumeric": 8.7752
+    },
+    {
+      "name": "month",
+      "inferredType": "string",
+      "totalValues": 568952,
+      "missingCount": 11789970,
+      "missingPercent": 95.4,
+      "uniqueCount": 91,
+      "sampleValues": [
+        "November",
+        "May",
+        "September",
+        "July",
+        "June"
+      ],
+      "avgLength": 6.4
+    },
+    {
+      "name": "publisher",
+      "inferredType": "string",
+      "totalValues": 108745,
+      "missingCount": 12250177,
+      "missingPercent": 99.12,
+      "uniqueCount": 2450,
+      "sampleValues": [
+        "Springer",
+        "IGI Global",
+        "Taylor & Francis",
+        "CRC Press",
+        "Academic Press"
+      ],
+      "avgLength": 10.7
+    },
+    {
+      "name": "school",
+      "inferredType": "string",
+      "totalValues": 152775,
+      "missingCount": 12206147,
+      "missingPercent": 98.76,
+      "uniqueCount": 3434,
+      "sampleValues": [
+        "Diplomarbeit, LMU München, Informatik",
+        "Diplomarbeit, Universität Trier, FB VI, Physische Geographie",
+        "University of California at Santa Barbara, Department of Computer Science, CA, USA",
+        "University of Trier",
+        "Diplomarbeit, Universität Trier, FB IV, Informatik"
+      ],
+      "avgLength": 36.1
+    },
+    {
+      "name": "series",
+      "inferredType": "string",
+      "totalValues": 38832,
+      "missingCount": 12320090,
+      "missingPercent": 99.69,
+      "uniqueCount": 1814,
+      "sampleValues": [
+        "eXamen.press",
+        "Lecture Notes in Computer Science",
+        "Springer Reference Technik",
+        "Ambient Intelligence and Smart Environments",
+        "Springer Handbooks"
+      ],
+      "avgLength": 34.4
+    },
+    {
+      "name": "chapter",
+      "inferredType": "integer",
+      "totalValues": 2,
+      "missingCount": 12358920,
+      "missingPercent": 100,
+      "uniqueCount": 2,
+      "sampleValues": [
+        "21",
+        "27"
+      ],
+      "avgLength": 2,
+      "minNumeric": 21,
+      "maxNumeric": 27,
+      "meanNumeric": 24
+    },
+    {
+      "name": "isbn",
+      "inferredType": "string",
+      "totalValues": 81321,
+      "missingCount": 12277601,
+      "missingPercent": 99.34,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "978-0-387-30771-8|978-0-387-31439-6",
+        "978-1-4614-7320-6",
+        "978-1-4419-5905-8",
+        "978-0-387-23473-1",
+        "978-3-540-79566-7"
+      ],
+      "avgLength": 19.6
+    },
+    {
+      "name": "ee",
+      "inferredType": "string",
+      "totalValues": 8165346,
+      "missingCount": 4193576,
+      "missingPercent": 33.93,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "https://doi.org/10.1007/978-0-387-31439-6_100117",
+        "https://doi.org/10.1007/978-0-387-31439-6_559",
+        "https://doi.org/10.1007/978-0-387-31439-6_100229",
+        "https://doi.org/10.1007/978-0-387-31439-6_100189",
+        "https://doi.org/10.1007/978-0-387-31439-6_14"
+      ],
+      "avgLength": 52
+    },
+    {
+      "name": "url",
+      "inferredType": "string",
+      "totalValues": 8405458,
+      "missingCount": 3953464,
+      "missingPercent": 31.99,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "db/reference/vision/vision2014.html#X14bd",
+        "db/reference/vision/vision2014.html#Singh14",
+        "db/reference/vision/vision2014.html#X14ii",
+        "db/reference/vision/vision2014.html#X14m",
+        "db/reference/vision/vision2014.html#Wong14"
+      ],
+      "avgLength": 41.9
+    },
+    {
+      "name": "crossref",
+      "inferredType": "string",
+      "totalValues": 3897289,
+      "missingCount": 8461633,
+      "missingPercent": 68.47,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "reference/cn/2014",
+        "reference/crypt/2005",
+        "reference/crypt/2011",
+        "reference/vdt/2012",
+        "reference/mc/2018"
+      ],
+      "avgLength": 15.3
+    },
+    {
+      "name": "cite",
+      "inferredType": "string",
+      "totalValues": 8554,
+      "missingCount": 12350368,
+      "missingPercent": 99.93,
+      "uniqueCount": 8296,
+      "sampleValues": [
+        "conf/stoc/BlumFM88|journals/siamcomp/BlumSMP91|conf/stoc/CanettiGGM00|conf/eurocrypt/Damgard00|conf/stoc/DworkNS98|journals/siamcomp/GoldwasserMR89|journals/jacm/GoldreichMW91|books/cu/Goldreich2001",
+        "conf/crypto/BarkanBK03|conf/sacrypt/BarkanB05|journals/joc/BarkanBK08|conf/indocrypt/BihamD00|conf/fse/BiryukovSW00|journals/tit/EkdahlJ03|conf/sacrypt/MaximovJB04|...|...",
+        "books/aw/Smith2008|...|conf/ches/Weingart00",
+        "series/synthesis/2008Jaeger|...|...|...|conf/smc/JiangLYT04|conf/ipps/Li08a|conf/cis/LiuH09",
+        "journals/pieee/SaltzerS75|conf/sp/ClarkW87|conf/sp/BrewerN89|journals/csur/Landwehr81|journals/sigops/Lampson74|journals/cacm/HarrisonRU76|journals/tods/GriffithsW76|journals/tods/Fagin78|journals/tocs/LampsonABW92|journals/cacm/DennisH66|journals/cacm/Fabry74|journals/csur/Linden76|...|...|journals/computer/SandhuCFY96|journals/computer/Sandhu93|...|...|journals/cacm/Denning76"
+      ],
+      "avgLength": 328.2
+    },
+    {
+      "name": "note",
+      "inferredType": "string",
+      "totalValues": 259007,
+      "missingCount": 12099915,
+      "missingPercent": 97.9,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Living reference work, snapshot April 2019",
+        "Diplomarbeit, Universität Trier, FB IV, DBIS/DBLP",
+        "base-search.net (ftubkarlsruhe:oai:EVASTAR-Karlsruhe.de:1000014868)",
+        "long version: ACM Trans. Database Syst. 9(1): 38-71(1984)",
+        "Volume 106 at Springer"
+      ],
+      "avgLength": 72.9
+    },
+    {
+      "name": "cdrom",
+      "inferredType": "string",
+      "totalValues": 12537,
+      "missingCount": 12346385,
+      "missingPercent": 99.9,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "SIGIR1988/P117.pdf",
+        "SIGIR1979/P052.pdf",
+        "SIGIR1992/P011.pdf",
+        "SIGIR1999/P293.pdf",
+        "SIGIR1994/P173.pdf"
+      ],
+      "avgLength": 20.5
+    },
+    {
+      "name": "publnr",
+      "inferredType": "string",
+      "totalValues": 4684,
+      "missingCount": 12354238,
+      "missingPercent": 99.96,
+      "uniqueCount": 4684,
+      "sampleValues": [
+        "40",
+        "TR06-127",
+        "TR11-058",
+        "TR17-089",
+        "TR14-120"
+      ],
+      "avgLength": 8
+    },
+    {
+      "name": "address",
+      "inferredType": "string",
+      "totalValues": 3,
+      "missingCount": 12358919,
+      "missingPercent": 100,
+      "uniqueCount": 1,
+      "sampleValues": [
+        "New York"
+      ],
+      "avgLength": 8
+    },
+    {
+      "name": "stream",
+      "inferredType": "string",
+      "totalValues": 735035,
+      "missingCount": 11623887,
+      "missingPercent": 94.05,
+      "uniqueCount": 2350,
+      "sampleValues": [
+        "streams/repo/ieeedataport",
+        "streams/repo/uhhfdr",
+        "streams/repo/zenodo",
+        "streams/repo/darus",
+        "streams/repo/drops"
+      ],
+      "avgLength": 20.8
+    },
+    {
+      "name": "rel",
+      "inferredType": "string",
+      "totalValues": 6434,
+      "missingCount": 12352488,
+      "missingPercent": 99.95,
+      "uniqueCount": 1815,
+      "sampleValues": [
+        "data/12/CarusB25b",
+        "data/12/Mohammed25b",
+        "data/11/Kern23f",
+        "data/12/RussoHAB20g",
+        "data/12/FielS10b"
+      ],
+      "avgLength": 21.5
+    }
+  ],
+  "supplementaryFilesUsed": false,
+  "profilingTimeSec": 88.7
+}

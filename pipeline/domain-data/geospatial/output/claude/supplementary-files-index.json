@@ -1,0 +1,49 @@
+[
+  {
+    "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/admin1CodesASCII.txt",
+    "name": "admin1CodesASCII.txt",
+    "format": "txt",
+    "sizeBytes": 145822,
+    "description": "First-order administrative division codes (states/provinces) with names and GeoName IDs",
+    "columns": ["code", "name", "ascii_name", "geonameid"],
+    "rowCount": 3862
+  },
+  {
+    "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/countryInfo.txt",
+    "name": "countryInfo.txt",
+    "format": "txt",
+    "sizeBytes": 31668,
+    "description": "Country metadata including ISO codes, capitals, population, currencies, languages, and neighbors",
+    "columns": [
+      "ISO",
+      "ISO3",
+      "ISO-Numeric",
+      "fips",
+      "Country",
+      "Capital",
+      "Area(in sq km)",
+      "Population",
+      "Continent",
+      "tld",
+      "CurrencyCode",
+      "CurrencyName",
+      "Phone",
+      "Postal Code Format",
+      "Postal Code Regex",
+      "Languages",
+      "geonameid",
+      "neighbours",
+      "EquivalentFipsCode"
+    ],
+    "rowCount": 252
+  },
+  {
+    "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/featureCodes_en.txt",
+    "name": "featureCodes_en.txt",
+    "format": "txt",
+    "sizeBytes": 58642,
+    "description": "GeoNames feature code definitions with short and full descriptions",
+    "columns": ["feature_code", "short_description", "full_description"],
+    "rowCount": 685
+  }
+]

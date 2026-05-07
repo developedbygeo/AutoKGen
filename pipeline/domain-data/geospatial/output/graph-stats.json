@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "totalNodes": 1581327,
+    "totalRelationships": 2368553,
+    "avgDegree": 2.9957,
+    "density": 9.472e-7
+  },
+  "nodeStatistics": {
+    "byType": {
+      "Feature": 790717,
+      "Geometry": 790610
+    },
+    "withIssues": 0,
+    "compliant": 1581327
+  },
+  "relationshipStatistics": {
+    "byType": {
+      "hasGeometry": 790610,
+      "sfWithin": 1577943
+    },
+    "withIssues": 0,
+    "compliant": 2368553
+  },
+  "complianceMetrics": {
+    "overallScore": 70,
+    "validNodesPercent": 100,
+    "validRelationshipsPercent": 100,
+    "unmappedDataPercent": 25
+  },
+  "issues": []
+}

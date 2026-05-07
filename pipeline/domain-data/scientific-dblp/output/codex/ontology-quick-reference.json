@@ -1,0 +1,459 @@
+{
+  "ontology": {
+    "title": "FaBiO, the FRBR-aligned Bibliographic Ontology",
+    "version": "2.2",
+    "description": "The FRBR-aligned Bibliographic Ontology (FaBiO) is an ontology for describing entities that are published or potentially publishable (e.g., journal articles, conference papers, books), and that contain or are referred to by bibliographic references.\n\n**URL:** http://purl.org/spar/fabio\n\n**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)\n\n**Contributors:** [Paolo Ciccarese](https://orcid.org/0000-0002-5156-2703), [Tim Clark](https://orcid.org/0000-0003-4060-7360)\n\n**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)\n\n**Website:** http://www.sparontologies.net/ontologies/fabio\n\n**Cite as:** Peroni, S., Shotton, D. (2012). FaBiO and CiTO: ontologies for describing bibliographic resources and citations. In Journal of Web Semantics, 17: 33-43. https://doi.org/10.1016/j.websem.2012.08.001. Open Access at: http://speroni.web.cs.unibo.it/publications/peroni-2012-fabio-cito-ontologies.pdf"
+  },
+  "coreClasses": [
+    {
+      "class": "core:Endeavour",
+      "label": "Endeavour",
+      "description": "",
+      "connectedBy": [
+        "fabio:hasCharacterCount",
+        "fabio:hasCopyrightYear",
+        "fabio:hasElectronicArticleIdentifier",
+        "fabio:hasHandle",
+        "fabio:hasNationalLibraryOfMedicineJournalId",
+        "fabio:hasPageCount",
+        "fabio:hasPlaceOfPublication",
+        "fabio:hasPubMedCentralId",
+        "fabio:hasPubMedId",
+        "fabio:hasSequenceIdentifier",
+        "fabio:hasShortTitle",
+        "fabio:hasSICI"
+      ]
+    },
+    {
+      "class": "core:Item",
+      "label": "Item",
+      "description": "",
+      "connectedBy": [
+        "fabio:hasPortrayal",
+        "fabio:hasRepresentation",
+        "fabio:isPortrayalOf",
+        "fabio:isRepresentationOf"
+      ]
+    },
+    {
+      "class": "core:Work",
+      "label": "Work",
+      "description": "",
+      "connectedBy": [
+        "fabio:hasManifestation",
+        "fabio:hasPortrayal",
+        "fabio:isManifestationOf",
+        "fabio:isPortrayalOf"
+      ]
+    },
+    {
+      "class": "fabio:Item",
+      "label": "item",
+      "description": "A subclass of FRBR item, restricted to exemplars of fabio:Manifestations.  An example of a fabio:Item is a printed copy of a journal article on your desk, or a PDF file of that article that you purchased from a publisher and that now resides in digital form on your computer hard drive.",
+      "connectedBy": [
+        "fabio:hasAccessDate",
+        "fabio:hasDepositDate",
+        "fabio:isStoredOn",
+        "fabio:stores"
+      ]
+    },
+    {
+      "class": "core:Expression",
+      "label": "Expression",
+      "description": "",
+      "connectedBy": [
+        "fabio:hasRepresentation",
+        "fabio:isRepresentationOf"
+      ]
+    },
+    {
+      "class": "core:Manifestation",
+      "label": "Manifestation",
+      "description": "",
+      "connectedBy": [
+        "fabio:hasManifestation",
+        "fabio:isManifestationOf"
+      ]
+    },
+    {
+      "class": "fabio:StorageMedium",
+      "label": "storage medium",
+      "description": "A device for recording information or storing data.",
+      "connectedBy": [
+        "fabio:isStoredOn",
+        "fabio:stores"
+      ]
+    },
+    {
+      "class": "skos:Concept",
+      "label": "concept",
+      "description": "A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive.\n\nThe notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.\n\nNote that, because SKOS is designed to be a vehicle for representing semi-formal KOS, such as thesauri and classification schemes, a certain amount of flexibility has been built in to the formal definition of this class.",
+      "connectedBy": [
+        "fabio:isSchemeOf",
+        "skos:inScheme"
+      ]
+    },
+    {
+      "class": "skos:ConceptScheme",
+      "label": "concept scheme",
+      "description": "A SKOS concept scheme can be viewed as an aggregation of one or more SKOS concepts. Semantic relationships (links) between those concepts may also be viewed as part of a concept scheme. This definition is, however, meant to be suggestive rather than restrictive, and there is some flexibility in the formal data model stated below.\n\nThe notion of a concept scheme is useful when dealing with data from an unknown source, and when dealing with data that describes two or more different knowledge organization systems.",
+      "connectedBy": [
+        "fabio:isSchemeOf",
+        "skos:inScheme"
+      ]
+    },
+    {
+      "class": "fabio:AcademicProceedings",
+      "label": "academic proceedings",
+      "description": "A document containing the programme and collected papers, or their abstracts, presented at an academic meeting.",
+      "connectedBy": []
+    },
+    {
+      "class": "fabio:AnalogManifestation",
+      "label": "analog manifestation",
+      "description": "A manifestation in an analog form.",
+      "connectedBy": []
+    },
+    {
+      "class": "fabio:Announcement",
+      "label": "announcement",
+      "description": "A formal statement about something.",
+      "connectedBy": []
+    },
+    {
+      "class": "fabio:Anthology",
+      "label": "anthology",
+      "description": "A collection of selected literary or scholastics works, for example poems, short stories, plays or research papers.",
+      "connectedBy": []
+    },
+    {
+      "class": "fabio:Article",
+      "label": "article",
+      "description": "The realization of a piece of writing on a particular topic, usually published within a periodical publication (e.g. journal, magazine and newspaper).",
+      "connectedBy": []
+    },
+    {
+      "class": "fabio:ArtisticWork",
+      "label": "artistic work",
+      "description": "It describes any work regarded as art in its widest sense, including works from literature and music, visual art, etc.",
+      "connectedBy": []
+    }
+  ],
+  "keyRelationships": [
+    {
+      "property": "fabio:hasDiscipline",
+      "domain": [],
+      "range": [
+        "fabio:SubjectDiscipline"
+      ]
+    },
+    {
+      "property": "fabio:hasManifestation",
+      "domain": [
+        "core:Work"
+      ],
+      "range": [
+        "core:Manifestation"
+      ]
+    },
+    {
+      "property": "fabio:hasPlaceOfPublication",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": [
+        "core:Place"
+      ]
+    },
+    {
+      "property": "fabio:hasPortrayal",
+      "domain": [
+        "core:Work"
+      ],
+      "range": [
+        "core:Item"
+      ]
+    },
+    {
+      "property": "fabio:hasRepresentation",
+      "domain": [
+        "core:Expression"
+      ],
+      "range": [
+        "core:Item"
+      ]
+    },
+    {
+      "property": "fabio:hasSubjectTerm",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": [
+        "fabio:SubjectTerm"
+      ]
+    },
+    {
+      "property": "fabio:isDisciplineOf",
+      "domain": [
+        "fabio:SubjectDiscipline"
+      ],
+      "range": []
+    },
+    {
+      "property": "fabio:isManifestationOf",
+      "domain": [
+        "core:Manifestation"
+      ],
+      "range": [
+        "core:Work"
+      ]
+    },
+    {
+      "property": "fabio:isPortrayalOf",
+      "domain": [
+        "core:Item"
+      ],
+      "range": [
+        "core:Work"
+      ]
+    },
+    {
+      "property": "fabio:isRepresentationOf",
+      "domain": [
+        "core:Item"
+      ],
+      "range": [
+        "core:Expression"
+      ]
+    },
+    {
+      "property": "fabio:isSchemeOf",
+      "domain": [
+        "skos:ConceptScheme"
+      ],
+      "range": [
+        "skos:Concept"
+      ]
+    },
+    {
+      "property": "fabio:isStoredOn",
+      "domain": [
+        "fabio:Item"
+      ],
+      "range": [
+        "fabio:StorageMedium"
+      ]
+    },
+    {
+      "property": "fabio:stores",
+      "domain": [
+        "fabio:StorageMedium"
+      ],
+      "range": [
+        "fabio:Item"
+      ]
+    },
+    {
+      "property": "skos:inScheme",
+      "domain": [
+        "skos:Concept"
+      ],
+      "range": [
+        "skos:ConceptScheme"
+      ]
+    }
+  ],
+  "keyDataProperties": [
+    {
+      "property": "ns1:doi",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:edition",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:eIssn",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:endingPage",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:isbn",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:issn",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:issueIdentifier",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:keyword",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:pageRange",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:publicationDate",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:startingPage",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:versionIdentifier",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:volume",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "ns1:wordCount",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "property": "fabio:hasAccessDate",
+      "domain": [
+        "fabio:Item"
+      ],
+      "range": "xsd:dateTime"
+    },
+    {
+      "property": "fabio:hasCharacterCount",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "property": "fabio:hasCopyrightYear",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:gYear"
+    },
+    {
+      "property": "fabio:hasDepositDate",
+      "domain": [
+        "fabio:Item"
+      ],
+      "range": "xsd:dateTime"
+    },
+    {
+      "property": "fabio:hasElectronicArticleIdentifier",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "fabio:hasHandle",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "fabio:hasNationalLibraryOfMedicineJournalId",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "fabio:hasPageCount",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "property": "fabio:hasPubMedCentralId",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "fabio:hasPubMedId",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    },
+    {
+      "property": "fabio:hasSequenceIdentifier",
+      "domain": [
+        "core:Endeavour"
+      ],
+      "range": "xsd:string"
+    }
+  ],
+  "namespaces": [
+    "http://prismstandard.org/namespaces/basic/2.0/",
+    "http://purl.org/dc/elements/1.1/",
+    "http://purl.org/dc/terms/",
+    "http://purl.org/spar/fabio/",
+    "http://purl.org/vocab/frbr/core#",
+    "http://purl.org/vocab/vann/",
+    "http://schema.org/",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "http://www.w3.org/2000/01/rdf-schema#",
+    "http://www.w3.org/2001/XMLSchema#",
+    "http://www.w3.org/2002/07/owl#",
+    "http://www.w3.org/2004/02/skos/core#",
+    "http://www.w3.org/ns/shacl#",
+    "https://schema.org/"
+  ]
+}

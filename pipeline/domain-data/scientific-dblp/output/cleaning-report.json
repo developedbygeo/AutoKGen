@@ -1,0 +1,195 @@
+{
+  "originalRows": 12358922,
+  "cleanedRows": 12358922,
+  "rowsRemoved": 0,
+  "duplicatesRemoved": 0,
+  "issues": [
+    {
+      "type": "missing_title",
+      "count": 3977,
+      "severity": "warning"
+    },
+    {
+      "type": "article_missing_journal",
+      "count": 5,
+      "severity": "info"
+    },
+    {
+      "type": "coercion_failed:cdrom",
+      "count": 1,
+      "severity": "warning"
+    }
+  ],
+  "typeCoercions": [
+    {
+      "column": "ee",
+      "targetType": "xsd:anyURI",
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "column": "cdrom",
+      "targetType": "xsd:anyURI",
+      "successCount": 0,
+      "failCount": 1
+    }
+  ],
+  "columnSummary": {
+    "authors": {
+      "nullsBefore": 115060,
+      "nullsAfter": 115060,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "editors": {
+      "nullsBefore": 12309433,
+      "nullsAfter": 12309433,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "journal": {
+      "nullsBefore": 8169937,
+      "nullsAfter": 8169937,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "volume": {
+      "nullsBefore": 8136421,
+      "nullsAfter": 8136421,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "number": {
+      "nullsBefore": 9777792,
+      "nullsAfter": 9777792,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "month": {
+      "nullsBefore": 11789970,
+      "nullsAfter": 11789970,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "publisher": {
+      "nullsBefore": 12250177,
+      "nullsAfter": 12250177,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "school": {
+      "nullsBefore": 12206174,
+      "nullsAfter": 12206174,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "series": {
+      "nullsBefore": 12320090,
+      "nullsAfter": 12320090,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "chapter": {
+      "nullsBefore": 12358920,
+      "nullsAfter": 12358920,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "isbn": {
+      "nullsBefore": 12277601,
+      "nullsAfter": 12277601,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "crossref": {
+      "nullsBefore": 8461633,
+      "nullsAfter": 8461633,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "cite": {
+      "nullsBefore": 12350368,
+      "nullsAfter": 12350368,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "note": {
+      "nullsBefore": 12099915,
+      "nullsAfter": 12099915,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "cdrom": {
+      "nullsBefore": 12346385,
+      "nullsAfter": 12346386,
+      "trimmed": 0,
+      "coerced": 1
+    },
+    "publnr": {
+      "nullsBefore": 12354238,
+      "nullsAfter": 12354238,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "address": {
+      "nullsBefore": 12358919,
+      "nullsAfter": 12358919,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "stream": {
+      "nullsBefore": 11623887,
+      "nullsAfter": 11623887,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "rel": {
+      "nullsBefore": 12352488,
+      "nullsAfter": 12352488,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "publtype": {
+      "nullsBefore": 11365971,
+      "nullsAfter": 11365971,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "pages": {
+      "nullsBefore": 5465170,
+      "nullsAfter": 5465170,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "booktitle": {
+      "nullsBefore": 8396066,
+      "nullsAfter": 8396066,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ee": {
+      "nullsBefore": 4193576,
+      "nullsAfter": 4193576,
+      "trimmed": 0,
+      "coerced": 1
+    },
+    "url": {
+      "nullsBefore": 3953464,
+      "nullsAfter": 3953464,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "title": {
+      "nullsBefore": 3977,
+      "nullsAfter": 3977,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "year": {
+      "nullsBefore": 4017107,
+      "nullsAfter": 4017107,
+      "trimmed": 0,
+      "coerced": 0
+    }
+  }
+}

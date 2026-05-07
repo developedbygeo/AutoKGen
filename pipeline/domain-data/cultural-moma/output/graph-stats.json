@@ -1,0 +1,51 @@
+{
+  "summary": {
+    "totalNodes": 369356,
+    "totalRelationships": 960593,
+    "avgDegree": 5.2014,
+    "density": 0.0000070413
+  },
+  "nodeStatistics": {
+    "byType": {
+      "http://www.europeana.eu/schemas/edm/ProvidedCHO": 157457,
+      "http://www.europeana.eu/schemas/edm/Agent": 14095,
+      "http://www.europeana.eu/schemas/edm/Place": 125,
+      "http://www.europeana.eu/schemas/edm/TimeSpan": 7269,
+      "http://www.w3.org/2004/02/skos/core#Concept": 45,
+      "http://www.europeana.eu/schemas/edm/WebResource": 190365
+    },
+    "withIssues": 0,
+    "compliant": 369356
+  },
+  "relationshipStatistics": {
+    "byType": {
+      "http://purl.org/dc/elements/1.1/creator": 156195,
+      "http://www.europeana.eu/schemas/edm/hasType": 157457,
+      "http://purl.org/dc/elements/1.1/subject": 157457,
+      "http://www.europeana.eu/schemas/edm/isShownAt": 100094,
+      "http://www.europeana.eu/schemas/edm/isShownBy": 90881,
+      "http://www.europeana.eu/schemas/edm/hasMet": 143065,
+      "http://purl.org/dc/terms/temporal": 155444
+    },
+    "withIssues": 0,
+    "compliant": 960593
+  },
+  "complianceMetrics": {
+    "overallScore": 95,
+    "validNodesPercent": 100,
+    "validRelationshipsPercent": 100,
+    "unmappedDataPercent": 0
+  },
+  "issues": [
+    {
+      "type": "invalid-property",
+      "severity": "warning",
+      "count": 332139,
+      "examples": [
+        "Property http://purl.org/dc/elements/1.1/title not found in ontology",
+        "Property http://purl.org/dc/elements/1.1/identifier not found in ontology",
+        "Property http://www.w3.org/2004/02/skos/core#prefLabel not found in ontology"
+      ]
+    }
+  ]
+}

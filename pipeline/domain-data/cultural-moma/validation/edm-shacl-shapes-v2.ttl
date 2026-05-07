@@ -1,0 +1,393 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix neo4j: <neo4j://graph.schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#
+# EDM SHACL Shapes for MoMA Cultural Heritage Knowledge Graph
+# Grounded in the official EDM OWL Ontology (v5.2.4) and EDM Mapping Guidelines
+#
+# Sources:
+#   - EDM OWL: http://www.europeana.eu/schemas/edm/ (edm.owl v5.2.4)
+#   - EDM Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/987791389
+#   - ProvidedCHO properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106294284
+#   - Agent properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106195985
+#   - Place properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2105901079
+#   - TimeSpan properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106261527
+#   - Concept properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106032167
+#   - WebResource properties: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106392591
+#
+# Property Mapping (Neo4j property → EDM/DC/SKOS URI):
+#
+#   ProvidedCHO:
+#     Title                      → dc:title              (MANDATORY: dc:title OR dc:description required)
+#     format_Medium              → dcterms:medium         (recommended, ref: dc:format in EDM)
+#     format_Dimensions          → dcterms:extent         (optional)
+#     format_Height_cm           → dcterms:extent         (optional, numeric dimension)
+#     format_Width_cm            → dcterms:extent         (optional, numeric dimension)
+#     provenance_CreditLine      → dcterms:provenance     (optional)
+#     provenance_DateAcquired    → dcterms:provenance     (optional)
+#     identifier_AccessionNumber → dc:identifier          (optional, cardinality 0..n)
+#     type_Cataloged             → (internal/pipeline metadata, no direct EDM mapping)
+#     objectId                   → (internal identifier)
+#     CREATOR                    → dc:creator             (recommended, range: edm:Agent, OWL: subPropertyOf edm:hasMet)
+#     HASTYPE                    → edm:hasType            (optional, range: edm:NonInformationResource, OWL domain: edm:ProvidedCHO)
+#     SUBJECT                    → dc:subject             (MANDATORY: dc:subject OR dc:type OR dcterms:spatial OR dcterms:temporal required)
+#     TEMPORAL                   → dcterms:temporal       (MANDATORY group: see above)
+#     ISSHOWNAT                  → edm:isShownAt          (OWL range: edm:WebResource, subPropertyOf edm:hasView)
+#     ISSHOWNBY                  → edm:isShownBy          (OWL range: edm:WebResource, subPropertyOf edm:hasView)
+#
+#   Agent:
+#     prefLabel_DisplayName      → skos:prefLabel         (recommended, cardinality 0..1 per language)
+#     description_ArtistBio      → rdaGr2:biographicalInformation (optional, cardinality 0..n)
+#     description_Gender_artists → rdaGr2:gender          (optional, Person only, cardinality 0..1)
+#     BeginDate_artists          → rdaGr2:dateOfBirth     (recommended for Person, cardinality 0..1)
+#     EndDate_artists            → rdaGr2:dateOfDeath     (optional for Person, cardinality 0..1)
+#     identifier_ULAN            → dc:identifier          (optional, cardinality 0..n)
+#     identifier_Wiki_QID        → owl:sameAs             (optional, cardinality 0..n)
+#     constituentId              → (internal identifier)
+#     HASMET                     → edm:hasMet             (optional, OWL: rdf:Property, range unspecified but used with Place here)
+#
+#   Concept:
+#     prefLabel                  → skos:prefLabel         (recommended, cardinality 0..1 per language)
+#     category                   → (pipeline metadata, could map to skos:broader or skos:inScheme)
+#
+#   TimeSpan:
+#     label                      → skos:prefLabel         (recommended, cardinality 0..1 per language)
+#     begin                      → edm:begin              (recommended, OWL: DatatypeProperty, domain: Agent|TimeSpan)
+#     end                        → edm:end                (recommended, OWL: DatatypeProperty, domain: Agent|TimeSpan)
+#
+#   Place:
+#     name                       → skos:prefLabel         (recommended, cardinality 0..1 per language)
+#
+#   WebResource:
+#     resourceUrl                → rdf:about / edm:isShownBy target (the URI of the resource itself)
+#
+
+
+# ============================================================
+# ProvidedCHO Shape (edm:ProvidedCHO)
+# OWL: owl:Class edm:ProvidedCHO, range of edm:aggregatedCHO
+# Mapping Guidelines: mandatory = dc:title OR dc:description;
+#   dc:subject OR dc:type OR dcterms:spatial OR dcterms:temporal
+# ============================================================
+
+neo4j:ProvidedCHOShape a sh:NodeShape ;
+  sh:targetClass neo4j:ProvidedCHO ;
+
+  # dc:title — MANDATORY (Guidelines: "dc:title should be present; if no dc:title, 
+  # dc:description acceptable instead". Cardinality: 0..n)
+  # Since our dataset has no dc:description, Title is effectively mandatory.
+  sh:property [
+    sh:path neo4j:Title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "EDM Violation: ProvidedCHO must have dc:title (or dc:description). Source: EDM Mapping Guidelines, edm:ProvidedCHO, dc:title" ;
+  ] ;
+
+  # dc:identifier — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:identifier_AccessionNumber ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dc:identifier (AccessionNumber) should be single-valued per identifier scheme. Source: EDM Mapping Guidelines, dc:identifier" ;
+  ] ;
+
+  # dcterms:medium / dc:format — Recommended (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:format_Medium ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dcterms:medium (format_Medium) is recommended. Source: EDM Mapping Guidelines, dcterms:medium" ;
+  ] ;
+
+  # dcterms:extent (Dimensions) — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:format_Dimensions ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dcterms:extent (Dimensions). Source: EDM Mapping Guidelines, dcterms:extent" ;
+  ] ;
+
+  # dcterms:provenance (CreditLine) — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:provenance_CreditLine ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dcterms:provenance (CreditLine). Source: EDM Mapping Guidelines, dcterms:provenance" ;
+  ] ;
+
+  # dcterms:provenance (DateAcquired) — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:provenance_DateAcquired ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dcterms:provenance (DateAcquired). Source: EDM Mapping Guidelines, dcterms:provenance" ;
+  ] ;
+
+  # dc:creator (CREATOR relationship) — Recommended
+  # OWL: dc:creator is rdfs:subPropertyOf edm:hasMet. Cardinality: 0..n.
+  # Range: literal or ref; in our graph it points to Agent nodes.
+  sh:property [
+    sh:path neo4j:CREATOR ;
+    sh:class neo4j:Agent ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: dc:creator (CREATOR) should point to an edm:Agent. Source: OWL edm:hasMet super-property; Mapping Guidelines dc:creator" ;
+  ] ;
+
+  # edm:hasType (HASTYPE relationship) — Optional
+  # OWL: domain edm:ProvidedCHO, range edm:NonInformationResource. Cardinality: 0..n.
+  # In our graph, Concept is subClassOf edm:NonInformationResource (via skos:Concept).
+  sh:property [
+    sh:path neo4j:HASTYPE ;
+    sh:class neo4j:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: edm:hasType (HASTYPE) must point to skos:Concept (edm:NonInformationResource). Source: OWL edm:hasType range; Mapping Guidelines edm:hasType" ;
+  ] ;
+
+  # dc:subject (SUBJECT relationship) — MANDATORY group
+  # Guidelines: "One of dc:subject or dc:type or dcterms:spatial or dcterms:temporal must be provided"
+  # OWL: dc:subject is rdfs:subPropertyOf edm:isRelatedTo. Cardinality: 0..n.
+  sh:property [
+    sh:path neo4j:SUBJECT ;
+    sh:class neo4j:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: dc:subject (SUBJECT) should point to skos:Concept. Source: OWL dc:subject subPropertyOf edm:isRelatedTo; Mapping Guidelines dc:subject" ;
+  ] ;
+
+  # dcterms:temporal (TEMPORAL relationship) — MANDATORY group
+  # Guidelines: part of the mandatory group with dc:subject/dc:type/dcterms:spatial.
+  # Cardinality: 0..n. Value: literal or ref to TimeSpan.
+  sh:property [
+    sh:path neo4j:TEMPORAL ;
+    sh:class neo4j:TimeSpan ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: dcterms:temporal (TEMPORAL) must point to edm:TimeSpan. Source: OWL edm:TimeSpan class; Mapping Guidelines dcterms:temporal" ;
+  ] ;
+
+  # edm:isShownAt (ISSHOWNAT relationship) — part of ore:Aggregation in strict EDM,
+  # but mapped here from ProvidedCHO for our graph structure.
+  # OWL: range edm:WebResource, subPropertyOf edm:hasView. Cardinality: 0..1.
+  sh:property [
+    sh:path neo4j:ISSHOWNAT ;
+    sh:class neo4j:WebResource ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: edm:isShownAt (ISSHOWNAT) must point to edm:WebResource, max 1. Source: OWL edm:isShownAt range; Mapping Guidelines ore:Aggregation/edm:isShownAt" ;
+  ] ;
+
+  # edm:isShownBy (ISSHOWNBY relationship) — part of ore:Aggregation in strict EDM.
+  # OWL: range edm:WebResource, subPropertyOf edm:hasView. Cardinality: 0..1.
+  sh:property [
+    sh:path neo4j:ISSHOWNBY ;
+    sh:class neo4j:WebResource ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: edm:isShownBy (ISSHOWNBY) must point to edm:WebResource, max 1. Source: OWL edm:isShownBy range; Mapping Guidelines ore:Aggregation/edm:isShownBy" ;
+  ] .
+
+
+# ============================================================
+# Agent Shape (edm:Agent)
+# OWL: owl:Class edm:Agent, subClassOf edm:NonInformationResource
+# Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106195985
+# ============================================================
+
+neo4j:AgentShape a sh:NodeShape ;
+  sh:targetClass neo4j:Agent ;
+
+  # skos:prefLabel — Recommended (Cardinality: 0..1 per language tag)
+  # Guidelines: "At least one skos:prefLabel should be provided"
+  sh:property [
+    sh:path neo4j:prefLabel_DisplayName ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: Agent should have skos:prefLabel (prefLabel_DisplayName). Source: EDM Mapping Guidelines, edm:Agent, skos:prefLabel" ;
+  ] ;
+
+  # rdaGr2:biographicalInformation — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:description_ArtistBio_artists ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: rdaGr2:biographicalInformation. Source: EDM Mapping Guidelines, edm:Agent" ;
+  ] ;
+
+  # rdaGr2:gender — Optional, Person only (Cardinality: 0..1)
+  sh:property [
+    sh:path neo4j:description_Gender_artists ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: rdaGr2:gender, max 1. Source: EDM Mapping Guidelines, edm:Agent, rdaGr2:gender" ;
+  ] ;
+
+  # rdaGr2:dateOfBirth — Recommended for Person (Cardinality: 0..1)
+  # Also expressible via edm:begin (OWL: domain Agent|TimeSpan)
+  sh:property [
+    sh:path neo4j:BeginDate_artists ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: rdaGr2:dateOfBirth / edm:begin (BeginDate_artists), max 1. Source: OWL edm:begin domain Agent|TimeSpan; Mapping Guidelines rdaGr2:dateOfBirth" ;
+  ] ;
+
+  # rdaGr2:dateOfDeath — Optional for Person (Cardinality: 0..1)
+  # Also expressible via edm:end (OWL: domain Agent|TimeSpan)
+  sh:property [
+    sh:path neo4j:EndDate_artists ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: rdaGr2:dateOfDeath / edm:end (EndDate_artists), max 1. Source: OWL edm:end domain Agent|TimeSpan; Mapping Guidelines rdaGr2:dateOfDeath" ;
+  ] ;
+
+  # dc:identifier (ULAN) — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:identifier_ULAN ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: dc:identifier (ULAN). Source: EDM Mapping Guidelines, edm:Agent, dc:identifier" ;
+  ] ;
+
+  # owl:sameAs (Wikidata QID) — Optional (Cardinality: 0..n)
+  sh:property [
+    sh:path neo4j:identifier_Wiki_QID ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: owl:sameAs (Wiki_QID). Source: EDM Mapping Guidelines, edm:Agent, owl:sameAs" ;
+  ] ;
+
+  # edm:hasMet (HASMET relationship) — Optional (Cardinality: 0..n)
+  # OWL: rdf:Property edm:hasMet, subPropertyOf dc:relation. No range restriction in OWL.
+  # In our graph this points to Place nodes.
+  sh:property [
+    sh:path neo4j:HASMET ;
+    sh:class neo4j:Place ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: edm:hasMet (HASMET) points to edm:Place. Source: OWL edm:hasMet; Mapping Guidelines edm:Agent, edm:hasMet" ;
+  ] .
+
+
+# ============================================================
+# Concept Shape (skos:Concept)
+# OWL: skos:Concept, subClassOf edm:NonInformationResource
+# Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106032167
+# ============================================================
+
+neo4j:ConceptShape a sh:NodeShape ;
+  sh:targetClass neo4j:Concept ;
+
+  # skos:prefLabel — Recommended (Cardinality: 0..1 per language)
+  # Guidelines: "at least one skos:prefLabel should be provided"
+  sh:property [
+    sh:path neo4j:prefLabel ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: Concept should have skos:prefLabel. Source: EDM Mapping Guidelines, skos:Concept, skos:prefLabel" ;
+  ] ;
+
+  # category — pipeline metadata (could map to skos:inScheme or skos:broader)
+  sh:property [
+    sh:path neo4j:category ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Info ;
+    sh:message "EDM Info: category (maps to skos:inScheme or skos:broader)" ;
+  ] .
+
+
+# ============================================================
+# TimeSpan Shape (edm:TimeSpan)
+# OWL: owl:Class edm:TimeSpan, subClassOf edm:NonInformationResource, dcterms:PeriodOfTime
+# Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106261527
+# ============================================================
+
+neo4j:TimeSpanShape a sh:NodeShape ;
+  sh:targetClass neo4j:TimeSpan ;
+
+  # skos:prefLabel — Recommended (Cardinality: 0..1 per language)
+  sh:property [
+    sh:path neo4j:label ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: TimeSpan should have skos:prefLabel (label). Source: EDM Mapping Guidelines, edm:TimeSpan, skos:prefLabel" ;
+  ] ;
+
+  # edm:begin — Recommended (Cardinality: 0..1)
+  # OWL: DatatypeProperty edm:begin, domain union(Agent, TimeSpan)
+  sh:property [
+    sh:path neo4j:begin ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: TimeSpan should have edm:begin (begin), max 1. Source: OWL edm:begin; Mapping Guidelines edm:TimeSpan, edm:begin" ;
+  ] ;
+
+  # edm:end — Recommended (Cardinality: 0..1)
+  # OWL: DatatypeProperty edm:end, domain union(Agent, TimeSpan)
+  sh:property [
+    sh:path neo4j:end ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: TimeSpan should have edm:end (end), max 1. Source: OWL edm:end; Mapping Guidelines edm:TimeSpan, edm:end" ;
+  ] .
+
+
+# ============================================================
+# Place Shape (edm:Place)
+# OWL: owl:Class edm:Place, subClassOf edm:NonInformationResource
+# Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/2105901079
+# ============================================================
+
+neo4j:PlaceShape a sh:NodeShape ;
+  sh:targetClass neo4j:Place ;
+
+  # skos:prefLabel — Recommended (Cardinality: 0..1 per language)
+  sh:property [
+    sh:path neo4j:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Warning ;
+    sh:message "EDM Warning: Place should have skos:prefLabel (name). Source: EDM Mapping Guidelines, edm:Place, skos:prefLabel" ;
+  ] .
+
+
+# ============================================================
+# WebResource Shape (edm:WebResource)
+# OWL: owl:Class edm:WebResource, subClassOf edm:InformationResource
+# Mapping Guidelines: https://europeana.atlassian.net/wiki/spaces/EF/pages/2106392591
+# ============================================================
+
+neo4j:WebResourceShape a sh:NodeShape ;
+  sh:targetClass neo4j:WebResource ;
+
+  # rdf:about (resourceUrl) — the URI of the web resource itself
+  # In EDM XML, this is the rdf:about attribute on edm:WebResource.
+  # Every WebResource must have an identifier.
+  sh:property [
+    sh:path neo4j:resourceUrl ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:severity sh:Violation ;
+    sh:message "EDM Violation: WebResource must have a resource URL (rdf:about). Source: OWL edm:WebResource; Mapping Guidelines edm:WebResource" ;
+  ] .

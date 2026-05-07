@@ -1,0 +1,489 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 82,
+    "ontologyName": "FaBiO, the FRBR-aligned Bibliographic Ontology",
+    "ontologyVersion": "2.2",
+    "allowedNamespaces": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "http://www.w3.org/2000/01/rdf-schema#",
+      "http://www.w3.org/2002/07/owl#",
+      "http://www.w3.org/2001/XMLSchema#",
+      "http://www.w3.org/2004/02/skos/core#",
+      "http://purl.org/dc/elements/1.1/",
+      "http://purl.org/dc/terms/",
+      "http://xmlns.com/foaf/0.1/",
+      "http://purl.org/vocab/vann/",
+      "http://schema.org/",
+      "https://schema.org/",
+      "http://www.w3.org/ns/prov#",
+      "http://purl.org/vocab/frbr/core#",
+      "http://prismstandard.org/namespaces/basic/2.0/",
+      "http://purl.org/spar/fabio/"
+    ],
+    "totalColumns": 29,
+    "mappedColumns": 23,
+    "unmappedColumns": 6,
+    "warnings": []
+  },
+  "entityMappings": [
+    {
+      "columnName": "record_type",
+      "ontologyClass": "fabio:Expression",
+      "confidence": 0.95,
+      "reasoning": "record_type column discriminates DBLP bibliographic entity types. Each value maps to a specific FaBiO class (article→JournalArticle, inproceedings→ConferencePaper, etc.). The parent class fabio:Expression covers all.",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=article",
+      "ontologyClass": "fabio:JournalArticle",
+      "confidence": 0.95,
+      "reasoning": "DBLP article records are journal articles — direct match to fabio:JournalArticle (subclass of fabio:Article)",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=inproceedings",
+      "ontologyClass": "fabio:ConferencePaper",
+      "confidence": 0.95,
+      "reasoning": "DBLP inproceedings are conference papers — direct match to fabio:ConferencePaper (subclass of fabio:ProceedingsPaper)",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=proceedings",
+      "ontologyClass": "fabio:ConferenceProceedings",
+      "confidence": 0.95,
+      "reasoning": "DBLP proceedings are conference proceedings volumes — direct match to fabio:ConferenceProceedings",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=book",
+      "ontologyClass": "fabio:Book",
+      "confidence": 0.95,
+      "reasoning": "DBLP book records map directly to fabio:Book",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=incollection",
+      "ontologyClass": "fabio:Chapter",
+      "confidence": 0.85,
+      "reasoning": "DBLP incollection records are parts of books (chapters, reference entries) — fabio:Chapter is the closest FaBiO class for book section contributions",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=phdthesis",
+      "ontologyClass": "fabio:DoctoralThesis",
+      "confidence": 0.95,
+      "reasoning": "DBLP phdthesis maps directly to fabio:DoctoralThesis (subclass of fabio:Thesis)",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=mastersthesis",
+      "ontologyClass": "fabio:MastersThesis",
+      "confidence": 0.95,
+      "reasoning": "DBLP mastersthesis maps directly to fabio:MastersThesis (subclass of fabio:Thesis)",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=www",
+      "ontologyClass": "fabio:WebContent",
+      "confidence": 0.75,
+      "reasoning": "DBLP www records represent web/person pages — fabio:WebContent (information primarily for web manifestation) is the closest FaBiO class",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=data",
+      "ontologyClass": "fabio:DataFile",
+      "confidence": 0.8,
+      "reasoning": "DBLP data records represent datasets/data publications — fabio:DataFile (realization of a fabio:Dataset) is the best match",
+      "identifierColumn": "key",
+      "requiredProperties": [
+        "dcterms:title",
+        "dcterms:identifier"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "journal",
+      "ontologyClass": "fabio:Journal",
+      "confidence": 0.9,
+      "reasoning": "journal column contains journal names (2,061 unique values) — each represents a fabio:Journal venue entity",
+      "identifierColumn": "journal",
+      "requiredProperties": [
+        "dcterms:title"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "booktitle",
+      "ontologyClass": "fabio:AcademicProceedings",
+      "confidence": 0.8,
+      "reasoning": "booktitle column identifies proceedings/collection venues — maps to fabio:AcademicProceedings (parent of ConferenceProceedings and WorkshopProceedings)",
+      "identifierColumn": "booktitle",
+      "requiredProperties": [
+        "dcterms:title"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "series",
+      "ontologyClass": "fabio:Series",
+      "confidence": 0.85,
+      "reasoning": "series column contains publication series names (1,814 unique) — maps to fabio:Series (sequence of expressions identified as a group)",
+      "identifierColumn": "series",
+      "requiredProperties": [
+        "dcterms:title"
+      ],
+      "compliant": true
+    }
+  ],
+  "attributeMappings": [
+    {
+      "columnName": "key",
+      "ontologyProperty": "dcterms:identifier",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "DBLP key is a unique identifier for each record — maps to dcterms:identifier",
+      "compliant": true
+    },
+    {
+      "columnName": "mdate",
+      "ontologyProperty": "dcterms:modified",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:dateTime",
+      "confidence": 0.9,
+      "reasoning": "DBLP mdate is the metadata modification date — maps to dcterms:modified",
+      "compliant": true
+    },
+    {
+      "columnName": "title",
+      "ontologyProperty": "dcterms:title",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.98,
+      "reasoning": "Title column maps directly to dcterms:title — standard Dublin Core title property",
+      "compliant": true
+    },
+    {
+      "columnName": "year",
+      "ontologyProperty": "fabio:hasPublicationYear",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:gYear",
+      "confidence": 0.95,
+      "reasoning": "Year of publication maps to fabio:hasPublicationYear with gYear datatype",
+      "compliant": true
+    },
+    {
+      "columnName": "pages",
+      "ontologyProperty": "prism:pageRange",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "Pages field (e.g., \"815-819\") maps directly to prism:pageRange",
+      "compliant": true
+    },
+    {
+      "columnName": "volume",
+      "ontologyProperty": "prism:volume",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "Volume identifier maps directly to prism:volume",
+      "compliant": true
+    },
+    {
+      "columnName": "number",
+      "ontologyProperty": "prism:issueIdentifier",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.9,
+      "reasoning": "DBLP number field typically represents journal issue number — maps to prism:issueIdentifier",
+      "compliant": true
+    },
+    {
+      "columnName": "month",
+      "ontologyProperty": "prism:publicationDate",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.7,
+      "reasoning": "Month of publication contributes to prism:publicationDate — partial date information",
+      "compliant": true
+    },
+    {
+      "columnName": "isbn",
+      "ontologyProperty": "prism:isbn",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.98,
+      "reasoning": "ISBN field maps directly to prism:isbn",
+      "compliant": true
+    },
+    {
+      "columnName": "ee",
+      "ontologyProperty": "fabio:hasURL",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:anyURI",
+      "confidence": 0.9,
+      "reasoning": "DBLP ee field contains electronic edition URLs (usually DOIs) — maps to fabio:hasURL",
+      "compliant": true
+    },
+    {
+      "columnName": "url",
+      "ontologyProperty": "fabio:hasURL",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:anyURI",
+      "confidence": 0.85,
+      "reasoning": "DBLP url field contains DBLP page URLs — maps to fabio:hasURL (second URL property for DBLP-internal link)",
+      "compliant": true
+    },
+    {
+      "columnName": "note",
+      "ontologyProperty": "dcterms:abstract",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.6,
+      "reasoning": "DBLP note field contains supplementary textual information — dcterms:abstract is the closest standard property for descriptive text, though notes are not always abstracts",
+      "compliant": true
+    },
+    {
+      "columnName": "cdrom",
+      "ontologyProperty": "fabio:hasURL",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:anyURI",
+      "confidence": 0.65,
+      "reasoning": "CD-ROM path is a resource locator — fabio:hasURL is the closest property for resource location references",
+      "compliant": true
+    },
+    {
+      "columnName": "publnr",
+      "ontologyProperty": "fabio:hasSequenceIdentifier",
+      "propertyType": "data",
+      "targetEntity": "fabio:Expression",
+      "datatype": "xsd:string",
+      "confidence": 0.75,
+      "reasoning": "Publication number is a sequence/identifier within a context — maps to fabio:hasSequenceIdentifier",
+      "compliant": true
+    }
+  ],
+  "relationshipMappings": [
+    {
+      "columnName": "authors",
+      "ontologyRelationship": "dcterms:creator",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "foaf:Person",
+      "confidence": 0.95,
+      "reasoning": "Authors are the primary creators of works — dcterms:creator is the standard property (declared as objectProperty in ontology with open domain/range)",
+      "compliant": true
+    },
+    {
+      "columnName": "editors",
+      "ontologyRelationship": "dcterms:creator",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "foaf:Person",
+      "confidence": 0.8,
+      "reasoning": "Editors are contributors/creators of proceedings and books — dcterms:creator covers this role. Note: foaf:Person is from a declared namespace but not an ontology class; relationship target will use string literals if Person class unavailable",
+      "compliant": true
+    },
+    {
+      "columnName": "publisher",
+      "ontologyRelationship": "dcterms:publisher",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "foaf:Organization",
+      "confidence": 0.9,
+      "reasoning": "Publisher column maps directly to dcterms:publisher object property declared in the ontology",
+      "compliant": true
+    },
+    {
+      "columnName": "crossref",
+      "ontologyRelationship": "frbr:partOf",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "fabio:Expression",
+      "confidence": 0.9,
+      "reasoning": "DBLP crossref links a paper to its parent proceedings/journal volume — frbr:partOf expresses part-whole containment between FRBR endeavours",
+      "compliant": true
+    },
+    {
+      "columnName": "cite",
+      "ontologyRelationship": "frbr:relatedEndeavour",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "fabio:Expression",
+      "confidence": 0.75,
+      "reasoning": "DBLP cite field lists referenced works — frbr:relatedEndeavour captures the generic relationship between bibliographic entities",
+      "compliant": true
+    },
+    {
+      "columnName": "journal",
+      "ontologyRelationship": "frbr:partOf",
+      "sourceEntity": "fabio:JournalArticle",
+      "targetEntity": "fabio:Journal",
+      "confidence": 0.9,
+      "reasoning": "Journal articles are part of journals — frbr:partOf models the containment relationship",
+      "compliant": true
+    },
+    {
+      "columnName": "booktitle",
+      "ontologyRelationship": "frbr:partOf",
+      "sourceEntity": "fabio:ConferencePaper",
+      "targetEntity": "fabio:AcademicProceedings",
+      "confidence": 0.85,
+      "reasoning": "Conference papers are part of proceedings — frbr:partOf models the containment relationship",
+      "compliant": true
+    },
+    {
+      "columnName": "series",
+      "ontologyRelationship": "frbr:partOf",
+      "sourceEntity": "fabio:Expression",
+      "targetEntity": "fabio:Series",
+      "confidence": 0.8,
+      "reasoning": "Publications belong to series — frbr:partOf models the membership relationship",
+      "compliant": true
+    }
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "publtype",
+      "reason": "publtype is a DBLP-specific publication subtype qualifier (e.g., encyclopedia, informal, withdrawn) with no direct FaBiO data property match",
+      "suggestion": "Could be used as a secondary classifier to refine entity type selection during graph generation. Consider mapping to a SKOS concept if needed.",
+      "severity": "info"
+    },
+    {
+      "columnName": "school",
+      "reason": "school represents the academic institution for theses — no direct FaBiO property for institutional affiliation",
+      "suggestion": "Use as a literal attribute on Thesis entities. In the graph generation step, this could be stored via a custom annotation or linked to a foaf:Organization if the ontology is extended.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "chapter",
+      "reason": "chapter column has only 2 values in 12.3M rows (effectively empty) — negligible data",
+      "suggestion": "Can be safely ignored. If populated, could map to fabio:hasSequenceIdentifier.",
+      "severity": "info"
+    },
+    {
+      "columnName": "address",
+      "reason": "address column has only 3 values (all \"New York\") with 100% missing rate — negligible data coverage",
+      "suggestion": "Can be safely ignored due to near-zero coverage. If needed, fabio:hasPlaceOfPublication (object property to frbr:Place) could model this, but frbr:Place is not a declared class.",
+      "severity": "info"
+    },
+    {
+      "columnName": "stream",
+      "reason": "stream is a DBLP-internal repository/source stream identifier with no ontology equivalent",
+      "suggestion": "DBLP-specific metadata. Could be stored as dcterms:identifier with a qualifier, but this would overload the property. Recommend flagging for review.",
+      "severity": "info"
+    },
+    {
+      "columnName": "rel",
+      "reason": "rel contains DBLP-internal related record keys (99.95% missing) — sparse cross-reference with no specific FaBiO property",
+      "suggestion": "Could potentially be modeled via frbr:relatedEndeavour during graph generation if values are resolved to known keys.",
+      "severity": "info"
+    }
+  ],
+  "validationReport": {
+    "classesUsed": [
+      "fabio:AcademicProceedings",
+      "fabio:Book",
+      "fabio:Chapter",
+      "fabio:ConferencePaper",
+      "fabio:ConferenceProceedings",
+      "fabio:DataFile",
+      "fabio:DoctoralThesis",
+      "fabio:Expression",
+      "fabio:Journal",
+      "fabio:JournalArticle",
+      "fabio:MastersThesis",
+      "fabio:Series",
+      "fabio:WebContent",
+      "foaf:Organization",
+      "foaf:Person"
+    ],
+    "propertiesUsed": [
+      "dcterms:abstract",
+      "dcterms:creator",
+      "dcterms:identifier",
+      "dcterms:modified",
+      "dcterms:publisher",
+      "dcterms:title",
+      "fabio:hasPublicationYear",
+      "fabio:hasSequenceIdentifier",
+      "fabio:hasURL",
+      "frbr:partOf",
+      "frbr:relatedEndeavour",
+      "prism:isbn",
+      "prism:issueIdentifier",
+      "prism:pageRange",
+      "prism:publicationDate",
+      "prism:volume"
+    ],
+    "namespacesUsed": [
+      "dcterms",
+      "fabio",
+      "foaf",
+      "frbr",
+      "prism"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "6 columns unmapped — review if any contain critical domain data",
+      "During graph generation, use record_type values to instantiate specific FaBiO subclasses",
+      "Authors/editors should be split on \"|\" delimiter to create individual Person entities",
+      "The ee column often contains DOI URLs — extract DOI identifiers using prism:doi during graph generation"
+    ]
+  }
+}

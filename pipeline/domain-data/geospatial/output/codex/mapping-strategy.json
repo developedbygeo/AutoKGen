@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 70,
+    "ontologyName": "GeoSPARQL Ontology",
+    "ontologyVersion": "1.1",
+    "allowedNamespaces": [
+      "rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs: http://www.w3.org/2000/01/rdf-schema#",
+      "owl: http://www.w3.org/2002/07/owl#",
+      "xsd: http://www.w3.org/2001/XMLSchema#",
+      "skos: http://www.w3.org/2004/02/skos/core#",
+      "dc: http://purl.org/dc/elements/1.1/",
+      "dcterms: http://purl.org/dc/terms/",
+      "foaf: http://xmlns.com/foaf/0.1/",
+      "vann: http://purl.org/vocab/vann/",
+      "schema_http: http://schema.org/",
+      "schema: https://schema.org/",
+      "prov: http://www.w3.org/ns/prov#",
+      "wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#",
+      "geo: http://www.opengis.net/ont/geosparql#",
+      "spec11: http://www.opengis.net/doc/IS/geosparql/1.1#"
+    ],
+    "totalColumns": 20,
+    "mappedColumns": 15,
+    "unmappedColumns": 5,
+    "warnings": []
+  },
+  "entityMappings": [
+    {
+      "columnName": "geonameid",
+      "ontologyClass": "http://www.opengis.net/ont/geosparql#Feature",
+      "confidence": 0.98,
+      "reasoning": "Each GeoNames row represents a discrete geographic feature (city, mountain, river, etc.). geo:Feature is defined as 'a discrete spatial phenomenon in a universe of discourse' — a perfect match. geonameid has 100% uniqueness and 0% missing values, making it an ideal identifier. Supplementary feature codes confirm these are geographic features with 685 distinct types (e.g., PPL=populated place, STM=stream, MT=mountain).",
+      "identifierColumn": "geonameid",
+      "requiredProperties": [
+        "http://www.opengis.net/ont/geosparql#hasGeometry"
+      ],
+      "compliant": true
+    },
+    {
+      "columnName": "latitude+longitude",
+      "ontologyClass": "http://www.opengis.net/ont/geosparql#Geometry",
+      "confidence": 0.97,
+      "reasoning": "latitude and longitude columns contain WGS84 coordinates (lat range 4.5-63.1, lon range -116.0-100.1). Together they define a Point geometry. geo:Geometry is defined as 'a coherent set of direct positions in space' — a direct match. The Geometry will be serialized via geo:asWKT as 'POINT(lon lat)'.",
+      "identifierColumn": "geonameid",
+      "requiredProperties": [
+        "http://www.opengis.net/ont/geosparql#asWKT",
+        "http://www.opengis.net/ont/geosparql#coordinateDimension"
+      ],
+      "compliant": true
+    }
+  ],
+  "attributeMappings": [
+    {
+      "columnName": "latitude+longitude",
+      "ontologyProperty": "http://www.opengis.net/ont/geosparql#asWKT",
+      "propertyType": "data",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Geometry",
+      "datatype": "geo:wktLiteral",
+      "confidence": 0.97,
+      "reasoning": "lat/lon will be serialized as WKT Point geometry: 'POINT(lon lat)'. geo:asWKT domain is geo:Geometry, range is geo:wktLiteral — compliant.",
+      "compliant": true
+    },
+    {
+      "columnName": "latitude+longitude",
+      "ontologyProperty": "http://www.opengis.net/ont/geosparql#coordinateDimension",
+      "propertyType": "data",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Geometry",
+      "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+      "confidence": 0.95,
+      "reasoning": "All geometries are 2D points (latitude + longitude), so coordinateDimension = 2. Domain: geo:Geometry, range: xsd:integer — compliant.",
+      "compliant": true
+    },
+    {
+      "columnName": "name",
+      "ontologyProperty": "http://www.w3.org/2000/01/rdf-schema#label",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.95,
+      "reasoning": "The 'name' column contains the primary name of each geographic feature (579K unique values). rdfs:label is the standard annotation property for human-readable names in RDF. rdfs namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "asciiname",
+      "ontologyProperty": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.85,
+      "reasoning": "asciiname is the ASCII transliteration of the feature name (e.g., 'Süderau' -> 'Suderau'). skos:altLabel is used for alternative labels. skos namespace is declared in the ontology. When asciiname differs from name, it provides a useful ASCII-safe alternative.",
+      "compliant": true
+    },
+    {
+      "columnName": "alternatenames",
+      "ontologyProperty": "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.75,
+      "reasoning": "alternatenames contains comma-separated alternative names (47.62% missing, 368K unique). skos:hiddenLabel is for alternative lexical labels not typically displayed but useful for search/discovery. These names serve exactly that purpose — searchable variants. skos namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "feature_class",
+      "ontologyProperty": "http://www.w3.org/2004/02/skos/core#notation",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.8,
+      "reasoning": "feature_class is a single-letter GeoNames classification code (A, H, L, P, R, S, T, U, V). Supplementary featureCodes_en.txt confirms these map to broad categories (A=Administrative, H=Hydrographic, P=Populated, S=Spot/Building, T=Terrain, etc.). skos:notation is for classification codes/notations. Only 9 unique values — this is a controlled vocabulary code, not a free-text attribute. skos namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "feature_code",
+      "ontologyProperty": "http://purl.org/dc/terms/type",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.82,
+      "reasoning": "feature_code is a detailed GeoNames feature type code (518 unique values, e.g., PPL, STM, MT, RSTN). Supplementary data defines all 685 codes (e.g., PPL='populated place', STM='stream'). dcterms:type describes the nature or genre of a resource — appropriate for feature classification. dcterms namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "country_code",
+      "ontologyProperty": "http://purl.org/dc/terms/spatial",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.78,
+      "reasoning": "country_code is an ISO 3166-1 alpha-2 country code (7 unique values: DE, ES, FR, GB, IT, etc.). Supplementary countryInfo.txt maps these to full country names (DE=Germany, FR=France, etc.). dcterms:spatial describes the spatial characteristics of a resource. The country code represents the spatial jurisdiction/coverage area. dcterms namespace is declared in the ontology.",
+      "compliant": true
+    },
+    {
+      "columnName": "population",
+      "ontologyProperty": "https://schema.org/population",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+      "confidence": 0.8,
+      "reasoning": "population column contains integer population counts (range 0-2.4B, mean 6112). schema:population (schema.org/population) represents the population of a place. schema namespace (https://schema.org/) is declared in the ontology. Note: many features (non-populated places) have population=0.",
+      "compliant": true
+    },
+    {
+      "columnName": "elevation",
+      "ontologyProperty": "https://schema.org/elevation",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+      "confidence": 0.82,
+      "reasoning": "elevation column contains elevation values in meters (range -60 to 4806, 92.5% missing). schema:elevation (schema.org/elevation) is the standard property for geographic elevation. schema namespace (https://schema.org/) is declared in the ontology. High missing rate (92.5%) but valid where present.",
+      "compliant": true
+    },
+    {
+      "columnName": "modification_date",
+      "ontologyProperty": "http://purl.org/dc/terms/modified",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#date",
+      "confidence": 0.92,
+      "reasoning": "modification_date contains ISO 8601 dates (e.g., '2020-10-14', '2025-04-17'). dcterms:modified is the standard Dublin Core property for last modification date. dcterms namespace is declared in the ontology. 6121 unique dates, 0% missing — reliable temporal metadata.",
+      "compliant": true
+    },
+    {
+      "columnName": "timezone",
+      "ontologyProperty": "http://purl.org/dc/terms/temporal",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.68,
+      "reasoning": "timezone contains IANA timezone identifiers (39 unique, e.g., 'Europe/Berlin', 'Europe/Copenhagen'). dcterms:temporal describes the temporal characteristics of a resource. Timezone is a temporal property of a geographic location. dcterms namespace is declared in the ontology. Confidence moderate because dcterms:temporal is typically for temporal coverage, not timezone.",
+      "compliant": true
+    },
+    {
+      "columnName": "dem",
+      "ontologyProperty": "https://schema.org/elevation",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Geometry",
+      "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+      "confidence": 0.65,
+      "reasoning": "dem (digital elevation model) contains SRTM-derived elevation values (range -9999 to 4748, 0% missing). This is a secondary elevation estimate derived from satellite data, complementing the 'elevation' column. Mapped to schema:elevation on the Geometry entity to distinguish from the Feature-level elevation. schema namespace is declared in the ontology. -9999 values indicate no data and should be treated as missing during generation.",
+      "compliant": true
+    },
+    {
+      "columnName": "admin1_code",
+      "ontologyProperty": "http://purl.org/dc/terms/isPartOf",
+      "propertyType": "annotation",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "datatype": "http://www.w3.org/2001/XMLSchema#string",
+      "confidence": 0.75,
+      "reasoning": "admin1_code references the first-order administrative division (state/province) containing this feature. Supplementary admin1CodesASCII.txt maps 3862 codes to division names (e.g., DE.01=Baden-Württemberg). dcterms:isPartOf indicates a resource is part of another resource — a feature being in an administrative division is a part-of relationship. 81 unique values, 0.12% missing. dcterms namespace is declared in the ontology.",
+      "compliant": true
+    }
+  ],
+  "relationshipMappings": [
+    {
+      "columnName": "latitude+longitude",
+      "ontologyRelationship": "http://www.opengis.net/ont/geosparql#hasGeometry",
+      "sourceEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Geometry",
+      "confidence": 0.98,
+      "reasoning": "geo:hasGeometry links a Feature to its spatial representation (Geometry). Domain: geo:Feature, Range: geo:Geometry — matches perfectly. Each GeoNames feature has exactly one point geometry derived from lat/lon.",
+      "compliant": true
+    },
+    {
+      "columnName": "country_code",
+      "ontologyRelationship": "http://www.opengis.net/ont/geosparql#sfWithin",
+      "sourceEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "confidence": 0.85,
+      "reasoning": "country_code identifies the country a feature is within. geo:sfWithin states that a SpatialObject is spatially within another SpatialObject. Domain: geo:SpatialObject, Range: geo:SpatialObject — geo:Feature is a subclass of geo:SpatialObject. Features are spatially within their country, which is itself a geo:Feature (administrative boundary). Supplementary data confirms 7 countries in dataset.",
+      "compliant": true
+    },
+    {
+      "columnName": "admin1_code",
+      "ontologyRelationship": "http://www.opengis.net/ont/geosparql#sfWithin",
+      "sourceEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "targetEntity": "http://www.opengis.net/ont/geosparql#Feature",
+      "confidence": 0.8,
+      "reasoning": "admin1_code identifies the first-order administrative division containing this feature. geo:sfWithin models spatial containment — features are within their admin division. Supplementary admin1CodesASCII.txt provides 3862 admin division entries with geonameids for reference resolution. Domain/range: geo:SpatialObject — compliant via subclass geo:Feature.",
+      "compliant": true
+    }
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "cc2",
+      "reason": "99.83% missing values (only 1347 of 790613 rows have data). Contains comma-separated alternate country codes for border features. Too sparse to justify a mapping — data quality insufficient for reliable graph edges.",
+      "suggestion": "Could be mapped to dcterms:spatial if data quality improves. For border features, could indicate geo:sfIntersects with multiple countries.",
+      "severity": "info"
+    },
+    {
+      "columnName": "admin2_code",
+      "reason": "No ontology data property directly models administrative hierarchy levels. 6.88% missing. Values are numeric codes (1261 unique) without a supplementary lookup file for level-2 divisions. Cannot reliably resolve to meaningful entities without admin2 reference data.",
+      "suggestion": "Could be mapped to dcterms:isPartOf with a more specific qualifier if admin2 supplementary data were available. Consider adding an admin2Codes supplementary file for future enrichment.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "admin3_code",
+      "reason": "Third-order administrative division code (23243 unique values, 15.09% missing). No supplementary lookup available. Granularity too fine for reliable ontology mapping without reference data to resolve codes to named entities.",
+      "suggestion": "Similar to admin2_code — could become a spatial containment relationship if supplementary admin3 data were provided.",
+      "severity": "info"
+    },
+    {
+      "columnName": "admin4_code",
+      "reason": "Fourth-order administrative division code (55974 unique values, 50.42% missing). No supplementary lookup available. Very granular with high missing rate.",
+      "suggestion": "Low priority for mapping. Same approach as admin2/admin3 if reference data becomes available.",
+      "severity": "info"
+    },
+    {
+      "columnName": "source_file",
+      "reason": "Pipeline/provenance metadata indicating which input file (DE.txt, ES.txt, etc.) the record originated from. This is processing metadata, not a domain attribute of the geographic feature.",
+      "suggestion": "Could be mapped to prov:wasDerivedFrom (prov namespace is declared) for data provenance tracking, but this is pipeline metadata rather than geographic knowledge.",
+      "severity": "info"
+    }
+  ],
+  "validationReport": {
+    "classesUsed": [
+      "http://www.opengis.net/ont/geosparql#Feature",
+      "http://www.opengis.net/ont/geosparql#Geometry"
+    ],
+    "propertiesUsed": [
+      "http://www.opengis.net/ont/geosparql#asWKT",
+      "http://www.opengis.net/ont/geosparql#coordinateDimension",
+      "http://www.w3.org/2000/01/rdf-schema#label",
+      "http://www.w3.org/2004/02/skos/core#altLabel",
+      "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+      "http://www.w3.org/2004/02/skos/core#notation",
+      "http://purl.org/dc/terms/type",
+      "http://purl.org/dc/terms/spatial",
+      "https://schema.org/population",
+      "https://schema.org/elevation",
+      "http://purl.org/dc/terms/modified",
+      "http://purl.org/dc/terms/temporal",
+      "http://purl.org/dc/terms/isPartOf",
+      "http://www.opengis.net/ont/geosparql#hasGeometry",
+      "http://www.opengis.net/ont/geosparql#sfWithin"
+    ],
+    "namespacesUsed": [
+      "geo: (http://www.opengis.net/ont/geosparql#)",
+      "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+      "skos: (http://www.w3.org/2004/02/skos/core#)",
+      "dcterms: (http://purl.org/dc/terms/)",
+      "schema: (https://schema.org/)"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Consider adding admin2Codes and admin3Codes supplementary files to enable finer-grained spatial containment relationships.",
+      "The 'cc2' column (alternate country codes) could model cross-border features via geo:sfIntersects if data quality improves.",
+      "For richer provenance, source_file could be mapped to prov:wasDerivedFrom in a future iteration.",
+      "Feature codes (feature_class + feature_code) could be modeled as skos:Concept instances in a separate concept scheme for richer classification.",
+      "Consider generating geo:asGeoJSON in addition to geo:asWKT for broader interoperability."
+    ]
+  }
+}

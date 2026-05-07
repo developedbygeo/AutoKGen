@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "validatedAt": "2026-02-23T16:41:52.942Z",
+    "ontologyName": "GeoSPARQL Ontology",
+    "ontologyVersion": "1.1",
+    "graphSource": "Neo4j"
+  },
+  "overallCompliance": {
+    "isCompliant": true,
+    "score": 98,
+    "grade": "A"
+  },
+  "statistics": {
+    "totalNodes": 1581327,
+    "totalRelationships": 2368553,
+    "nodesAnalyzed": 1581327,
+    "relationshipsAnalyzed": 2368553
+  },
+  "violations": [
+    {
+      "category": "structure",
+      "type": "missing_class_instances",
+      "property": "SpatialObject",
+      "severity": "info",
+      "count": 0,
+      "description": "No instances of ontology class \"SpatialObject\" found in the graph. This class may not be applicable to this dataset.",
+      "examples": [],
+      "fixStrategies": []
+    },
+    {
+      "category": "structure",
+      "type": "missing_class_instances",
+      "property": "FeatureCollection",
+      "severity": "info",
+      "count": 0,
+      "description": "No instances of ontology class \"FeatureCollection\" found in the graph. This class may not be applicable to this dataset.",
+      "examples": [],
+      "fixStrategies": []
+    },
+    {
+      "category": "structure",
+      "type": "missing_class_instances",
+      "property": "SpatialObjectCollection",
+      "severity": "info",
+      "count": 0,
+      "description": "No instances of ontology class \"SpatialObjectCollection\" found in the graph. This class may not be applicable to this dataset.",
+      "examples": [],
+      "fixStrategies": []
+    },
+    {
+      "category": "structure",
+      "type": "missing_class_instances",
+      "property": "GeometryCollection",
+      "severity": "info",
+      "count": 0,
+      "description": "No instances of ontology class \"GeometryCollection\" found in the graph. This class may not be applicable to this dataset.",
+      "examples": [],
+      "fixStrategies": []
+    }
+  ],
+  "violationSummary": {
+    "byCategory": {
+      "structure": 4
+    },
+    "bySeverity": {
+      "errors": 0,
+      "warnings": 0,
+      "info": 4
+    },
+    "topViolations": [
+      {
+        "type": "missing_class_instances",
+        "count": 0,
+        "severity": "info"
+      },
+      {
+        "type": "missing_class_instances",
+        "count": 0,
+        "severity": "info"
+      },
+      {
+        "type": "missing_class_instances",
+        "count": 0,
+        "severity": "info"
+      },
+      {
+        "type": "missing_class_instances",
+        "count": 0,
+        "severity": "info"
+      }
+    ]
+  },
+  "ontologyRequirements": {
+    "validLabels": {
+      "met": true,
+      "invalid": []
+    },
+    "validNamespaces": {
+      "met": true,
+      "invalid": []
+    },
+    "validDomainRanges": {
+      "met": true,
+      "violations": 0
+    },
+    "hasRequiredProperties": {
+      "met": true,
+      "missing": []
+    }
+  },
+  "recommendations": []
+}

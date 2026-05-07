@@ -1,0 +1,303 @@
+{
+  "filePath": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/input/dataset-merged.csv",
+  "totalRows": 790613,
+  "totalColumns": 20,
+  "columns": [
+    {
+      "name": "geonameid",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 790613,
+      "sampleValues": ["1529666", "2038682", "2613222", "2613801", "2619207"],
+      "numericStats": {
+        "min": 5653,
+        "max": 13589325,
+        "mean": 6200896.135
+      }
+    },
+    {
+      "name": "name",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 579116,
+      "sampleValues": ["Bahnhof Grenzau", "Bahnhof Annaburg", "Süderau", "Scheidebek", "Kadetbank"]
+    },
+    {
+      "name": "asciiname",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 578350,
+      "sampleValues": ["Bahnhof Grenzau", "Bahnhof Annaburg", "Suderau", "Scheidebek", "Kadetbank"]
+    },
+    {
+      "name": "alternatenames",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 376472,
+      "missingPercent": 47.62,
+      "uniqueCount": 368393,
+      "sampleValues": [
+        "Bahnhof Grenzau,Grenzau",
+        "Annaburg,Bahnhof Annaburg,Bahnhof Annaburg West",
+        "Jundewatter Muhlenstrom,Jündewatter Mühlenstrom,Sondera,Suderau,Sønderå,Süderau",
+        "Scheidebek,Skelbaek,Skelbæk",
+        "Kadetbank,Kadetbanke"
+      ]
+    },
+    {
+      "name": "latitude",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 542876,
+      "sampleValues": ["50.45663", "51.72858", "54.90848", "54.87306", "54.56667"],
+      "numericStats": {
+        "min": 4.5422,
+        "max": 63.05255,
+        "mean": 48.053
+      }
+    },
+    {
+      "name": "longitude",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 584866,
+      "sampleValues": ["7.66505", "13.03311", "8.82708", "9.12834", "12.36667"],
+      "numericStats": {
+        "min": -116.01563,
+        "max": 100.05794,
+        "mean": 6.067
+      }
+    },
+    {
+      "name": "feature_class",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 9,
+      "sampleValues": ["S", "H", "T", "P", "R"]
+    },
+    {
+      "name": "feature_code",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 35,
+      "missingPercent": 0,
+      "uniqueCount": 518,
+      "sampleValues": ["RSTN", "STM", "BNK", "ISLS", "PPLX"],
+      "relatedSupplementaryFile": "featureCodes_en.txt"
+    },
+    {
+      "name": "country_code",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7,
+      "sampleValues": ["DE", "ES", "FR", "GB", "IT"],
+      "relatedSupplementaryFile": "countryInfo.txt"
+    },
+    {
+      "name": "cc2",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 789266,
+      "missingPercent": 99.83,
+      "uniqueCount": 81,
+      "sampleValues": ["DE,CH", "DE,AT,CH", "DE,NL", "NL", "CH,DE"],
+      "relatedSupplementaryFile": "countryInfo.txt"
+    },
+    {
+      "name": "admin1_code",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 982,
+      "missingPercent": 0.12,
+      "uniqueCount": 81,
+      "sampleValues": ["08", "14", "00", "01", "04"],
+      "numericStats": {
+        "min": 0,
+        "max": 99,
+        "mean": 27.07
+      },
+      "relatedSupplementaryFile": "admin1CodesASCII.txt"
+    },
+    {
+      "name": "admin2_code",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 54368,
+      "missingPercent": 6.88,
+      "uniqueCount": 1261,
+      "sampleValues": ["00", "083", "091", "097", "059"],
+      "numericStats": {
+        "min": 0,
+        "max": 3095050,
+        "mean": 175.434
+      }
+    },
+    {
+      "name": "admin3_code",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 119304,
+      "missingPercent": 15.09,
+      "uniqueCount": 23243,
+      "sampleValues": ["07143", "08336", "09180", "05962", "03254"],
+      "numericStats": {
+        "min": 1,
+        "max": 12195663,
+        "mean": 36391.491
+      }
+    },
+    {
+      "name": "admin4_code",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 398590,
+      "missingPercent": 50.42,
+      "uniqueCount": 55974,
+      "sampleValues": ["07143032", "08336105", "09180117", "05154040", "14627080"],
+      "numericStats": {
+        "min": 1,
+        "max": 16077056,
+        "mean": 4006766.988
+      }
+    },
+    {
+      "name": "population",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 21584,
+      "sampleValues": ["0", "408046", "267506", "136803", "4537"],
+      "numericStats": {
+        "min": 0,
+        "max": 2400000000,
+        "mean": 6112.422
+      }
+    },
+    {
+      "name": "elevation",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 731310,
+      "missingPercent": 92.5,
+      "uniqueCount": 3546,
+      "sampleValues": ["395", "2962", "397", "1348", "1782"],
+      "numericStats": {
+        "min": -60,
+        "max": 4806,
+        "mean": 703.085
+      }
+    },
+    {
+      "name": "dem",
+      "inferredType": "numeric",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 3518,
+      "sampleValues": ["232", "77", "3", "16", "-9999"],
+      "numericStats": {
+        "min": -9999,
+        "max": 4748,
+        "mean": 133.12
+      }
+    },
+    {
+      "name": "timezone",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 13325,
+      "missingPercent": 1.69,
+      "uniqueCount": 39,
+      "sampleValues": [
+        "Europe/Berlin",
+        "Europe/Copenhagen",
+        "Europe/Zurich",
+        "Europe/Amsterdam",
+        "Europe/Vienna"
+      ]
+    },
+    {
+      "name": "modification_date",
+      "inferredType": "date",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 6121,
+      "sampleValues": ["2020-10-14", "2022-01-16", "2025-01-10", "2023-11-07", "2025-04-17"]
+    },
+    {
+      "name": "source_file",
+      "inferredType": "string",
+      "totalValues": 790613,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 7,
+      "sampleValues": ["DE.txt", "ES.txt", "FR.txt", "GB.txt", "IT.txt"]
+    }
+  ],
+  "supplementaryFiles": [
+    {
+      "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/admin1CodesASCII.txt",
+      "name": "admin1CodesASCII.txt",
+      "format": "txt",
+      "sizeBytes": 145822,
+      "description": "First-order administrative division codes (states/provinces) with names and GeoName IDs",
+      "columns": ["code", "name", "ascii_name", "geonameid"],
+      "rowCount": 3862
+    },
+    {
+      "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/countryInfo.txt",
+      "name": "countryInfo.txt",
+      "format": "txt",
+      "sizeBytes": 31668,
+      "description": "Country metadata including ISO codes, capitals, population, currencies, languages, and neighbors",
+      "columns": [
+        "ISO",
+        "ISO3",
+        "ISO-Numeric",
+        "fips",
+        "Country",
+        "Capital",
+        "Area(in sq km)",
+        "Population",
+        "Continent",
+        "tld",
+        "CurrencyCode",
+        "CurrencyName",
+        "Phone",
+        "Postal Code Format",
+        "Postal Code Regex",
+        "Languages",
+        "geonameid",
+        "neighbours",
+        "EquivalentFipsCode"
+      ],
+      "rowCount": 252
+    },
+    {
+      "path": "/home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/featureCodes_en.txt",
+      "name": "featureCodes_en.txt",
+      "format": "txt",
+      "sizeBytes": 58642,
+      "description": "GeoNames feature code definitions with short and full descriptions",
+      "columns": ["feature_code", "short_description", "full_description"],
+      "rowCount": 685
+    }
+  ],
+  "generatedAt": "2026-02-23T15:05:04.887Z"
+}

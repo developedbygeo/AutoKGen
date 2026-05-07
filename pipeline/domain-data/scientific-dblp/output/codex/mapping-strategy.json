@@ -1,0 +1,484 @@
+{
+  "metadata": {
+    "ontologyCompliant": true,
+    "complianceScore": 10,
+    "ontologyName": "FaBiO, the FRBR-aligned Bibliographic Ontology",
+    "ontologyVersion": "2.2",
+    "allowedNamespaces": [
+      "core: http://purl.org/vocab/frbr/core#",
+      "dc: http://purl.org/dc/elements/1.1/",
+      "dcterms: http://purl.org/dc/terms/",
+      "fabio: http://purl.org/spar/fabio/",
+      "ns1: http://prismstandard.org/namespaces/basic/2.0/",
+      "owl: http://www.w3.org/2002/07/owl#",
+      "rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs: http://www.w3.org/2000/01/rdf-schema#",
+      "schema: https://schema.org/",
+      "schemaHttp: http://schema.org/",
+      "sh: http://www.w3.org/ns/shacl#",
+      "skos: http://www.w3.org/2004/02/skos/core#",
+      "vann: http://purl.org/vocab/vann/",
+      "xsd: http://www.w3.org/2001/XMLSchema#"
+    ],
+    "totalColumns": 29,
+    "mappedColumns": 20,
+    "unmappedColumns": 9,
+    "warnings": [
+      "9 column(s) were flagged as unmapped to preserve strict ontology compliance."
+    ]
+  },
+  "entityMappings": [
+    {
+      "columnName": "record_type",
+      "ontologyClass": "core:Endeavour",
+      "confidence": 0.98,
+      "reasoning": "record_type is the dataset-wide type discriminator for DBLP records; low-cardinality controlled values fit an ontology class discriminator",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "journal",
+      "ontologyClass": "fabio:Journal",
+      "confidence": 0.89,
+      "reasoning": "column name and sample values clearly denote journal venue entities; cardinality=low (0.05% unique) fits reusable venue identifiers",
+      "identifierColumn": "journal",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "booktitle",
+      "ontologyClass": "core:Work",
+      "confidence": 0.76,
+      "reasoning": "booktitle values denote containing bibliographic works such as proceedings, handbooks, and reference books; core:Work is the safest superclass because the column mixes multiple containing work types",
+      "identifierColumn": "booktitle",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "series",
+      "ontologyClass": "fabio:Series",
+      "confidence": 0.84,
+      "reasoning": "series values behave like named publication series reused across many records",
+      "identifierColumn": "series",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "stream",
+      "ontologyClass": "fabio:DataRepository",
+      "confidence": 0.71,
+      "reasoning": "stream values identify named repository channels such as Zenodo and IEEE DataPort; fabio:DataRepository is the closest ontology class available for repository-like sources",
+      "identifierColumn": "stream",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=article",
+      "ontologyClass": "fabio:JournalArticle",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'article' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=inproceedings",
+      "ontologyClass": "fabio:ConferencePaper",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'inproceedings' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=proceedings",
+      "ontologyClass": "fabio:ConferenceProceedings",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'proceedings' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=book",
+      "ontologyClass": "fabio:Book",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'book' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=incollection",
+      "ontologyClass": "fabio:BookChapter",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'incollection' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=phdthesis",
+      "ontologyClass": "fabio:DoctoralThesis",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'phdthesis' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=mastersthesis",
+      "ontologyClass": "fabio:MastersThesis",
+      "confidence": 0.95,
+      "reasoning": "record_type value 'mastersthesis' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=www",
+      "ontologyClass": "fabio:WebContent",
+      "confidence": 0.74,
+      "reasoning": "record_type value 'www' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    },
+    {
+      "columnName": "record_type=data",
+      "ontologyClass": "fabio:DataFile",
+      "confidence": 0.81,
+      "reasoning": "record_type value 'data' matches the closest available FaBiO subclass for that DBLP record family",
+      "identifierColumn": "key",
+      "requiredProperties": [],
+      "compliant": true
+    }
+  ],
+  "attributeMappings": [
+    {
+      "columnName": "key",
+      "ontologyProperty": "dcterms:identifier",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.98,
+      "reasoning": "DBLP key is the stable primary record identifier",
+      "compliant": true
+    },
+    {
+      "columnName": "title",
+      "ontologyProperty": "dcterms:title",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.99,
+      "reasoning": "title column matches the ontology title property directly",
+      "compliant": true
+    },
+    {
+      "columnName": "mdate",
+      "ontologyProperty": "dcterms:modified",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:dateTime",
+      "confidence": 0.82,
+      "reasoning": "mdate is the DBLP metadata modification date; values are date-only strings but can be normalized to a dateTime during downstream export",
+      "compliant": true
+    },
+    {
+      "columnName": "year",
+      "ontologyProperty": "fabio:hasPublicationYear",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:gYear",
+      "confidence": 0.96,
+      "reasoning": "four-digit year values align with FaBiO publication year semantics",
+      "compliant": true
+    },
+    {
+      "columnName": "pages",
+      "ontologyProperty": "ns1:pageRange",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.94,
+      "reasoning": "pages values are page ranges or single page numbers",
+      "compliant": true
+    },
+    {
+      "columnName": "volume",
+      "ontologyProperty": "ns1:volume",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.95,
+      "reasoning": "volume column matches PRISM volume identifier semantics",
+      "compliant": true
+    },
+    {
+      "columnName": "number",
+      "ontologyProperty": "ns1:issueIdentifier",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.74,
+      "reasoning": "number commonly carries journal issue identifiers in DBLP; column is mixed across record types, so this mapping is valid but not universal",
+      "compliant": true
+    },
+    {
+      "columnName": "chapter",
+      "ontologyProperty": "fabio:hasSequenceIdentifier",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.81,
+      "reasoning": "chapter values behave as sequence numbers within a containing work",
+      "compliant": true
+    },
+    {
+      "columnName": "isbn",
+      "ontologyProperty": "ns1:isbn",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.99,
+      "reasoning": "ISBN values match the ontology ISBN property directly",
+      "compliant": true
+    },
+    {
+      "columnName": "ee",
+      "ontologyProperty": "fabio:hasURL",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:anyURI",
+      "confidence": 0.93,
+      "reasoning": "ee contains external electronic edition URLs, mostly DOI landing URLs",
+      "compliant": true
+    },
+    {
+      "columnName": "url",
+      "ontologyProperty": "fabio:hasURL",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:anyURI",
+      "confidence": 0.88,
+      "reasoning": "url contains DBLP-internal resource URLs",
+      "compliant": true
+    },
+    {
+      "columnName": "publnr",
+      "ontologyProperty": "fabio:hasSequenceIdentifier",
+      "propertyType": "data",
+      "targetEntity": "core:Endeavour",
+      "datatype": "xsd:string",
+      "confidence": 0.68,
+      "reasoning": "publication number values behave as internal sequence identifiers",
+      "compliant": true
+    },
+    {
+      "columnName": "journal",
+      "ontologyProperty": "dcterms:title",
+      "propertyType": "data",
+      "targetEntity": "fabio:Journal",
+      "datatype": "xsd:string",
+      "confidence": 0.9,
+      "reasoning": "journal values are the human-readable titles of detected journal entities",
+      "compliant": true
+    },
+    {
+      "columnName": "booktitle",
+      "ontologyProperty": "dcterms:title",
+      "propertyType": "data",
+      "targetEntity": "core:Work",
+      "datatype": "xsd:string",
+      "confidence": 0.88,
+      "reasoning": "booktitle values are the human-readable titles of containing work entities",
+      "compliant": true
+    },
+    {
+      "columnName": "series",
+      "ontologyProperty": "dcterms:title",
+      "propertyType": "data",
+      "targetEntity": "fabio:Series",
+      "datatype": "xsd:string",
+      "confidence": 0.9,
+      "reasoning": "series values act as the canonical names of publication series entities",
+      "compliant": true
+    },
+    {
+      "columnName": "stream",
+      "ontologyProperty": "dcterms:identifier",
+      "propertyType": "data",
+      "targetEntity": "fabio:DataRepository",
+      "datatype": "xsd:string",
+      "confidence": 0.72,
+      "reasoning": "stream values are repository-like identifiers rather than display labels",
+      "compliant": true
+    }
+  ],
+  "relationshipMappings": [
+    {
+      "columnName": "crossref",
+      "ontologyRelationship": "core:partOf",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "core:Endeavour",
+      "confidence": 0.9,
+      "reasoning": "crossref is a foreign-key style reference to a containing DBLP record; part-whole containment is the strictest valid FRBR relation available",
+      "compliant": true
+    },
+    {
+      "columnName": "cite",
+      "ontologyRelationship": "core:relatedEndeavour",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "core:Endeavour",
+      "confidence": 0.84,
+      "reasoning": "cite contains lists of cited DBLP record keys; relatedEndeavour is the safest valid generic relation because citation-specific properties are absent",
+      "compliant": true
+    },
+    {
+      "columnName": "rel",
+      "ontologyRelationship": "core:relatedEndeavour",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "core:Endeavour",
+      "confidence": 0.74,
+      "reasoning": "rel values look like DBLP record keys pointing to related dataset records",
+      "compliant": true
+    },
+    {
+      "columnName": "journal",
+      "ontologyRelationship": "core:partOf",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "fabio:Journal",
+      "confidence": 0.82,
+      "reasoning": "journal names denote the parent venue that contains a journal article",
+      "compliant": true
+    },
+    {
+      "columnName": "booktitle",
+      "ontologyRelationship": "core:partOf",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "core:Work",
+      "confidence": 0.8,
+      "reasoning": "booktitle identifies the containing work for chapters and proceedings papers",
+      "compliant": true
+    },
+    {
+      "columnName": "series",
+      "ontologyRelationship": "core:partOf",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "fabio:Series",
+      "confidence": 0.7,
+      "reasoning": "series links a publication to the broader named series it belongs to",
+      "compliant": true
+    },
+    {
+      "columnName": "stream",
+      "ontologyRelationship": "core:relatedEndeavour",
+      "sourceEntity": "core:Endeavour",
+      "targetEntity": "fabio:DataRepository",
+      "confidence": 0.66,
+      "reasoning": "stream ties the record to a repository/release channel rather than a bibliographic container",
+      "compliant": true
+    }
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "publtype",
+      "reason": "Values such as 'encyclopedia', 'version', and 'withdrawn' mix publication form and status, and no precise valid property exists in the parsed ontology.",
+      "suggestion": "Map after a controlled vocabulary or status ontology is added.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "authors",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "editors",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "month",
+      "reason": "Month alone is an incomplete temporal fragment and should not be forced into a full publication-date property.",
+      "suggestion": "Combine with year during data cleaning if a complete publication date is needed.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "publisher",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "school",
+      "reason": "The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "note",
+      "reason": "Free-text notes are heterogeneous and do not safely align with a single existing ontology property.",
+      "suggestion": "Split notes into typed subfields before mapping.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "cdrom",
+      "reason": "CD-ROM file paths look like local distribution artifacts, but no precise compliant property is available.",
+      "suggestion": "Keep as provenance metadata or add a storage/location ontology.",
+      "severity": "warning"
+    },
+    {
+      "columnName": "address",
+      "reason": "The ontology references publication places in object property ranges, but the corresponding place class is not available in the parsed classes list.",
+      "suggestion": "Re-parse the ontology with supporting FRBR classes or leave this field out of KG generation.",
+      "severity": "warning"
+    }
+  ],
+  "validationReport": {
+    "classesUsed": [
+      "core:Endeavour",
+      "core:Work",
+      "fabio:Book",
+      "fabio:BookChapter",
+      "fabio:ConferencePaper",
+      "fabio:ConferenceProceedings",
+      "fabio:DataFile",
+      "fabio:DataRepository",
+      "fabio:DoctoralThesis",
+      "fabio:Journal",
+      "fabio:JournalArticle",
+      "fabio:MastersThesis",
+      "fabio:Series",
+      "fabio:WebContent"
+    ],
+    "propertiesUsed": [
+      "core:partOf",
+      "core:relatedEndeavour",
+      "dcterms:identifier",
+      "dcterms:modified",
+      "dcterms:title",
+      "fabio:hasPublicationYear",
+      "fabio:hasSequenceIdentifier",
+      "fabio:hasURL",
+      "ns1:isbn",
+      "ns1:issueIdentifier",
+      "ns1:pageRange",
+      "ns1:volume"
+    ],
+    "namespacesUsed": [
+      "http://prismstandard.org/namespaces/basic/2.0/",
+      "http://purl.org/dc/terms/",
+      "http://purl.org/spar/fabio/",
+      "http://purl.org/vocab/frbr/core#"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Unmapped columns should remain excluded unless a stricter ontology extension is added.",
+      "No supplementary lookup files were available for confidence boosting or foreign-key confirmation."
+    ]
+  }
+}

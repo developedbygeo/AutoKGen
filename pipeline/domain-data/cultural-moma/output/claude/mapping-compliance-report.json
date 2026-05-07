@@ -1,0 +1,378 @@
+{
+  "metadata": {
+    "generatedAt": "2026-02-24T18:19:00.142Z",
+    "ontologyName": "Europeana Data Model (EDM) vocabulary",
+    "ontologyVersion": "5.2.4",
+    "datasetFile": "dataset-merged.csv",
+    "totalRows": 157457,
+    "totalColumns": 38
+  },
+  "compliance": {
+    "score": 95,
+    "grade": "A",
+    "isCompliant": true,
+    "passesGatekeeper": true
+  },
+  "coverage": {
+    "totalColumns": 38,
+    "mappedColumns": 32,
+    "unmappedColumns": 6,
+    "coveragePercent": "84.2"
+  },
+  "entities": {
+    "count": 7,
+    "classes": [
+      {
+        "column": "ObjectID",
+        "class": "edm:ProvidedCHO",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "ConstituentID",
+        "class": "edm:Agent",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "Nationality_artists",
+        "class": "edm:Place",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Date",
+        "class": "edm:TimeSpan",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "Classification",
+        "class": "skos:Concept",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "Department",
+        "class": "skos:Concept",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "URL",
+        "class": "edm:WebResource",
+        "confidence": 0.9,
+        "compliant": true
+      }
+    ]
+  },
+  "attributes": {
+    "count": 23,
+    "properties": [
+      {
+        "column": "Title",
+        "property": "dc:title",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "Medium",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "Dimensions",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.75,
+        "compliant": true
+      },
+      {
+        "column": "CreditLine",
+        "property": "dcterms:provenance",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "AccessionNumber",
+        "property": "dc:identifier",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "DateAcquired",
+        "property": "dcterms:provenance",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.75,
+        "compliant": true
+      },
+      {
+        "column": "Cataloged",
+        "property": "edm:type",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.5,
+        "compliant": true
+      },
+      {
+        "column": "DisplayName",
+        "property": "skos:prefLabel",
+        "target": "edm:Agent",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "ArtistBio_artists",
+        "property": "dc:description",
+        "target": "edm:Agent",
+        "confidence": 0.8,
+        "compliant": true
+      },
+      {
+        "column": "Gender_artists",
+        "property": "dc:description",
+        "target": "edm:Agent",
+        "confidence": 0.6,
+        "compliant": true
+      },
+      {
+        "column": "BeginDate_artists",
+        "property": "edm:begin",
+        "target": "edm:Agent",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "EndDate_artists",
+        "property": "edm:end",
+        "target": "edm:Agent",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "Wiki QID",
+        "property": "dc:identifier",
+        "target": "edm:Agent",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "ULAN",
+        "property": "dc:identifier",
+        "target": "edm:Agent",
+        "confidence": 0.85,
+        "compliant": true
+      },
+      {
+        "column": "Height (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Width (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Depth (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Length (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Circumference (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Diameter (cm)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Weight (kg)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "Duration (sec.)",
+        "property": "dc:format",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.7,
+        "compliant": true
+      },
+      {
+        "column": "OnView",
+        "property": "dc:coverage",
+        "target": "edm:ProvidedCHO",
+        "confidence": 0.65,
+        "compliant": true
+      }
+    ]
+  },
+  "relationships": {
+    "count": 7,
+    "properties": [
+      {
+        "column": "Artist",
+        "property": "dc:creator",
+        "source": "edm:ProvidedCHO",
+        "target": "edm:Agent",
+        "confidence": 0.95,
+        "compliant": true
+      },
+      {
+        "column": "Classification",
+        "property": "edm:hasType",
+        "source": "edm:ProvidedCHO",
+        "target": "skos:Concept",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "Department",
+        "property": "dc:subject",
+        "source": "edm:ProvidedCHO",
+        "target": "skos:Concept",
+        "confidence": 0.75,
+        "compliant": true
+      },
+      {
+        "column": "URL",
+        "property": "edm:isShownAt",
+        "source": "edm:ProvidedCHO",
+        "target": "edm:WebResource",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "ImageURL",
+        "property": "edm:isShownBy",
+        "source": "edm:ProvidedCHO",
+        "target": "edm:WebResource",
+        "confidence": 0.9,
+        "compliant": true
+      },
+      {
+        "column": "Nationality_artists",
+        "property": "edm:hasMet",
+        "source": "edm:Agent",
+        "target": "edm:Place",
+        "confidence": 0.65,
+        "compliant": true
+      },
+      {
+        "column": "Date",
+        "property": "dcterms:temporal",
+        "source": "edm:ProvidedCHO",
+        "target": "edm:TimeSpan",
+        "confidence": 0.85,
+        "compliant": true
+      }
+    ]
+  },
+  "validationReport": {
+    "classesUsed": [
+      "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "http://www.europeana.eu/schemas/edm/Agent",
+      "http://www.europeana.eu/schemas/edm/Place",
+      "http://www.europeana.eu/schemas/edm/TimeSpan",
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.europeana.eu/schemas/edm/WebResource"
+    ],
+    "propertiesUsed": [
+      "http://purl.org/dc/elements/1.1/title",
+      "http://purl.org/dc/elements/1.1/format",
+      "http://purl.org/dc/terms/provenance",
+      "http://purl.org/dc/elements/1.1/identifier",
+      "http://www.europeana.eu/schemas/edm/type",
+      "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "http://purl.org/dc/elements/1.1/description",
+      "http://www.europeana.eu/schemas/edm/begin",
+      "http://www.europeana.eu/schemas/edm/end",
+      "http://purl.org/dc/elements/1.1/coverage",
+      "http://purl.org/dc/elements/1.1/creator",
+      "http://www.europeana.eu/schemas/edm/hasType",
+      "http://purl.org/dc/elements/1.1/subject",
+      "http://www.europeana.eu/schemas/edm/isShownAt",
+      "http://www.europeana.eu/schemas/edm/isShownBy",
+      "http://www.europeana.eu/schemas/edm/hasMet",
+      "http://purl.org/dc/terms/temporal"
+    ],
+    "namespacesUsed": [
+      "http://www.europeana.eu/schemas/edm/",
+      "http://www.w3.org/2004/02/skos/core#",
+      "http://purl.org/dc/elements/1.1/",
+      "http://purl.org/dc/terms/"
+    ],
+    "customTermsDetected": [],
+    "recommendations": [
+      "Review 1 mapping(s) with confidence < 0.6",
+      "Consider modeling ore:Aggregation as a structural entity linking ProvidedCHO to WebResources",
+      "Use edm:currentLocation (object property with range edm:Place) for physical gallery location if a Place entity can be created from OnView values"
+    ]
+  },
+  "warnings": [
+    "Attribute Cataloged: low confidence (0.5) — flagged for review"
+  ],
+  "unmappedColumns": [
+    {
+      "columnName": "Nationality",
+      "reason": "Duplicate of Nationality_artists with parenthesized formatting. The clean version (Nationality_artists) is mapped instead.",
+      "suggestion": "Use Nationality_artists column for mapping; Nationality contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "BeginDate",
+      "reason": "Duplicate of BeginDate_artists with parenthesized formatting. The clean version (BeginDate_artists) is mapped instead.",
+      "suggestion": "Use BeginDate_artists column for mapping; BeginDate contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "EndDate",
+      "reason": "Duplicate of EndDate_artists with parenthesized formatting. The clean version (EndDate_artists) is mapped instead.",
+      "suggestion": "Use EndDate_artists column for mapping; EndDate contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Gender",
+      "reason": "Duplicate of Gender_artists with parenthesized formatting. The clean version (Gender_artists) is mapped instead.",
+      "suggestion": "Use Gender_artists column for mapping; Gender contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "ArtistBio",
+      "reason": "Duplicate of ArtistBio_artists with parenthesized formatting. The clean version (ArtistBio_artists) is mapped instead.",
+      "suggestion": "Use ArtistBio_artists column for mapping; ArtistBio contains the same data with parentheses.",
+      "severity": "info"
+    },
+    {
+      "columnName": "Seat Height (cm)",
+      "reason": "Column has 0 values (100% missing). No data to map.",
+      "suggestion": "Exclude from graph generation — no usable data.",
+      "severity": "info"
+    }
+  ]
+}

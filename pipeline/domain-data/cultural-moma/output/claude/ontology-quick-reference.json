@@ -1,0 +1,166 @@
+{
+  "coreClasses": [
+    {
+      "prefixed": "ore:Aggregation",
+      "label": "Aggregation",
+      "definition": ""
+    },
+    {
+      "prefixed": "edm:Event",
+      "label": "Event",
+      "definition": "An event is a change \"of states in cultural, social or physical systems,\n regardless of scale, brought about by a series or group of coherent physical,\ncultural, technological or legal phenomena\" (..."
+    },
+    {
+      "prefixed": "edm:WebResource",
+      "label": "Web Resource",
+      "definition": "Information Resources that have at least one Web Representation and at least\na URI."
+    },
+    {
+      "prefixed": "edm:InformationResource",
+      "label": "Information Resource",
+      "definition": "An information resource is a resource whose essential characteristics can be conveyed in a single message. It can be associated with a URI, it can have a representation, for example: a text is an I..."
+    },
+    {
+      "prefixed": "edm:NonInformationResource",
+      "label": "Non-Information Resource",
+      "definition": "All resources that are not information resources."
+    },
+    {
+      "prefixed": "edm:EuropeanaObject",
+      "label": "Europeana Object",
+      "definition": "Any object that is the result of Europeana’s activities"
+    }
+  ],
+  "keyObjectProperties": [
+    {
+      "prefixed": "edm:aggregatedCHO",
+      "label": "Aggregated Cultural Heritage Object",
+      "domain": "ore:Aggregation",
+      "range": "edm:ProvidedCHO"
+    },
+    {
+      "prefixed": "edm:happenedAt",
+      "label": "Happened At",
+      "domain": "edm:Event",
+      "range": "edm:Place"
+    },
+    {
+      "prefixed": "edm:currentLocation",
+      "label": "Current Location",
+      "domain": "(unspecified)",
+      "range": "edm:Place"
+    },
+    {
+      "prefixed": "edm:hasType",
+      "label": "Has Type",
+      "domain": "(unspecified)",
+      "range": "edm:NonInformationResource"
+    },
+    {
+      "prefixed": "edm:hasView",
+      "label": "Has View",
+      "domain": "ore:Aggregation",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:isAnnotationOf",
+      "label": "Is Annotation Of",
+      "domain": "edm:EuropeanaObject",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "edm:isRepresentationOf",
+      "label": "Is Representation Of",
+      "domain": "edm:InformationResource",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "edm:landingPage",
+      "label": "Landing Page",
+      "domain": "(unspecified)",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:occurredAt",
+      "label": "Occured At",
+      "domain": "edm:Event",
+      "range": "edm:TimeSpan"
+    },
+    {
+      "prefixed": "edm:preview",
+      "label": "Preview",
+      "domain": "(unspecified)",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:realizes",
+      "label": "Realizes",
+      "domain": "edm:PhysicalThing",
+      "range": "edm:InformationResource"
+    },
+    {
+      "prefixed": "edm:wasPresentAt",
+      "label": "Was Present At",
+      "domain": "(unspecified)",
+      "range": "edm:Event"
+    },
+    {
+      "prefixed": "edm:isShownAt",
+      "label": "Is Shown At",
+      "domain": "(unspecified)",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:isShownBy",
+      "label": "Is Shown By",
+      "domain": "(unspecified)",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:object",
+      "label": "Object",
+      "domain": "(unspecified)",
+      "range": "edm:WebResource"
+    },
+    {
+      "prefixed": "edm:dataProvider",
+      "label": "Data Provider",
+      "domain": "ore:Aggregation",
+      "range": "edm:Agent"
+    },
+    {
+      "prefixed": "edm:provider",
+      "label": "Provider",
+      "domain": "(unspecified)",
+      "range": "edm:Agent"
+    }
+  ],
+  "keyDataProperties": [],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "dcmitype: (http://purl.org/dc/dcmitype/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "voaf: (http://purl.org/vocommons/voaf#)",
+    "adms: (http://www.w3.org/ns/adms#)",
+    "radion: (http://www.w3.org/ns/radion#)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "ore: (http://www.openarchives.org/ore/terms/)",
+    "wgs84_pos: (http://www.w3.org/2003/01/geo/wgs84_pos#)",
+    "crm: (http://www.cidoc-crm.org/cidoc-crm/)",
+    "frbr_core: (http://purl.org/vocab/frbr/core#)",
+    "frbroo: (http://iflastandards.info/ns/fr/frbr/frbroo/)",
+    "abc: (http://metadata.net/harmony/abc#)",
+    "DOLCE-Lite: (http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#)",
+    "edm: (http://www.europeana.eu/schemas/edm/)"
+  ],
+  "ontologyVersion": "5.2.4"
+}

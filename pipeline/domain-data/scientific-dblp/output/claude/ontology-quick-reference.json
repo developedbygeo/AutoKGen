@@ -1,0 +1,660 @@
+{
+  "coreClasses": [
+    {
+      "prefixed": "frbr:Endeavour",
+      "label": "Endeavour",
+      "definition": ""
+    },
+    {
+      "prefixed": "fabio:Item",
+      "label": "item",
+      "definition": "A subclass of FRBR item, restricted to exemplars of fabio:Manifestations.  An example of a fabio:Item is a printed copy of a journal article on your desk, or a PDF file of that article that you pur..."
+    },
+    {
+      "prefixed": "frbr:Item",
+      "label": "Item",
+      "definition": ""
+    },
+    {
+      "prefixed": "frbr:Work",
+      "label": "Work",
+      "definition": ""
+    },
+    {
+      "prefixed": "frbr:Expression",
+      "label": "Expression",
+      "definition": ""
+    },
+    {
+      "prefixed": "skos:Concept",
+      "label": "concept",
+      "definition": "A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restricti..."
+    },
+    {
+      "prefixed": "frbr:Manifestation",
+      "label": "Manifestation",
+      "definition": ""
+    },
+    {
+      "prefixed": "skos:ConceptScheme",
+      "label": "concept scheme",
+      "definition": "A SKOS concept scheme can be viewed as an aggregation of one or more SKOS concepts. Semantic relationships (links) between those concepts may also be viewed as part of a concept scheme. This defini..."
+    },
+    {
+      "prefixed": "fabio:StorageMedium",
+      "label": "storage medium",
+      "definition": "A device for recording information or storing data."
+    },
+    {
+      "prefixed": "fabio:Periodical",
+      "label": "periodical",
+      "definition": "A publication issued on a regular and ongoing basis as a series of issues, each issue comprising separate periodical items, for example editorials, articles, news items and/or other writings."
+    },
+    {
+      "prefixed": "fabio:Vocabulary",
+      "label": "vocabulary",
+      "definition": "A set of words, either constituting a language, or more specifically used to describe a particular domain of knowledge."
+    },
+    {
+      "prefixed": "fabio:Work",
+      "label": "work",
+      "definition": "A subclass of FRBR work, restricted to works that are published or potentially publishable, and that contain or are referred to by bibliographic references, or entities used to define bibliographic..."
+    },
+    {
+      "prefixed": "fabio:NewsItem",
+      "label": "news item",
+      "definition": "A published news report."
+    },
+    {
+      "prefixed": "fabio:Anthology",
+      "label": "anthology",
+      "definition": "A collection of selected literary or scholastics works, for example poems, short stories, plays or research papers."
+    },
+    {
+      "prefixed": "fabio:WorkCollection",
+      "label": "work collection",
+      "definition": ""
+    },
+    {
+      "prefixed": "fabio:Thesis",
+      "label": "thesis",
+      "definition": "A book authored by a student containing a formal presentations of research outputs submitted for examination in completion of a course of study at an institution of higher education, to fulfil the ..."
+    },
+    {
+      "prefixed": "fabio:BriefReport",
+      "label": "brief report",
+      "definition": "A brief report document.  This term may also be used synonymously with Rapid Communication to mean 'A short rapidly published research article or conference paper, typically reporting significant r..."
+    },
+    {
+      "prefixed": "fabio:Report",
+      "label": "report",
+      "definition": "A formal factual, methodological, statistical, technical or research report issued by an individual, group, agency, government body or other institution."
+    },
+    {
+      "prefixed": "fabio:Expression",
+      "label": "expression",
+      "definition": "A subclass of FRBR expression, restricted to expressions of fabio:Works.  For your latest research paper, the preprint submitted to the publisher, and the final published version to which the publi..."
+    },
+    {
+      "prefixed": "fabio:Chapter",
+      "label": "chapter",
+      "definition": "A defined document section, forming part of or intended for inclusion within a larger document, usually with its own title or chapter number.  Different chapters within a document such as a book or..."
+    },
+    {
+      "prefixed": "fabio:Metadata",
+      "label": "metadata",
+      "definition": "A separate work that provides information describing one or more characteristics of a resource or entity."
+    },
+    {
+      "prefixed": "fabio:Table",
+      "label": "table",
+      "definition": "A graphical means of presenting data in a grid of rows and columns, within which the cells usually contain alphanumeric text or numeric values.  If included within a publication, a table typically ..."
+    },
+    {
+      "prefixed": "fabio:Movie",
+      "label": "movie",
+      "definition": "The realization of a moving image."
+    },
+    {
+      "prefixed": "fabio:Article",
+      "label": "article",
+      "definition": "The realization of a piece of writing on a particular topic, usually published within a periodical publication (e.g. journal, magazine and newspaper)."
+    },
+    {
+      "prefixed": "fabio:DigitalItem",
+      "label": "digital item",
+      "definition": "A digital object, such as a computer file."
+    },
+    {
+      "prefixed": "fabio:CaseReport",
+      "label": "case report",
+      "definition": "A report about a particular case or situation."
+    },
+    {
+      "prefixed": "fabio:LiteraryArtisticWork",
+      "label": "literary artistic work",
+      "definition": "A literary creative work, such as a novel, play, poem or song."
+    },
+    {
+      "prefixed": "fabio:ProceedingsPaper",
+      "label": "proceedings paper",
+      "definition": "A paper, typically the realization of a research paper reporting original research findings, usually published within an academic proceedings volume."
+    },
+    {
+      "prefixed": "fabio:AnalogManifestation",
+      "label": "analog manifestation",
+      "definition": "A manifestation in an analog form."
+    },
+    {
+      "prefixed": "fabio:Image",
+      "label": "image",
+      "definition": "A visual representation other than text, including all types of moving image and still image."
+    },
+    {
+      "prefixed": "fabio:Editorial",
+      "label": "editorial",
+      "definition": "The realization of an opinion written by an editor."
+    },
+    {
+      "prefixed": "fabio:Opinion",
+      "label": "opinion",
+      "definition": "An expression of a personal or professional opinion on an issue or topic."
+    },
+    {
+      "prefixed": "fabio:ReportDocument",
+      "label": "report document",
+      "definition": "The realization of a report, usually in printed form."
+    },
+    {
+      "prefixed": "fabio:AcademicProceedings",
+      "label": "academic proceedings",
+      "definition": "A document containing the programme and collected papers, or their abstracts, presented at an academic meeting."
+    },
+    {
+      "prefixed": "fabio:InstructionalWork",
+      "label": "instructional work",
+      "definition": "A work created for the purpose of education or instruction, that may be expressed as a  text book, a lecture, a tutorial or an instruction manual."
+    },
+    {
+      "prefixed": "fabio:Notebook",
+      "label": "notebook",
+      "definition": "A book containing personal notes, typically created by writing into a physical book with blank pages."
+    },
+    {
+      "prefixed": "fabio:Review",
+      "label": "review",
+      "definition": "A review of others' work."
+    },
+    {
+      "prefixed": "fabio:Specification",
+      "label": "specification",
+      "definition": "An explicit description of, or set of requirements to be satisfied by, a material, product, resource, service or standard."
+    },
+    {
+      "prefixed": "fabio:PolicyDocument",
+      "label": "policy document",
+      "definition": "A document embodying a policy that descibes and defines how something should be done. "
+    },
+    {
+      "prefixed": "fabio:VocabularyDocument",
+      "label": "vocabulary document",
+      "definition": "A document containing a vocabulary"
+    },
+    {
+      "prefixed": "fabio:PeriodicalIssue",
+      "label": "periodical issue",
+      "definition": "A particular issue of a periodical, identified and distinguished from other issues of the same publication by date and/or issue number and/or volume number, and comprising separate periodical items..."
+    },
+    {
+      "prefixed": "fabio:Database",
+      "label": "database",
+      "definition": "A structured collection of logically related records or data usually stored and retrieved using computer-based means."
+    },
+    {
+      "prefixed": "fabio:Series",
+      "label": "series",
+      "definition": "A sequence of expressions having certain characteristics in common that are formally identified together as a group."
+    },
+    {
+      "prefixed": "fabio:UncontrolledVocabulary",
+      "label": "uncontrolled vocabulary",
+      "definition": "A non-defined collection of words and phrases relating to a particular domain of knowledge, usually added freely by a community, in which homonyms, synonyms and similar ambiguities of meaning prese..."
+    },
+    {
+      "prefixed": "fabio:Comment",
+      "label": "comment",
+      "definition": "A verbal or written remark concerning some entity.  In written form, a comment is often appended to that entity and termed an annotation.  Within computer programs or ontologies, comments are added..."
+    },
+    {
+      "prefixed": "fabio:CollectedWorks",
+      "label": "collected works",
+      "definition": "A collection of the literary or scholastic works of a single person."
+    },
+    {
+      "prefixed": "fabio:MusicalComposition",
+      "label": "musical composition",
+      "definition": "A piece of music, typically in the form of a composition recorded in musical notation."
+    },
+    {
+      "prefixed": "fabio:Catalog",
+      "label": "catalog",
+      "definition": "A list of items describing the content of a resource, for example items in an exhibition, items offered for sale by a vendor, or entities contained within a library or collection.  Ideally, catalog..."
+    },
+    {
+      "prefixed": "fabio:Manifestation",
+      "label": "manifestation",
+      "definition": "A subclass of FRBR manifestation, restricted to manifestations of fabio:Expressions. fabio:Manifestation specifically applies to electronic (digital) as well as to physical manifestations of expres..."
+    },
+    {
+      "prefixed": "fabio:NewsReport",
+      "label": "news report",
+      "definition": "A report of an item of news."
+    },
+    {
+      "prefixed": "fabio:SpecificationDocument",
+      "label": "specification document",
+      "definition": "The realization of a specification (a standard, a workflow, etc.)."
+    },
+    {
+      "prefixed": "fabio:Announcement",
+      "label": "announcement",
+      "definition": "A formal statement about something."
+    },
+    {
+      "prefixed": "fabio:ScholarlyWork",
+      "label": "scholarly work",
+      "definition": "A work that reports scholarly activity on a particular topic, either published in written form, or delivered orally at a meeting."
+    },
+    {
+      "prefixed": "fabio:PrintObject",
+      "label": "print object",
+      "definition": "An analog manifestation in physical printed form, typically on paper."
+    },
+    {
+      "prefixed": "fabio:ExpressionCollection",
+      "label": "expression collection",
+      "definition": "A collection of expressions, for example a periodical or a book series."
+    },
+    {
+      "prefixed": "fabio:ControlledVocabulary",
+      "label": "controlled vocabulary",
+      "definition": "A collection of selected words and phrases related to a particular domain of knowledge used to permit consistency of metadata annotation and improved retrieval following a search, in which homonyms..."
+    },
+    {
+      "prefixed": "fabio:Page",
+      "label": "page",
+      "definition": "A manifestation that represents pages either in physical (e.g., one side of a sheet of paper) or in digital form (e.g., a page in a PDF, or a web page)."
+    },
+    {
+      "prefixed": "fabio:ComputerProgram",
+      "label": "computer program",
+      "definition": "A unit of computer code in source or compiled form, employing one or more algorithms to be executed by a digital computer to undertake a particular task.  Computer programs are collectively called ..."
+    },
+    {
+      "prefixed": "fabio:DigitalManifestation",
+      "label": "digital manifestation",
+      "definition": "A manifestation that represents data in binary form, encoding the data as a series of 0s and 1s."
+    },
+    {
+      "prefixed": "fabio:Micropost",
+      "label": "micropost",
+      "definition": "A content item that is published in a Microblog, typically containing just a short sentence, a single image, or a URL."
+    },
+    {
+      "prefixed": "fabio:Entry",
+      "label": "entry",
+      "definition": "An item written or printed in a diary, list, account book, reference book, or database."
+    },
+    {
+      "prefixed": "fabio:WikiEntry",
+      "label": "wiki entry",
+      "definition": "Information manifested in a wiki. "
+    },
+    {
+      "prefixed": "fabio:Manuscript",
+      "label": "manuscript",
+      "definition": "A textual work prepared 'by hand', such as a typescript or word-processed pre-publication draft of a research paper or a report, or a work not otherwise reproduced in multiple copies.  [Note: fabio..."
+    },
+    {
+      "prefixed": "fabio:Book",
+      "label": "book",
+      "definition": "A non-serial document that is complete in one volume or a designated finite number of volumes.  A book published by a publisher is usually  identified by an International Standard Book Number (ISBN..."
+    },
+    {
+      "prefixed": "fabio:Correction",
+      "label": "correction",
+      "definition": "A correction to an error in a previously published document."
+    },
+    {
+      "prefixed": "fabio:Dataset",
+      "label": "dataset",
+      "definition": "A collection of related facts, often expressed in numerical form and encoded in a defined structure."
+    },
+    {
+      "prefixed": "fabio:Policy",
+      "label": "policy",
+      "definition": "A description and definition of how something should be done.  Ideally a policy should be both effective in achieving its goals and acceptable to those who have to abide by it."
+    },
+    {
+      "prefixed": "fabio:PeriodicalVolume",
+      "label": "periodical volume",
+      "definition": "A particular published volume of a periodical."
+    },
+    {
+      "prefixed": "fabio:TrialReport",
+      "label": "trial report",
+      "definition": "The report of a trial, for example an experimental trial or a legal trial."
+    },
+    {
+      "prefixed": "fabio:Repository",
+      "label": "repository",
+      "definition": "A computer system in which information may be stored."
+    },
+    {
+      "prefixed": "fabio:Blog",
+      "label": "blog",
+      "definition": "A Web publication medium containing blog posts."
+    },
+    {
+      "prefixed": "fabio:WebManifestation",
+      "label": "web manifestation",
+      "definition": "A digital manifestation on the Web, such as a wiki, a web site, a web page or a blog."
+    },
+    {
+      "prefixed": "fabio:WebContent",
+      "label": "web content",
+      "definition": "Information prepared specifically and primarily for manifestation in a web page, comprising text, images, datasets and/or other works."
+    },
+    {
+      "prefixed": "fabio:ArtisticWork",
+      "label": "artistic work",
+      "definition": "It describes any work regarded as art in its widest sense, including works from literature and music, visual art, etc."
+    }
+  ],
+  "keyObjectProperties": [
+    {
+      "prefixed": "fabio:hasPortrayal",
+      "label": "has portrayal",
+      "domain": "frbr:Work",
+      "range": "frbr:Item"
+    },
+    {
+      "prefixed": "fabio:isStoredOn",
+      "label": "is stored on",
+      "domain": "fabio:Item",
+      "range": "fabio:StorageMedium"
+    },
+    {
+      "prefixed": "fabio:isDisciplineOf",
+      "label": "is discipline of",
+      "domain": "fabio:SubjectDiscipline",
+      "range": "(unspecified)"
+    },
+    {
+      "prefixed": "fabio:hasDiscipline",
+      "label": "has discipline",
+      "domain": "(unspecified)",
+      "range": "fabio:SubjectDiscipline"
+    },
+    {
+      "prefixed": "fabio:isManifestationOf",
+      "label": "is manifestation of",
+      "domain": "frbr:Manifestation",
+      "range": "frbr:Work"
+    },
+    {
+      "prefixed": "fabio:isSchemeOf",
+      "label": "is scheme of",
+      "domain": "skos:ConceptScheme",
+      "range": "skos:Concept"
+    },
+    {
+      "prefixed": "fabio:hasManifestation",
+      "label": "has manifestation",
+      "domain": "frbr:Work",
+      "range": "frbr:Manifestation"
+    },
+    {
+      "prefixed": "fabio:isPortrayalOf",
+      "label": "is portrayal of",
+      "domain": "frbr:Item",
+      "range": "frbr:Work"
+    },
+    {
+      "prefixed": "fabio:hasRepresentation",
+      "label": "has representation",
+      "domain": "frbr:Expression",
+      "range": "frbr:Item"
+    },
+    {
+      "prefixed": "fabio:hasPlaceOfPublication",
+      "label": "has place of publication",
+      "domain": "frbr:Endeavour",
+      "range": "frbr:Place"
+    },
+    {
+      "prefixed": "fabio:hasSubjectTerm",
+      "label": "has subject term",
+      "domain": "frbr:Endeavour",
+      "range": "fabio:SubjectTerm"
+    },
+    {
+      "prefixed": "skos:inScheme",
+      "label": "is in scheme",
+      "domain": "skos:Concept",
+      "range": "skos:ConceptScheme"
+    },
+    {
+      "prefixed": "fabio:isRepresentationOf",
+      "label": "is representation of",
+      "domain": "frbr:Item",
+      "range": "frbr:Expression"
+    },
+    {
+      "prefixed": "fabio:stores",
+      "label": "stores",
+      "domain": "fabio:StorageMedium",
+      "range": "fabio:Item"
+    }
+  ],
+  "keyDataProperties": [
+    {
+      "prefixed": "prism:doi",
+      "label": "has DOI",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasShortTitle",
+      "label": "has short title",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:versionIdentifier",
+      "label": "has version identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasSICI",
+      "label": "has SICI",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasCharacterCount",
+      "label": "has character count",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "prefixed": "prism:startingPage",
+      "label": "has starting page",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:edition",
+      "label": "has edition",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasPubMedId",
+      "label": "has PubMed identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasCopyrightYear",
+      "label": "has copyright year",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:gYear"
+    },
+    {
+      "prefixed": "fabio:hasAccessDate",
+      "label": "has access date",
+      "domain": "fabio:Item",
+      "range": "xsd:dateTime"
+    },
+    {
+      "prefixed": "fabio:hasDepositDate",
+      "label": "has deposit date",
+      "domain": "fabio:Item",
+      "range": "xsd:dateTime"
+    },
+    {
+      "prefixed": "fabio:hasElectronicArticleIdentifier",
+      "label": "has electronic article identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasVolumeCount",
+      "label": "has volume count",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:nonNegativeInteger"
+    },
+    {
+      "prefixed": "fabio:hasURL",
+      "label": "has URL",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:anyURI"
+    },
+    {
+      "prefixed": "prism:issueIdentifier",
+      "label": "has issue identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasSequenceIdentifier",
+      "label": "has number",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasHandle",
+      "label": "has handle",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:endingPage",
+      "label": "has ending page",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasPageCount",
+      "label": "has page count",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "prefixed": "fabio:hasPubMedCentralId",
+      "label": "has PubMed Central identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:publicationDate",
+      "label": "has publication date",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:issn",
+      "label": "has ISSN",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "fabio:hasSubtitle",
+      "label": "has subtitle",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:isbn",
+      "label": "has ISBN",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:volume",
+      "label": "has volume identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:wordCount",
+      "label": "has word count",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:positiveInteger"
+    },
+    {
+      "prefixed": "fabio:hasNationalLibraryOfMedicineJournalId",
+      "label": "has National Library of Medicine journal identifier",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:eIssn",
+      "label": "has eISSN",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:keyword",
+      "label": "has keyword",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    },
+    {
+      "prefixed": "prism:pageRange",
+      "label": "has page range",
+      "domain": "frbr:Endeavour",
+      "range": "xsd:string"
+    }
+  ],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "frbr: (http://purl.org/vocab/frbr/core#)",
+    "prism: (http://prismstandard.org/namespaces/basic/2.0/)",
+    "fabio: (http://purl.org/spar/fabio/)"
+  ],
+  "ontologyVersion": "2.2"
+}

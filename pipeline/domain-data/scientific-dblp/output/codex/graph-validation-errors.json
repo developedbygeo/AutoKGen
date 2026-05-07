@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-04-02T14:14:08.613Z",
+  "compliant": false,
+  "complianceScore": 10,
+  "threshold": 60,
+  "errors": [
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: publtype. Values such as 'encyclopedia', 'version', and 'withdrawn' mix publication form and status, and no precise valid property exists in the parsed ontology.",
+      "context": {
+        "columnName": "publtype",
+        "suggestion": "Map after a controlled vocabulary or status ontology is added."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: authors. The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "context": {
+        "columnName": "authors",
+        "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: editors. The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "context": {
+        "columnName": "editors",
+        "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: month. Month alone is an incomplete temporal fragment and should not be forced into a full publication-date property.",
+      "context": {
+        "columnName": "month",
+        "suggestion": "Combine with year during data cleaning if a complete publication date is needed."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: publisher. The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "context": {
+        "columnName": "publisher",
+        "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: school. The column denotes people or organizations, but the parsed ontology does not expose a matching agent/organization class for strict mapping.",
+      "context": {
+        "columnName": "school",
+        "suggestion": "Extend the ontology set with an explicit agent/person/organization ontology before mapping this column."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: note. Free-text notes are heterogeneous and do not safely align with a single existing ontology property.",
+      "context": {
+        "columnName": "note",
+        "suggestion": "Split notes into typed subfields before mapping."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: cdrom. CD-ROM file paths look like local distribution artifacts, but no precise compliant property is available.",
+      "context": {
+        "columnName": "cdrom",
+        "suggestion": "Keep as provenance metadata or add a storage/location ontology."
+      }
+    },
+    {
+      "type": "unmapped_column",
+      "severity": "warning",
+      "message": "Unmapped column: address. The ontology references publication places in object property ranges, but the corresponding place class is not available in the parsed classes list.",
+      "context": {
+        "columnName": "address",
+        "suggestion": "Re-parse the ontology with supporting FRBR classes or leave this field out of KG generation."
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+Ontology Validation Report
+Validated At: 2026-04-02T11:47:36.070Z
+Ontology: Europeana Data Model (EDM) vocabulary v5.2.4
+Graph Source: /home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/codex/graph-data.json (snapshot fallback; Neo4j connectivity unavailable for database neo4j)
+
+Overall Compliance: 86/100 (B)
+Compliant Gate: FAIL
+
+Statistics
+- Total Nodes: 261,823
+- Total Relationships: 181,762
+- Nodes Analyzed: 261,823
+- Relationships Analyzed: 181,762
+
+Issue Breakdown
+- Errors: 0
+- Warnings: 80,680
+- Info: 0
+
+Ontology Requirements
+- Valid Labels: met
+- Valid Namespaces: met
+- Valid Domain/Range Rules: met
+- Required Properties: met
+
+Violations
+- [WARNING] orphaned_nodes (80,671)
+  Property: graph_connectivity
+  Description: Nodes with no incoming or outgoing relationships were found.
+  Example: http://data.example.org/agent/6210
+- [WARNING] missing_core_class_instances (9)
+  Property: core_entity_classes
+  Description: At least one ontology-derived core entity class has no instances in Neo4j.
+  Example: n/a http://www.europeana.eu/schemas/edm/NonInformationResource
+
+Next Steps
+- [LOW] Keep the validator in CI as a release gate.
+  Reasoning: The graph is currently compliant enough that regression prevention matters more than manual remediation.
+  Impact: Preserves graph quality over future generation cycles.

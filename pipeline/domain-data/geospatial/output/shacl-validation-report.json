@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-09T23:45:00Z",
+    "validator": "neosemantics (n10s) v5.26.0",
+    "shapesFile": "domain-data/geospatial/validation/geosparql-shacl-shapes.ttl",
+    "domain": "geospatial",
+    "graphStatistics": {
+      "totalNodes": 1581327,
+      "totalRelationships": 2368553,
+      "nodesByLabel": {
+        "Feature": 790717,
+        "Geometry": 790610
+      },
+      "relationshipsByType": {
+        "hasGeometry": 790610,
+        "sfWithin": 1577943
+      }
+    }
+  },
+  "shapes": {
+    "total": 2,
+    "definitions": [
+      {
+        "id": "neo4j:FeatureShape",
+        "targetClass": "Feature",
+        "targetCount": 790717,
+        "propertyConstraints": 10
+      },
+      {
+        "id": "neo4j:GeometryShape",
+        "targetClass": "Geometry",
+        "targetCount": 790610,
+        "propertyConstraints": 1
+      }
+    ]
+  },
+  "summary": {
+    "totalViolations": 207,
+    "bySeverity": {
+      "sh:Warning": 100,
+      "sh:Violation": 107
+    },
+    "byConstraint": {
+      "spatial": {
+        "count": 100,
+        "severity": "sh:Warning",
+        "constraint": "MinCountConstraintComponent"
+      },
+      "hasGeometry": {
+        "count": 107,
+        "severity": "sh:Violation",
+        "constraint": "MinCountConstraintComponent"
+      }
+    },
+    "overallStatus": "PASS (with minor violations)",
+    "complianceRate": {
+      "Feature": {
+        "violationRate": "0.0135%",
+        "warningRate": "0.0126%",
+        "cleanNodes": 790510,
+        "cleanRate": "99.9865%"
+      },
+      "Geometry": {
+        "violationRate": "0.0000%",
+        "cleanNodes": 790610,
+        "cleanRate": "100.0000%"
+      }
+    },
+    "totalViolationRate": "0.0068%"
+  },
+  "violations": [
+    {
+      "path": "spatial",
+      "nodeType": "Feature",
+      "severity": "sh:Warning",
+      "constraint": "MinCountConstraintComponent",
+      "message": "GeoSPARQL Warning: Feature should have spatial context. Source: GeoNames data model",
+      "count": 100,
+      "sampleFocusNodes": [
+        785811,
+        785814,
+        785816,
+        785818,
+        785820
+      ]
+    },
+    {
+      "path": "hasGeometry",
+      "nodeType": "Feature",
+      "severity": "sh:Violation",
+      "constraint": "MinCountConstraintComponent",
+      "message": "GeoSPARQL Violation: Feature must have at least one geo:hasGeometry pointing to a Geometry. Source: GeoSPARQL OWL, geo:hasGeometry (domain: Feature, range: Geometry)",
+      "count": 107,
+      "sampleFocusNodes": [
+        785644,
+        785740,
+        785805,
+        785806,
+        785808
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-02-24T19:38:22.447Z",
+  "totalViolations": 2,
+  "violations": [
+    {
+      "category": "structure",
+      "type": "empty_core_classes",
+      "property": "class_instantiation",
+      "severity": "info",
+      "count": 8,
+      "description": "8 ontology class(es) have no instances in the graph: Non-InformationResource, EuropeanaAggregation, EuropeanaObject, Aggregation, Event, InformationResource, PhysicalThing, Proxy",
+      "examples": [
+        {
+          "context": "Class \"Non-InformationResource\" has 0 instances"
+        },
+        {
+          "context": "Class \"EuropeanaAggregation\" has 0 instances"
+        },
+        {
+          "context": "Class \"EuropeanaObject\" has 0 instances"
+        },
+        {
+          "context": "Class \"Aggregation\" has 0 instances"
+        },
+        {
+          "context": "Class \"Event\" has 0 instances"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_empty_classes",
+          "cypherQuery": "CALL db.labels() YIELD label MATCH (n) WHERE label IN labels(n) RETURN label, count(n) AS count ORDER BY count DESC",
+          "description": "Review instance counts per class label",
+          "risk": "safe"
+        }
+      ]
+    },
+    {
+      "category": "dataProperty",
+      "type": "unknown_property",
+      "property": "property_namespace",
+      "severity": "info",
+      "count": 21,
+      "description": "21 property key(s) not explicitly defined in the ontology.",
+      "examples": [
+        {
+          "context": "Property \"type_Cataloged\" not found in ontology namespaces"
+        },
+        {
+          "context": "Property \"Title\" not found in ontology namespaces"
+        },
+        {
+          "context": "Property \"format_Dimensions\" not found in ontology namespaces"
+        },
+        {
+          "context": "Property \"format_Height_cm\" not found in ontology namespaces"
+        },
+        {
+          "context": "Property \"format_Width_cm\" not found in ontology namespaces"
+        }
+      ],
+      "fixStrategies": [
+        {
+          "strategy": "review_properties",
+          "cypherQuery": "CALL db.propertyKeys() YIELD propertyKey RETURN propertyKey ORDER BY propertyKey",
+          "description": "List all property keys for manual review",
+          "risk": "safe"
+        }
+      ]
+    }
+  ]
+}

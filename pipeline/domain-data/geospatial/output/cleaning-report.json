@@ -1,0 +1,107 @@
+{
+  "originalRows": 790613,
+  "cleanedRows": 790610,
+  "rowsRemoved": 3,
+  "duplicatesRemoved": 0,
+  "issues": [
+    {
+      "type": "null_values_normalized",
+      "count": 3720,
+      "severity": "info"
+    },
+    {
+      "type": "dem_sentinel_-9999_nulled",
+      "count": 11824,
+      "severity": "info"
+    },
+    {
+      "type": "missing_name_removed",
+      "count": 3,
+      "severity": "warning"
+    },
+    {
+      "type": "invalid_admin1_codes_flagged",
+      "count": 18,
+      "severity": "warning"
+    }
+  ],
+  "typeCoercions": [
+    {
+      "column": "latitude",
+      "targetType": "xsd:decimal",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "longitude",
+      "targetType": "xsd:decimal",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "population",
+      "targetType": "xsd:integer",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "elevation",
+      "targetType": "xsd:integer",
+      "successCount": 59303,
+      "failCount": 0
+    },
+    {
+      "column": "modification_date",
+      "targetType": "xsd:date",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "dem",
+      "targetType": "xsd:integer",
+      "successCount": 778789,
+      "failCount": 0
+    }
+  ],
+  "supplementaryValidation": {
+    "countryCodeValidation": {
+      "valid": 790613,
+      "invalid": 0,
+      "invalidCodes": []
+    },
+    "featureCodeValidation": {
+      "valid": 790578,
+      "invalid": 0,
+      "invalidCodes": []
+    },
+    "featureClassValidation": {
+      "valid": 790613,
+      "invalid": 0,
+      "invalidClasses": []
+    },
+    "admin1CodeValidation": {
+      "valid": 789613,
+      "invalid": 18,
+      "invalidCodes": [
+        "FR.B9",
+        "FR.B7",
+        "FR.B6",
+        "FR.B4",
+        "FR.B3",
+        "FR.B2",
+        "FR.B1",
+        "FR.A9",
+        "FR.A7",
+        "FR.A6",
+        "FR.A4",
+        "FR.A1",
+        "FR.99",
+        "FR.98",
+        "FR.97",
+        "FR.C1",
+        "FR.B5"
+      ]
+    }
+  },
+  "generatedAt": "2026-02-23T15:16:41.157Z"
+}

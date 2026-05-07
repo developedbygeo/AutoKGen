@@ -1,0 +1,263 @@
+{
+  "originalRows": 157457,
+  "cleanedRows": 157457,
+  "rowsRemoved": 0,
+  "duplicatesRemoved": 0,
+  "issues": [
+    {
+      "type": "missing_title",
+      "count": 59,
+      "severity": "warning"
+    }
+  ],
+  "typeCoercions": [
+    {
+      "column": "Height (cm)",
+      "targetType": "xsd:float",
+      "successCount": 21791,
+      "failCount": 0
+    },
+    {
+      "column": "Width (cm)",
+      "targetType": "xsd:float",
+      "successCount": 21038,
+      "failCount": 0
+    },
+    {
+      "column": "Depth (cm)",
+      "targetType": "xsd:float",
+      "successCount": 11932,
+      "failCount": 0
+    },
+    {
+      "column": "Duration (sec.)",
+      "targetType": "xsd:float",
+      "successCount": 1953,
+      "failCount": 0
+    },
+    {
+      "column": "Diameter (cm)",
+      "targetType": "xsd:float",
+      "successCount": 160,
+      "failCount": 0
+    },
+    {
+      "column": "Length (cm)",
+      "targetType": "xsd:float",
+      "successCount": 133,
+      "failCount": 0
+    },
+    {
+      "column": "Weight (kg)",
+      "targetType": "xsd:float",
+      "successCount": 11,
+      "failCount": 0
+    },
+    {
+      "column": "Circumference (cm)",
+      "targetType": "xsd:float",
+      "successCount": 3,
+      "failCount": 0
+    }
+  ],
+  "columnSummary": {
+    "OnView": {
+      "nullsBefore": 156141,
+      "nullsAfter": 156141,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Circumference (cm)": {
+      "nullsBefore": 157447,
+      "nullsAfter": 157447,
+      "trimmed": 0,
+      "coerced": 3
+    },
+    "Depth (cm)": {
+      "nullsBefore": 139490,
+      "nullsAfter": 139490,
+      "trimmed": 0,
+      "coerced": 11932
+    },
+    "Diameter (cm)": {
+      "nullsBefore": 155988,
+      "nullsAfter": 155988,
+      "trimmed": 0,
+      "coerced": 160
+    },
+    "Length (cm)": {
+      "nullsBefore": 156746,
+      "nullsAfter": 156746,
+      "trimmed": 0,
+      "coerced": 133
+    },
+    "Weight (kg)": {
+      "nullsBefore": 157161,
+      "nullsAfter": 157161,
+      "trimmed": 0,
+      "coerced": 11
+    },
+    "Seat Height (cm)": {
+      "nullsBefore": 157457,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Duration (sec.)": {
+      "nullsBefore": 155504,
+      "nullsAfter": 155504,
+      "trimmed": 0,
+      "coerced": 1953
+    },
+    "Nationality_artists": {
+      "nullsBefore": 14392,
+      "nullsAfter": 14392,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ImageURL": {
+      "nullsBefore": 66576,
+      "nullsAfter": 66576,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "DisplayName": {
+      "nullsBefore": 9176,
+      "nullsAfter": 9176,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ArtistBio_artists": {
+      "nullsBefore": 13867,
+      "nullsAfter": 13867,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Gender_artists": {
+      "nullsBefore": 16887,
+      "nullsAfter": 16887,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "BeginDate_artists": {
+      "nullsBefore": 9176,
+      "nullsAfter": 9176,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "EndDate_artists": {
+      "nullsBefore": 9176,
+      "nullsAfter": 9176,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Wiki QID": {
+      "nullsBefore": 47418,
+      "nullsAfter": 47418,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ULAN": {
+      "nullsBefore": 48927,
+      "nullsAfter": 48927,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Medium": {
+      "nullsBefore": 9255,
+      "nullsAfter": 9255,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Dimensions": {
+      "nullsBefore": 8665,
+      "nullsAfter": 8665,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "URL": {
+      "nullsBefore": 57363,
+      "nullsAfter": 57363,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Height (cm)": {
+      "nullsBefore": 29382,
+      "nullsAfter": 29382,
+      "trimmed": 0,
+      "coerced": 21791
+    },
+    "Width (cm)": {
+      "nullsBefore": 30308,
+      "nullsAfter": 30308,
+      "trimmed": 0,
+      "coerced": 21038
+    },
+    "CreditLine": {
+      "nullsBefore": 1561,
+      "nullsAfter": 1561,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ArtistBio": {
+      "nullsBefore": 6081,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "DateAcquired": {
+      "nullsBefore": 6701,
+      "nullsAfter": 6701,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Artist": {
+      "nullsBefore": 1262,
+      "nullsAfter": 1262,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "ConstituentID": {
+      "nullsBefore": 1262,
+      "nullsAfter": 1262,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Nationality": {
+      "nullsBefore": 1262,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "BeginDate": {
+      "nullsBefore": 1262,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "EndDate": {
+      "nullsBefore": 1262,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Gender": {
+      "nullsBefore": 1262,
+      "nullsAfter": 0,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Date": {
+      "nullsBefore": 2013,
+      "nullsAfter": 2013,
+      "trimmed": 0,
+      "coerced": 0
+    },
+    "Title": {
+      "nullsBefore": 59,
+      "nullsAfter": 59,
+      "trimmed": 0,
+      "coerced": 0
+    }
+  }
+}

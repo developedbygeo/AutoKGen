@@ -1,0 +1,33 @@
+{
+  "originalRows": 157457,
+  "cleanedRows": 157457,
+  "rowsRemoved": 0,
+  "issues": [
+    {
+      "type": "missing_identifier:ImageURL",
+      "count": 66576,
+      "severity": "warning"
+    },
+    {
+      "type": "relationship_constraint:object:missing_target_identifier",
+      "count": 66576,
+      "severity": "warning"
+    },
+    {
+      "type": "missing_identifier:URL",
+      "count": 57363,
+      "severity": "warning"
+    },
+    {
+      "type": "relationship_constraint:isShownAt:missing_target_identifier",
+      "count": 57363,
+      "severity": "warning"
+    },
+    {
+      "type": "missing_identifier:ConstituentID",
+      "count": 1262,
+      "severity": "warning"
+    }
+  ],
+  "typeCoercions": []
+}

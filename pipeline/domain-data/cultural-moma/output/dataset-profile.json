@@ -1,0 +1,647 @@
+{
+  "dataset": "dataset-merged.csv",
+  "totalRows": 157457,
+  "totalColumns": 38,
+  "fileSizeBytes": 82213682,
+  "columns": [
+    {
+      "name": "Title",
+      "inferredType": "string",
+      "totalValues": 157418,
+      "missingCount": 39,
+      "missingPercent": 0.02,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Ferdinandsbrücke Project, Vienna, Austria (Elevation, preliminary version)",
+        "City of Music, National Superior Conservatory of Music and Dance, Paris, France, View from interior courtyard",
+        "Villa project, outside Vienna, Austria (Elevation)",
+        "The Manhattan Transcripts Project, New York, New York, Introductory panel to Episode 1: The Park",
+        "Villa project, outside Vienna, Austria (Exterior perspective)"
+      ],
+      "avgLength": 43
+    },
+    {
+      "name": "Artist",
+      "inferredType": "string",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Otto Wagner",
+        "Christian de Portzamparc",
+        "Emil Hoppe",
+        "Bernard Tschumi",
+        "Louis I. Kahn"
+      ],
+      "avgLength": 17.3
+    },
+    {
+      "name": "ConstituentID",
+      "inferredType": "integer",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "6210",
+        "7470",
+        "7605",
+        "7056",
+        "2964"
+      ],
+      "avgLength": 4.7,
+      "minNumeric": 1,
+      "maxNumeric": 138510,
+      "meanNumeric": 10187.9132
+    },
+    {
+      "name": "ArtistBio",
+      "inferredType": "string",
+      "totalValues": 151376,
+      "missingCount": 6081,
+      "missingPercent": 3.86,
+      "uniqueCount": 8782,
+      "sampleValues": [
+        "(Austrian, 1841–1918)",
+        "(French, born 1944)",
+        "(Austrian, 1876–1957)",
+        "(French and Swiss, born Switzerland 1944)",
+        "(American, born Estonia. 1901–1974)"
+      ],
+      "avgLength": 25.6
+    },
+    {
+      "name": "Nationality",
+      "inferredType": "string",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": 1117,
+      "sampleValues": [
+        "(Austrian)",
+        "(French)",
+        "()",
+        "(American)",
+        "(German)"
+      ],
+      "avgLength": 10.1
+    },
+    {
+      "name": "BeginDate",
+      "inferredType": "string",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": 2387,
+      "sampleValues": [
+        "(1841)",
+        "(1944)",
+        "(1876)",
+        "(1901)",
+        "(1878)"
+      ],
+      "avgLength": 6.5
+    },
+    {
+      "name": "EndDate",
+      "inferredType": "string",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": 1418,
+      "sampleValues": [
+        "(1918)",
+        "(0)",
+        "(1957)",
+        "(1974)",
+        "(1969)"
+      ],
+      "avgLength": 5.6
+    },
+    {
+      "name": "Gender",
+      "inferredType": "string",
+      "totalValues": 156195,
+      "missingCount": 1262,
+      "missingPercent": 0.8,
+      "uniqueCount": 427,
+      "sampleValues": [
+        "(male)",
+        "(male) (male)",
+        "(male) (female)",
+        "(male) (male) (male)",
+        "(female) (male) ()"
+      ],
+      "avgLength": 6.7
+    },
+    {
+      "name": "Date",
+      "inferredType": "mixed",
+      "totalValues": 155448,
+      "missingCount": 2009,
+      "missingPercent": 1.28,
+      "uniqueCount": 8479,
+      "sampleValues": [
+        "1896",
+        "1987",
+        "1903",
+        "1980",
+        "1976-77"
+      ],
+      "avgLength": 6.4
+    },
+    {
+      "name": "Medium",
+      "inferredType": "string",
+      "totalValues": 148202,
+      "missingCount": 9255,
+      "missingPercent": 5.88,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Ink and cut-and-pasted painted pages on paper",
+        "Paint and colored pencil on print",
+        "Graphite, pen, color pencil, ink, and gouache on tracing paper",
+        "Photographic reproduction with colored synthetic laminate",
+        "Graphite, color pencil, ink, and gouache on tracing paper"
+      ],
+      "avgLength": 34.5
+    },
+    {
+      "name": "Dimensions",
+      "inferredType": "string",
+      "totalValues": 148793,
+      "missingCount": 8664,
+      "missingPercent": 5.5,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "19 1/8 x 66 1/2\" (48.6 x 168.9 cm)",
+        "16 x 11 3/4\" (40.6 x 29.8 cm)",
+        "13 1/2 x 12 1/2\" (34.3 x 31.8 cm)",
+        "20 x 20\" (50.8 x 50.8 cm)",
+        "15 1/8 x 7 1/2\" (38.4 x 19.1 cm)"
+      ],
+      "avgLength": 47.4
+    },
+    {
+      "name": "CreditLine",
+      "inferredType": "string",
+      "totalValues": 155896,
+      "missingCount": 1561,
+      "missingPercent": 0.99,
+      "uniqueCount": 7377,
+      "sampleValues": [
+        "Fractional and promised gift of Jo Carole and Ronald S. Lauder",
+        "Gift of the architect in honor of Lily Auchincloss",
+        "Gift of Jo Carole and Ronald S. Lauder",
+        "Purchase and partial gift of the architect in honor of Lily Auchincloss",
+        "Purchase"
+      ],
+      "avgLength": 41.7
+    },
+    {
+      "name": "AccessionNumber",
+      "inferredType": "mixed",
+      "totalValues": 157457,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "885.1996",
+        "1.1995",
+        "1.1997",
+        "2.1995",
+        "2.1997"
+      ],
+      "avgLength": 9.7
+    },
+    {
+      "name": "Classification",
+      "inferredType": "string",
+      "totalValues": 157457,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 37,
+      "sampleValues": [
+        "Architecture",
+        "Mies van der Rohe Archive",
+        "Design",
+        "Illustrated Book",
+        "Print"
+      ],
+      "avgLength": 11
+    },
+    {
+      "name": "Department",
+      "inferredType": "string",
+      "totalValues": 157457,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 8,
+      "sampleValues": [
+        "Architecture & Design",
+        "Drawings & Prints",
+        "Painting & Sculpture",
+        "Photography",
+        "Media and Performance"
+      ],
+      "avgLength": 16.7
+    },
+    {
+      "name": "DateAcquired",
+      "inferredType": "date",
+      "totalValues": 150756,
+      "missingCount": 6701,
+      "missingPercent": 4.26,
+      "uniqueCount": 1772,
+      "sampleValues": [
+        "1996-04-09",
+        "1995-01-17",
+        "1997-01-15",
+        "1966-01-11",
+        "1980-01-08"
+      ],
+      "avgLength": 10
+    },
+    {
+      "name": "Cataloged",
+      "inferredType": "string",
+      "totalValues": 157457,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": 2,
+      "sampleValues": [
+        "Y",
+        "N"
+      ],
+      "avgLength": 1
+    },
+    {
+      "name": "ObjectID",
+      "inferredType": "integer",
+      "totalValues": 157457,
+      "missingCount": 0,
+      "missingPercent": 0,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "avgLength": 5.4,
+      "minNumeric": 2,
+      "maxNumeric": 487751,
+      "meanNumeric": 142020.1986
+    },
+    {
+      "name": "URL",
+      "inferredType": "string",
+      "totalValues": 100094,
+      "missingCount": 57363,
+      "missingPercent": 36.43,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "https://www.moma.org/collection/works/2",
+        "https://www.moma.org/collection/works/3",
+        "https://www.moma.org/collection/works/4",
+        "https://www.moma.org/collection/works/5",
+        "https://www.moma.org/collection/works/6"
+      ],
+      "avgLength": 43.3
+    },
+    {
+      "name": "ImageURL",
+      "inferredType": "string",
+      "totalValues": 90881,
+      "missingCount": 66576,
+      "missingPercent": 42.28,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "https://www.moma.org/media/W1siZiIsIjUyNzc3MCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=712ac0fd74ea5bd5",
+        "https://www.moma.org/media/W1siZiIsIjUyNzM3NCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=a2898fe0f088f196",
+        "https://www.moma.org/media/W1siZiIsIjUyNzM3NSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=baf3b82af676ad45",
+        "https://www.moma.org/media/W1siZiIsIjUyNzQ3NCJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=6295e6698e3871fd",
+        "https://www.moma.org/media/W1siZiIsIjUyNzQ3NSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=96e3ccab203afa0d"
+      ],
+      "avgLength": 130
+    },
+    {
+      "name": "OnView",
+      "inferredType": "string",
+      "totalValues": 1316,
+      "missingCount": 156141,
+      "missingPercent": 99.16,
+      "uniqueCount": 73,
+      "sampleValues": [
+        "\"MoMA, Floor 4, 417\"",
+        "\"MoMA, Floor 3, 3 North\"",
+        "\"MoMA, Floor 5, 511\"",
+        "\"MoMA, Floor 1, 1 South\"",
+        "\"MoMA, Floor 5, 516\""
+      ],
+      "avgLength": 20.7
+    },
+    {
+      "name": "Circumference (cm)",
+      "inferredType": "float",
+      "totalValues": 10,
+      "missingCount": 157447,
+      "missingPercent": 99.99,
+      "uniqueCount": 9,
+      "sampleValues": [
+        "68.5",
+        "81.2802",
+        "83.8",
+        "23.5",
+        "34.0"
+      ],
+      "avgLength": 4.2,
+      "minNumeric": 9.9,
+      "maxNumeric": 83.8,
+      "meanNumeric": 44.868
+    },
+    {
+      "name": "Depth (cm)",
+      "inferredType": "float",
+      "totalValues": 17967,
+      "missingCount": 139490,
+      "missingPercent": 88.59,
+      "uniqueCount": 1395,
+      "sampleValues": [
+        "1.3",
+        "3.8",
+        "87.3127",
+        "2.9",
+        "3.5"
+      ],
+      "avgLength": 4.2,
+      "minNumeric": 0,
+      "maxNumeric": 1808.4836169672,
+      "meanNumeric": 14.886
+    },
+    {
+      "name": "Diameter (cm)",
+      "inferredType": "float",
+      "totalValues": 1469,
+      "missingCount": 155988,
+      "missingPercent": 99.07,
+      "uniqueCount": 516,
+      "sampleValues": [
+        "17.78",
+        "13.97",
+        "7.4613",
+        "11.43",
+        "29.9"
+      ],
+      "avgLength": 5.3,
+      "minNumeric": 0.635,
+      "maxNumeric": 914.4,
+      "meanNumeric": 23.2847
+    },
+    {
+      "name": "Height (cm)",
+      "inferredType": "float",
+      "totalValues": 128075,
+      "missingCount": 29382,
+      "missingPercent": 18.66,
+      "uniqueCount": 3903,
+      "sampleValues": [
+        "48.6",
+        "40.6401",
+        "34.3",
+        "50.8",
+        "38.4"
+      ],
+      "avgLength": 5.5,
+      "minNumeric": 0,
+      "maxNumeric": 9140,
+      "meanNumeric": 37.7108
+    },
+    {
+      "name": "Length (cm)",
+      "inferredType": "float",
+      "totalValues": 711,
+      "missingCount": 156746,
+      "missingPercent": 99.55,
+      "uniqueCount": 383,
+      "sampleValues": [
+        "17.8",
+        "19.0",
+        "18.1",
+        "17.78",
+        "20.955"
+      ],
+      "avgLength": 5.9,
+      "minNumeric": 0,
+      "maxNumeric": 8321.0566,
+      "meanNumeric": 92.539
+    },
+    {
+      "name": "Weight (kg)",
+      "inferredType": "float",
+      "totalValues": 296,
+      "missingCount": 157161,
+      "missingPercent": 99.81,
+      "uniqueCount": 211,
+      "sampleValues": [
+        "90.7194",
+        "625.9639",
+        "0.4536",
+        "30.391",
+        "112.00007334000001"
+      ],
+      "avgLength": 7.5,
+      "minNumeric": 0.09,
+      "maxNumeric": 185067.5859566361,
+      "meanNumeric": 1273.6855
+    },
+    {
+      "name": "Width (cm)",
+      "inferredType": "float",
+      "totalValues": 127149,
+      "missingCount": 30308,
+      "missingPercent": 19.25,
+      "uniqueCount": 3950,
+      "sampleValues": [
+        "168.9",
+        "29.8451",
+        "31.8",
+        "50.8",
+        "19.1"
+      ],
+      "avgLength": 5.5,
+      "minNumeric": 0,
+      "maxNumeric": 9144,
+      "meanNumeric": 39.8367
+    },
+    {
+      "name": "Seat Height (cm)",
+      "inferredType": "string",
+      "totalValues": 0,
+      "missingCount": 157457,
+      "missingPercent": 100,
+      "uniqueCount": 0,
+      "sampleValues": []
+    },
+    {
+      "name": "Duration (sec.)",
+      "inferredType": "float",
+      "totalValues": 1953,
+      "missingCount": 155504,
+      "missingPercent": 98.76,
+      "uniqueCount": 689,
+      "sampleValues": [
+        "111600.0",
+        "255.0",
+        "840.0",
+        "1191.0",
+        "0.0"
+      ],
+      "avgLength": 5.1,
+      "minNumeric": 0,
+      "maxNumeric": 6283065,
+      "meanNumeric": 6067.5059
+    },
+    {
+      "name": "DisplayName",
+      "inferredType": "string",
+      "totalValues": 148281,
+      "missingCount": 9176,
+      "missingPercent": 5.83,
+      "uniqueCount": -1,
+      "sampleValues": [
+        "Otto Wagner",
+        "Christian de Portzamparc",
+        "Emil Hoppe",
+        "Bernard Tschumi",
+        "Louis I. Kahn"
+      ],
+      "avgLength": 15.6
+    },
+    {
+      "name": "ArtistBio_artists",
+      "inferredType": "string",
+      "totalValues": 143590,
+      "missingCount": 13867,
+      "missingPercent": 8.81,
+      "uniqueCount": 6516,
+      "sampleValues": [
+        "Austrian, 1841–1918",
+        "French, born 1944",
+        "Austrian, 1876–1957",
+        "French and Swiss, born Switzerland 1944",
+        "American, born Estonia. 1901–1974"
+      ],
+      "avgLength": 21.7
+    },
+    {
+      "name": "Nationality_artists",
+      "inferredType": "string",
+      "totalValues": 143065,
+      "missingCount": 14392,
+      "missingPercent": 9.14,
+      "uniqueCount": 125,
+      "sampleValues": [
+        "Austrian",
+        "French",
+        "American",
+        "German",
+        "Swedish"
+      ],
+      "avgLength": 7.4
+    },
+    {
+      "name": "Gender_artists",
+      "inferredType": "string",
+      "totalValues": 140570,
+      "missingCount": 16887,
+      "missingPercent": 10.72,
+      "uniqueCount": 6,
+      "sampleValues": [
+        "male",
+        "female",
+        "gender non-conforming",
+        "non-binary",
+        "transgender woman"
+      ],
+      "avgLength": 4.3
+    },
+    {
+      "name": "BeginDate_artists",
+      "inferredType": "integer",
+      "totalValues": 148281,
+      "missingCount": 9176,
+      "missingPercent": 5.83,
+      "uniqueCount": 223,
+      "sampleValues": [
+        "1841",
+        "1944",
+        "1876",
+        "1901",
+        "1878"
+      ],
+      "avgLength": 3.8,
+      "minNumeric": 0,
+      "maxNumeric": 2016,
+      "meanNumeric": 1809.6308
+    },
+    {
+      "name": "EndDate_artists",
+      "inferredType": "integer",
+      "totalValues": 148281,
+      "missingCount": 9176,
+      "missingPercent": 5.83,
+      "uniqueCount": 170,
+      "sampleValues": [
+        "1918",
+        "0",
+        "1957",
+        "1974",
+        "1969"
+      ],
+      "avgLength": 3.1,
+      "minNumeric": 0,
+      "maxNumeric": 2024,
+      "meanNumeric": 1388.0873
+    },
+    {
+      "name": "Wiki QID",
+      "inferredType": "string",
+      "totalValues": 110039,
+      "missingCount": 47418,
+      "missingPercent": 30.11,
+      "uniqueCount": 3090,
+      "sampleValues": [
+        "Q84287",
+        "Q312838",
+        "Q1336246",
+        "Q123966",
+        "Q210134"
+      ],
+      "avgLength": 6.9
+    },
+    {
+      "name": "ULAN",
+      "inferredType": "integer",
+      "totalValues": 108530,
+      "missingCount": 48927,
+      "missingPercent": 31.07,
+      "uniqueCount": 2827,
+      "sampleValues": [
+        "500016971",
+        "500024982",
+        "500232997",
+        "500022322",
+        "500027669"
+      ],
+      "avgLength": 9,
+      "minNumeric": 500000006,
+      "maxNumeric": 500356571,
+      "meanNumeric": 500044870.3463
+    }
+  ],
+  "supplementaryFilesUsed": false,
+  "profilingTimeSec": 2.1
+}

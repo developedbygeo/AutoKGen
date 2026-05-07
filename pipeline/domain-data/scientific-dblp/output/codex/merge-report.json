@@ -1,0 +1,50 @@
+{
+  "strategy": "single-conversion",
+  "inputFiles": [
+    {
+      "name": "dblp.xml",
+      "format": "xml",
+      "sizeBytes": 5031516478,
+      "rows": 12358922,
+      "columns": [
+        "record_type",
+        "key",
+        "mdate",
+        "publtype",
+        "title",
+        "authors",
+        "editors",
+        "year",
+        "journal",
+        "booktitle",
+        "pages",
+        "volume",
+        "number",
+        "month",
+        "publisher",
+        "school",
+        "series",
+        "chapter",
+        "isbn",
+        "ee",
+        "url",
+        "crossref",
+        "cite",
+        "note",
+        "cdrom",
+        "publnr",
+        "address",
+        "stream",
+        "rel"
+      ],
+      "hasHeader": false
+    }
+  ],
+  "outputRows": 12358922,
+  "outputColumns": 29,
+  "conflicts": [],
+  "joinKeys": [],
+  "streamingUsed": true,
+  "chunkSize": 50000,
+  "supplementaryFiles": []
+}

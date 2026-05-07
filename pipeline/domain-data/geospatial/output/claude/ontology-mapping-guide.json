@@ -1,0 +1,110 @@
+{
+  "commonPatterns": [
+    {
+      "scenario": "Spatial Object (core entity, 53 connections)",
+      "ontologyClass": "geo:SpatialObject",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "geo:hasMetricLength",
+        "geo:hasMetricSize",
+        "geo:hasMetricPerimeterLength",
+        "geo:hasMetricArea",
+        "geo:hasMetricVolume"
+      ],
+      "relationships": [
+        "geo:ehContains -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:ehContains -> geo:SpatialObject",
+        "geo:ehCoveredBy -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:ehCoveredBy -> geo:SpatialObject",
+        "geo:ehCovers -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:ehCovers -> geo:SpatialObject",
+        "geo:ehDisjoint -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:ehDisjoint -> geo:SpatialObject",
+        "geo:sfDisjoint -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:sfDisjoint -> geo:SpatialObject",
+        "geo:ehEquals -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:ehEquals -> geo:SpatialObject",
+        "geo:sfEquals -> geo:SpatialObject",
+        "geo:SpatialObject -> geo:sfEquals -> geo:SpatialObject",
+        "geo:ehInside -> geo:SpatialObject"
+      ]
+    },
+    {
+      "scenario": "Geometry (core entity, 18 connections)",
+      "ontologyClass": "geo:Geometry",
+      "requiredProperties": [],
+      "optionalProperties": [
+        "geo:asGML",
+        "geo:hasSerialization",
+        "geo:asWKT",
+        "geo:asGeoJSON",
+        "geo:asKML",
+        "geo:asDGGS",
+        "geo:coordinateDimension",
+        "geo:dimension",
+        "geo:isEmpty",
+        "geo:isSimple",
+        "geo:spatialDimension",
+        "geo:hasMetricSpatialResolution",
+        "geo:hasMetricSpatialAccuracy"
+      ],
+      "relationships": [
+        "geo:Feature -> geo:defaultGeometry -> geo:Geometry",
+        "geo:Feature -> geo:hasGeometry -> geo:Geometry",
+        "geo:Feature -> geo:hasDefaultGeometry -> geo:Geometry",
+        "geo:Feature -> geo:hasBoundingBox -> geo:Geometry",
+        "geo:Feature -> geo:hasCentroid -> geo:Geometry",
+        "geo:hasSpatialResolution -> (any)",
+        "geo:hasSpatialAccuracy -> (any)"
+      ]
+    },
+    {
+      "scenario": "Feature (core entity, 5 connections)",
+      "ontologyClass": "geo:Feature",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "geo:defaultGeometry -> geo:Geometry",
+        "geo:hasGeometry -> geo:Geometry",
+        "geo:hasDefaultGeometry -> geo:Geometry",
+        "geo:hasBoundingBox -> geo:Geometry",
+        "geo:hasCentroid -> geo:Geometry"
+      ]
+    },
+    {
+      "scenario": "Spatial Object Collection (important entity, 0 connections)",
+      "ontologyClass": "geo:SpatialObjectCollection",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": []
+    }
+  ],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "wgs84_pos: (http://www.w3.org/2003/01/geo/wgs84_pos#)",
+    "geo: (http://www.opengis.net/ont/geosparql#)",
+    "spec11: (http://www.opengis.net/doc/IS/geosparql/1.1#)"
+  ],
+  "constraints": [
+    "ONLY use classes and properties defined in or referenced by the parsed ontology files",
+    "Do NOT invent custom classes or properties outside the ontology namespaces",
+    "Respect rdfs:domain and rdfs:range constraints on all properties",
+    "Use rdfs:subClassOf hierarchies to choose the most specific applicable class",
+    "Properties with owl:FunctionalProperty type should have at most one value",
+    "Inverse property pairs (owl:inverseOf) should be consistently applied",
+    "owl:equivalentProperty pairs should be treated as interchangeable",
+    "owl:disjointWith constraints must not be violated (e.g., Feature disjoint with Geometry)",
+    "owl:Restriction with owl:allValuesFrom constraints must be respected for collection membership"
+  ]
+}

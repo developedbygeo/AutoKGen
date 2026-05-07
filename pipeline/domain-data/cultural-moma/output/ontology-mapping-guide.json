@@ -1,0 +1,109 @@
+{
+  "commonPatterns": [
+    {
+      "scenario": "Aggregation (important entity, 3 connections)",
+      "ontologyClass": "ore:Aggregation",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "edm:aggregatedCHO -> edm:ProvidedCHO",
+        "edm:hasView -> edm:WebResource",
+        "edm:dataProvider -> edm:Agent"
+      ]
+    },
+    {
+      "scenario": "Event (important entity, 2 connections)",
+      "ontologyClass": "edm:Event",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "edm:happenedAt -> edm:Place",
+        "edm:occurredAt -> edm:TimeSpan",
+        "(any) -> edm:wasPresentAt -> edm:Event"
+      ]
+    },
+    {
+      "scenario": "Web Resource (important entity, 1 connections)",
+      "ontologyClass": "edm:WebResource",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "ore:Aggregation -> edm:hasView -> edm:WebResource",
+        "(any) -> edm:landingPage -> edm:WebResource",
+        "(any) -> edm:preview -> edm:WebResource",
+        "(any) -> edm:isShownAt -> edm:WebResource",
+        "(any) -> edm:isShownBy -> edm:WebResource",
+        "(any) -> edm:object -> edm:WebResource"
+      ]
+    },
+    {
+      "scenario": "Information Resource (important entity, 1 connections)",
+      "ontologyClass": "edm:InformationResource",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "edm:isRepresentationOf -> (any)",
+        "edm:PhysicalThing -> edm:realizes -> edm:InformationResource"
+      ]
+    },
+    {
+      "scenario": "Non-Information Resource (important entity, 0 connections)",
+      "ontologyClass": "edm:NonInformationResource",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "(any) -> edm:hasType -> edm:NonInformationResource"
+      ]
+    },
+    {
+      "scenario": "Europeana Object (important entity, 0 connections)",
+      "ontologyClass": "edm:EuropeanaObject",
+      "requiredProperties": [],
+      "optionalProperties": [],
+      "relationships": [
+        "edm:isAnnotationOf -> (any)"
+      ]
+    }
+  ],
+  "allowedNamespaces": [
+    "rdf: (http://www.w3.org/1999/02/22-rdf-syntax-ns#)",
+    "rdfs: (http://www.w3.org/2000/01/rdf-schema#)",
+    "owl: (http://www.w3.org/2002/07/owl#)",
+    "xsd: (http://www.w3.org/2001/XMLSchema#)",
+    "skos: (http://www.w3.org/2004/02/skos/core#)",
+    "dc: (http://purl.org/dc/elements/1.1/)",
+    "dcterms: (http://purl.org/dc/terms/)",
+    "dcmitype: (http://purl.org/dc/dcmitype/)",
+    "foaf: (http://xmlns.com/foaf/0.1/)",
+    "vann: (http://purl.org/vocab/vann/)",
+    "voaf: (http://purl.org/vocommons/voaf#)",
+    "adms: (http://www.w3.org/ns/adms#)",
+    "radion: (http://www.w3.org/ns/radion#)",
+    "schema_http: (http://schema.org/)",
+    "schema: (https://schema.org/)",
+    "prov: (http://www.w3.org/ns/prov#)",
+    "ore: (http://www.openarchives.org/ore/terms/)",
+    "wgs84_pos: (http://www.w3.org/2003/01/geo/wgs84_pos#)",
+    "crm: (http://www.cidoc-crm.org/cidoc-crm/)",
+    "frbr_core: (http://purl.org/vocab/frbr/core#)",
+    "frbroo: (http://iflastandards.info/ns/fr/frbr/frbroo/)",
+    "abc: (http://metadata.net/harmony/abc#)",
+    "DOLCE-Lite: (http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#)",
+    "edm: (http://www.europeana.eu/schemas/edm/)"
+  ],
+  "constraints": [
+    "ONLY use classes and properties defined in or referenced by the parsed ontology files",
+    "Do NOT invent custom classes or properties outside the ontology namespaces",
+    "Respect rdfs:domain and rdfs:range constraints on all properties",
+    "Use rdfs:subClassOf hierarchies to choose the most specific applicable class",
+    "Properties with owl:FunctionalProperty type should have at most one value",
+    "Inverse property pairs (owl:inverseOf) should be consistently applied",
+    "owl:equivalentProperty pairs should be treated as interchangeable",
+    "owl:disjointWith constraints must not be violated",
+    "owl:Restriction constraints (allValuesFrom, someValuesFrom, cardinality) must be respected",
+    "EDM follows a ProvidedCHO -> Aggregation -> WebResource pattern for cultural heritage objects",
+    "Properties from external vocabularies (DC, DC Terms, ORE, SKOS, FOAF, CRM, FRBR) are valid for use",
+    "edm:ProvidedCHO is the central class for representing cultural heritage objects",
+    "ore:Aggregation groups related resources (views, metadata) about a cultural heritage object"
+  ]
+}

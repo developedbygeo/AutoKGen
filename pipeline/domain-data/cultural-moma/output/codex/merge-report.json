@@ -1,0 +1,92 @@
+{
+  "strategy": "join",
+  "inputFiles": [
+    {
+      "name": "artists.csv",
+      "format": "csv",
+      "sizeBytes": 1030424,
+      "rows": 15627,
+      "columns": [
+        "ConstituentID",
+        "DisplayName",
+        "ArtistBio",
+        "Nationality",
+        "Gender",
+        "BeginDate",
+        "EndDate",
+        "Wiki QID",
+        "ULAN"
+      ],
+      "hasHeader": true
+    },
+    {
+      "name": "artworks.csv",
+      "format": "csv",
+      "sizeBytes": 70924391,
+      "rows": 157457,
+      "columns": [
+        "Title",
+        "Artist",
+        "ConstituentID",
+        "ArtistBio",
+        "Nationality",
+        "BeginDate",
+        "EndDate",
+        "Gender",
+        "Date",
+        "Medium",
+        "Dimensions",
+        "CreditLine",
+        "AccessionNumber",
+        "Classification",
+        "Department",
+        "DateAcquired",
+        "Cataloged",
+        "ObjectID",
+        "URL",
+        "ImageURL",
+        "OnView",
+        "Circumference (cm)",
+        "Depth (cm)",
+        "Diameter (cm)",
+        "Height (cm)",
+        "Length (cm)",
+        "Weight (kg)",
+        "Width (cm)",
+        "Seat Height (cm)",
+        "Duration (sec.)"
+      ],
+      "hasHeader": true
+    }
+  ],
+  "outputRows": 157457,
+  "outputColumns": 38,
+  "conflicts": [
+    {
+      "column": "ArtistBio",
+      "resolution": "Preserved primary value and wrote artists.csv values to ArtistBio_artists"
+    },
+    {
+      "column": "Nationality",
+      "resolution": "Preserved primary value and wrote artists.csv values to Nationality_artists"
+    },
+    {
+      "column": "Gender",
+      "resolution": "Preserved primary value and wrote artists.csv values to Gender_artists"
+    },
+    {
+      "column": "BeginDate",
+      "resolution": "Preserved primary value and wrote artists.csv values to BeginDate_artists"
+    },
+    {
+      "column": "EndDate",
+      "resolution": "Preserved primary value and wrote artists.csv values to EndDate_artists"
+    }
+  ],
+  "joinKeys": [
+    "ConstituentID"
+  ],
+  "streamingUsed": false,
+  "chunkSize": 50000,
+  "supplementaryFiles": []
+}

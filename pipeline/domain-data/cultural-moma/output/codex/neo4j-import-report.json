@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "duration": 9492,
+  "throughput": {
+    "nodesPerSecond": 55945.085470085476,
+    "relationshipsPerSecond": 64454.60992907802
+  },
+  "imported": {
+    "nodes": 261823,
+    "relationships": 181762,
+    "nodesByLabel": {
+      "Agent": 14095,
+      "Provided CHO": 157457,
+      "Web Resource": 90271
+    },
+    "relationshipsByType": {
+      "http://www.europeana.eu/schemas/edm/isShownAt": 90881,
+      "http://www.europeana.eu/schemas/edm/object": 90881
+    }
+  },
+  "optimization": {
+    "constraintsCreated": 4,
+    "indexesCreated": 0,
+    "batchSize": {
+      "nodes": 5000,
+      "relationships": 2500
+    }
+  },
+  "validation": {
+    "expectedNodes": 261823,
+    "actualNodes": 261823,
+    "expectedRelationships": 181762,
+    "actualRelationships": 181762,
+    "orphanedNodes": 80671
+  },
+  "errors": []
+}

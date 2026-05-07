@@ -1,0 +1,56 @@
+{
+  "status": "success",
+  "duration": 1064942,
+  "throughput": {
+    "nodesPerSecond": 9660,
+    "relationshipsPerSecond": 38841
+  },
+  "imported": {
+    "nodes": 16480647,
+    "relationships": 40900485,
+    "nodesByLabel": {
+      "JournalArticle": 4188780,
+      "Person": 4097863,
+      "WebContent": 4015306,
+      "ConferencePaper": 3826881,
+      "DoctoralThesis": 150280,
+      "Chapter": 71037,
+      "ConferenceProceedings": 63493,
+      "Book": 21348,
+      "DataFile": 21345,
+      "AcademicProceedings": 18245,
+      "Organization": 2343,
+      "Journal": 2059,
+      "Series": 1640,
+      "MastersThesis": 27
+    },
+    "relationshipsByType": {
+      "CREATOR": 32601067,
+      "PARTOF": 8190673,
+      "PUBLISHER": 108745,
+      "RELATEDENDEAVOUR": 0
+    }
+  },
+  "optimization": {
+    "constraintsCreated": 15,
+    "indexesCreated": 9,
+    "batchSize": {
+      "nodes": 5000,
+      "relationships": 2500
+    }
+  },
+  "validation": {
+    "expectedNodes": 16480647,
+    "actualNodes": 16480647,
+    "expectedRelationships": 44806328,
+    "actualRelationships": 40900485,
+    "orphanedNodes": 4070,
+    "notes": {
+      "missingRelationships": 3905843,
+      "missingPartOf": "3,897,289 partOf relationships reference target nodes not present in graph (venues/publications not generated as nodes)",
+      "missingRelatedEndeavour": "8,554 relatedEndeavour relationships reference 'expression' entities not generated as nodes",
+      "matchRate": "91.3% of expected relationships successfully created"
+    }
+  },
+  "errors": []
+}

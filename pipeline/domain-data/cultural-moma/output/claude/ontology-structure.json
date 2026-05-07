@@ -1,0 +1,787 @@
+{
+  "metadata": {
+    "title": "Europeana Data Model (EDM) vocabulary",
+    "version": "5.2.4",
+    "description": "The Europeana Data Model (EDM) is aimed at being an integration medium for collecting, connecting and enriching the descriptions provided by Europeana data providers. The RDF vocabulary for http://www.europeana.eu/schemas/edm/ defines the elements introduced by EDM (as opposed to the ones EDM re-uses from other namespaces).",
+    "sourceFiles": [
+      "edm.owl",
+      "ontology.owl"
+    ],
+    "namespaces": {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "dcmitype": "http://purl.org/dc/dcmitype/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "vann": "http://purl.org/vocab/vann/",
+      "voaf": "http://purl.org/vocommons/voaf#",
+      "adms": "http://www.w3.org/ns/adms#",
+      "radion": "http://www.w3.org/ns/radion#",
+      "schema_http": "http://schema.org/",
+      "schema": "https://schema.org/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "ore": "http://www.openarchives.org/ore/terms/",
+      "wgs84_pos": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+      "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+      "frbr_core": "http://purl.org/vocab/frbr/core#",
+      "frbroo": "http://iflastandards.info/ns/fr/frbr/frbroo/",
+      "abc": "http://metadata.net/harmony/abc#",
+      "DOLCE-Lite": "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#",
+      "edm": "http://www.europeana.eu/schemas/edm/"
+    }
+  },
+  "classes": [
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/Agent",
+      "label": "Agent",
+      "definition": "This class comprises people, either individually or in groups, who have the\npotential to perform intentional actions for which they can be held responsible.",
+      "comment": "Rationale: This class is a domain of edm:wasPresentAt",
+      "superClasses": [
+        "edm:NonInformationResource"
+      ],
+      "equivalentClasses": [
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E39_Actor",
+        "crm:E39_Actor"
+      ],
+      "examples": [
+        "Leonardo da Vinci, the British Museum, W3C"
+      ]
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/NonInformationResource",
+      "label": "Non-Information Resource",
+      "definition": "All resources that are not information resources.",
+      "comment": "",
+      "superClasses": [],
+      "equivalentClasses": [],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation",
+      "label": "Europeana Aggregation",
+      "definition": "The set of resources related to a single Cultural Heritage Object that\ncollectively represent that object in Europeana. Such set consists of: all\ndescriptions about the object that Europeana collects from (possibly different) content providers, including thumbnails and other forms of abstractions, as well as of the description of the object Europeana builds.",
+      "comment": "Obligation and Occurence: The relation between the Cultural Heritage Objects represented in Europeana and the instances of the class EuropeanaAggregation is one-to-one, in the data maintained by Europeana: every Cultural Heritage Object is represented by an instance of EuropeanaAggregation, and every instance of EuropeanaAggregation represent a Cultural Heritage Object. | Rationale: This class is used in Europeana to gather in a single conceptual unit all the information about a Cultural Heritage Object, necessary for all operations on these objects. | An instance of EuropeanaAggregation is created at ingestion time for each different Cultural Heritage Object recognized by Europeana. Such instance is associated to the Cultural Heritage Object that it is about, by the property edm:aggregatedCHO",
+      "superClasses": [
+        "edm:EuropeanaObject",
+        "ore:Aggregation"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "The painting Mona Lisa is a Cultural Heritage Object represented in Europeana by one EuropeanaAggregation instance",
+        "The journal \"Le Temps\" is a Cultural Heritage Object represented in Europeana by one EuropeanaAggregation instance",
+        "The 56th issue of \"Le Temps\" is a (different) Cultural Heritage Object represented in Europeana by another EuropeanaAggregation instance"
+      ]
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/EuropeanaObject",
+      "label": "Europeana Object",
+      "definition": "Any object that is the result of Europeana’s activities",
+      "comment": "Rationale: This class is used to tag objects that are the result of activity of Europeana, and, as such, objects on which Europeana holds rights",
+      "superClasses": [
+        "edm:WebResource"
+      ],
+      "equivalentClasses": [],
+      "examples": [
+        "Any instance of the class EuropeanaAggregation",
+        "An annotation created by a user through the Europeana portal",
+        "Any content created by the users through the service made available by Europeana for that purpose"
+      ]
+    },
+    {
+      "uri": "http://www.openarchives.org/ore/terms/Aggregation",
+      "label": "Aggregation",
+      "definition": "",
+      "comment": "",
+      "superClasses": [],
+      "equivalentClasses": [],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/WebResource",
+      "label": "Web Resource",
+      "definition": "Information Resources that have at least one Web Representation and at least\na URI.",
+      "comment": "",
+      "superClasses": [
+        "edm:InformationResource"
+      ],
+      "equivalentClasses": [],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/Event",
+      "label": "Event",
+      "definition": "An event is a change \"of states in cultural, social or physical systems,\n regardless of scale, brought about by a series or group of coherent physical,\ncultural, technological or legal phenomena\" (E5 Event in CIDOC CRM) or a \"set of coherent phenomena or cultural manifestations bounded in time and  space\" (E4 Period in CIDOC CRM)\n",
+      "comment": "Rationale:This class is a domain of edm:happenedAt and the domain of edm:occurredAt | Events are identified either by the content provider or by Europeana enrichment at ingestion time",
+      "superClasses": [
+        "edm:NonInformationResource"
+      ],
+      "equivalentClasses": [
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E4_Period",
+        "abc:Temporality",
+        "frbr_core:Event",
+        "frbroo:F8_Event",
+        "crm:E4_Period"
+      ],
+      "examples": [
+        "the act of painting Mona Lisa",
+        "the 2nd World War",
+        "the change of custody of Mona Lisa"
+      ]
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/InformationResource",
+      "label": "Information Resource",
+      "definition": "An information resource is a resource whose essential characteristics can be conveyed in a single message. It can be associated with a URI, it can have a representation, for example: a text is an InformationResource.",
+      "comment": "",
+      "superClasses": [],
+      "equivalentClasses": [
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E89_Propositional_Object",
+        "crm:E89_Propositional_Object"
+      ],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/PhysicalThing",
+      "label": "Physical Thing",
+      "definition": "A persistent physical item such as a painting, a building, a book or a stone.\nPersons are not items. This class represents Cultural Heritage Objects known to Europeana to be physical things (such as Mona Lisa) as well as all physical things Europeana refers to in the descriptions of Cultural Heritage Objects (such as the Rosetta Stone).",
+      "comment": "",
+      "superClasses": [
+        "edm:NonInformationResource"
+      ],
+      "equivalentClasses": [
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E18_Physical_Thing",
+        "crm:E18_Physical_Thing"
+      ],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/Place",
+      "label": "Place",
+      "definition": "An \"extent in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter\" (CIDOC CRM)",
+      "comment": "",
+      "superClasses": [
+        "edm:NonInformationResource"
+      ],
+      "equivalentClasses": [
+        "DOLCE-Lite:space-region",
+        "abc:Place",
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E53_Place",
+        "frbr_core:Place",
+        "frbroo:F9_Place",
+        "crm:E53_Place"
+      ],
+      "examples": []
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/ProvidedCHO",
+      "label": "Provided CHO",
+      "definition": "This class comprises the Cultural Heritage objects that Europeana collects descriptions about.",
+      "comment": "Rationale: This class is the range of edm:aggregatedCHO. A resource of type ProvidedCHO can be the subject of statements using edm:isRelatedTo or any more specific property. | This class has been mostly motivated by the need to assign a type to the “central node” in the EDM pattern, during the ingestion process, related to the XML expression of EDM at that stage. It was especially intended to fit the cases where edm:PhysicalThing  cannot be used as the type of the resource standing for the real-world object (independently of any specific data contributor perspective).",
+      "superClasses": [],
+      "equivalentClasses": [],
+      "examples": [
+        "Mona Lisa, Winged Victory of Samothrace"
+      ]
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/TimeSpan",
+      "label": "Time Span",
+      "definition": "The class of \"abstract temporal extents, in the sense of Galilean physics,\n having a beginning, an end and a duration\" (CIDOC CRM)",
+      "comment": "",
+      "superClasses": [
+        "edm:NonInformationResource",
+        "dcterms:PeriodOfTime"
+      ],
+      "equivalentClasses": [
+        "abc:Time",
+        "DOLCE-Lite:time-interval",
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#E52_Time-Span",
+        "crm:E52_Time-Span"
+      ],
+      "examples": []
+    },
+    {
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "label": "Concept",
+      "definition": "",
+      "comment": "",
+      "superClasses": [
+        "edm:NonInformationResource"
+      ],
+      "equivalentClasses": [],
+      "examples": []
+    },
+    {
+      "uri": "http://www.openarchives.org/ore/terms/Proxy",
+      "label": "Proxy",
+      "definition": "",
+      "comment": "",
+      "superClasses": [],
+      "equivalentClasses": [],
+      "examples": []
+    }
+  ],
+  "objectProperties": [
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/aggregatedCHO",
+      "label": "Aggregated Cultural Heritage Object",
+      "definition": "This property associates an ORE aggregation with the cultural heritage object(s) (CHO for short) it is about.",
+      "domain": [
+        "ore:Aggregation"
+      ],
+      "range": [
+        "edm:ProvidedCHO"
+      ],
+      "superProperties": [
+        "ore:aggregates",
+        "dc:subject",
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#P129_is_about",
+        "crm:P129_is_about"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/happenedAt",
+      "label": "Happened At",
+      "definition": "This property associates an event with the place at which the event\nhappened.",
+      "domain": [
+        "edm:Event"
+      ],
+      "range": [
+        "edm:Place"
+      ],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": "eq:http://www.cidoc-crm.org/rdfs/cidoc-crm#P7_took_place_at"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/collectionName",
+      "label": "Collection Name",
+      "definition": "This property holds the collection identifier given to the dataset in Europeana.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/currentLocation",
+      "label": "Current Location",
+      "definition": "The geographic location and/or name of the repository, building, site, or other entity whose boundaries presently include the resource.",
+      "domain": [],
+      "range": [
+        "edm:Place"
+      ],
+      "superProperties": [
+        "dcterms:spatial"
+      ],
+      "inverseOf": "eq:wgs84_pos:location"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/europeanaProxy",
+      "label": "Europeana Proxy",
+      "definition": "This property serves only as a flag to indicate that a proxy is a Europeana proxy (as opposed to a provider proxy).  It is for internal use only.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/hasType",
+      "label": "Has Type",
+      "definition": "This property relates a resource with the concepts it belongs to in a suitable\ntype system such as MIME or any thesaurus that captures categories of objects in a given field (e.g., the “Objects” facet in Getty’s Art and Architecture Thesaurus). It does not capture aboutness.",
+      "domain": [],
+      "range": [
+        "edm:NonInformationResource"
+      ],
+      "superProperties": [
+        "edm:isRelatedTo"
+      ],
+      "inverseOf": "eq:http://www.cidoc-crm.org/rdfs/cidoc-crm#P2_has_type"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/hasView",
+      "label": "Has View",
+      "definition": "This property relates a ORE aggregation about a CHO with a web resource\nproviding a view of that CHO. Examples of view are: a thumbnail, a textual\nabstract and a table of contents. The ORE aggregation may be a Europeana\nAggregation, in which case the view is an object owned by Europeana (i.e., an instance of edm:EuropeanaObject) or an aggregation contributed by a content provider. In order to capture both these cases, the domain of edm:hasView is ore:Aggregation and its range is edm:WebResource",
+      "domain": [
+        "ore:Aggregation"
+      ],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "ore:aggregates"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/incorporates",
+      "label": "Incorporates",
+      "definition": "This property captures the use of some resource to add value to another\nresource. Such resources may be nested, such as performing a theater play text, and then recording the performance, or creating an artful edition of a collection of poems or just aggregating various poems in an anthology. There may be no single part that contains ultimately the incorporated object, which may be dispersed in the presentation. Therefore, incorporated resources do in general not form proper parts. Incorporated resources are not part of the same resource, but are taken from other resources, and have an independent history. Therefore edm:incorporates is not a sub-property of dcterm:hasPart.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "edm:isSimilarTo"
+      ],
+      "inverseOf": "eq:frbroo:R14_incorporates"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isAnnotationOf",
+      "label": "Is Annotation Of",
+      "definition": "This property relates an annotation (a Europeana object) with the resource\nthat it annotates.",
+      "domain": [
+        "edm:EuropeanaObject"
+      ],
+      "range": [],
+      "superProperties": [
+        "dc:subject",
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#P67_refers_to",
+        "crm:P67_refers_to"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isNextInSequence",
+      "label": "Is Next In Sequence Of",
+      "definition": "edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isRepresentationOf",
+      "label": "Is Representation Of",
+      "definition": "This property associates an information resource to the resource (if any) that it represents",
+      "domain": [
+        "edm:InformationResource"
+      ],
+      "range": [],
+      "superProperties": [
+        "dc:subject",
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#P138_represents",
+        "crm:P138_represents"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isSuccessorOf",
+      "label": "Is Successor Of",
+      "definition": "This property captures the relation between the continuation of a resource and that resource. This applies to a story, a serial, a journal etc. No content of the successor resource is identical or has a similar form with that of the precursor. The similarity is only in the context, subjects and figures of a plot. Successors typically form part of a common whole – such as a trilogy, a journal, etc.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "edm:isSimilarTo"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/landingPage",
+      "label": "Landing Page",
+      "definition": "This property captures the relation between a Europeana aggregation representing a cultural heritage object and a (reference) Web resource giving access to that object. Europeana provides the value for this property.",
+      "domain": [],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "ore:aggregates"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/occurredAt",
+      "label": "Occured At",
+      "definition": "This property associates an event to the smallest known time span that\noverlaps with the occurrence of that event",
+      "domain": [
+        "edm:Event"
+      ],
+      "range": [
+        "edm:TimeSpan"
+      ],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": "eq:http://www.cidoc-crm.org/rdfs/cidoc-crm#P4_has_time-span"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/preview",
+      "label": "Preview",
+      "definition": "The URL of a thumbnail representing the digital object, generated by Europeana.",
+      "domain": [],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "edm:hasView"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/realizes",
+      "label": "Realizes",
+      "definition": "This property describes a relation between a physical thing and the information resource that is contained in it, visible at it or otherwise carried by it, if applicable.",
+      "domain": [
+        "edm:PhysicalThing"
+      ],
+      "range": [
+        "edm:InformationResource"
+      ],
+      "superProperties": [
+        "edm:isRelatedTo"
+      ],
+      "inverseOf": "eq:http://www.cidoc-crm.org/rdfs/cidoc-crm#P128_carries"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/wasPresentAt",
+      "label": "Was Present At",
+      "definition": "This property associates the people, things or information resources with an event at which they were present",
+      "domain": [],
+      "range": [
+        "edm:Event"
+      ],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": "eq:http://www.cidoc-crm.org/rdfs/cidoc-crm#P12i_was_present_at"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isShownAt",
+      "label": "Is Shown At",
+      "definition": "An unambiguous URL reference to the digital object on the provider’s web site in its full information context.",
+      "domain": [],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "edm:hasView"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isShownBy",
+      "label": "Is Shown By",
+      "definition": "An unambiguous URL reference to the digital object on the provider’s web site in the best available resolution/quality.",
+      "domain": [],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "edm:hasView"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/object",
+      "label": "Object",
+      "definition": "The URL of a thumbnail representing the digital object or, if there is no such\nthumbnail, the URL of the digital object in the best resolution available on the\nweb site of the data provider from which a thumbnail could be generated. This will often be the same URL as given in edm:isShownBy.",
+      "domain": [],
+      "range": [
+        "edm:WebResource"
+      ],
+      "superProperties": [
+        "edm:hasView"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/rights",
+      "label": "Europeana Rights",
+      "definition": "Information about copyright of the digital object as specified by isShownBy\nand isShownAt",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/uri",
+      "label": "Europeana URI",
+      "definition": "This is a tag created by a user through the Europeana interface.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isRelatedTo",
+      "label": "Is Related To",
+      "definition": "edm:isRelatedTo is the most general contextual property in EDM. Contextual\nproperties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/hasMet",
+      "label": "Has Met",
+      "definition": "edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isSimilarTo",
+      "label": "Is Similar To",
+      "definition": "The most generic derivation property, covering also the case of questionable derivation. Is Similar To asserts that parts of the contents of one resource exhibit common features with respect to ideas, shapes, structures, colors, words, plots, topics with the contents of the related resource. Those common features may be attributed to a common origin or influence (in particular for derivation), but also to more generic cultural or psychological factors.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "dc:relation"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/isDerivativeOf",
+      "label": "Is Derivative Of",
+      "definition": "This property captures a narrower notion of derivation than edm:isSimilarTo, in the sense that it relates a resource to another one, obtained by reworking, reducing, expanding, parts or the whole contents of the former, and possibly adding some minor parts. Versions have an even narrower meaning, in that it requires common identity between the related resources. Translations, summaries, abstractions etc. do not qualify as versions, but do qualify as derivatives.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "edm:isSimilarTo"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/country",
+      "label": "Country",
+      "definition": "",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "http://www.cidoc-crm.org/rdfs/cidoc-crm#P12_occurred_in_the_presence_of",
+        "crm:P12_occurred_in_the_presence_of"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/dataProvider",
+      "label": "Data Provider",
+      "definition": "The name or identifier of the organisation who contributes data indirectly to an aggregation service (e.g. Europeana).",
+      "domain": [
+        "ore:Aggregation"
+      ],
+      "range": [
+        "edm:Agent"
+      ],
+      "superProperties": [
+        "dcterms:provenance"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/language",
+      "label": "Europeana Language",
+      "definition": "The value for this element is added by the Data Ingestion Team as part of the ingestion process, based on the language of the data provider.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/provider",
+      "label": "Provider",
+      "definition": "The name or identifier of the organization who delivers data directly to an aggregation service (e.g. Europeana)",
+      "domain": [],
+      "range": [
+        "edm:Agent"
+      ],
+      "superProperties": [
+        "edm:hasMet"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/unstored",
+      "label": "Unstored",
+      "definition": "This is a container element which includes all relevant information that\notherwise cannot be mapped to another element in the ESE.",
+      "domain": [],
+      "range": [],
+      "superProperties": [],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/userTag",
+      "label": "User Tag",
+      "definition": "This is a tag created by a user through the Europeana interface.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "dc:description"
+      ],
+      "inverseOf": ""
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/year",
+      "label": "Europeana Year",
+      "definition": "A point of time associated with an event in the life of the original analog or\nborn digital object.",
+      "domain": [],
+      "range": [],
+      "superProperties": [
+        "dcterms:temporal"
+      ],
+      "inverseOf": ""
+    }
+  ],
+  "dataProperties": [
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/begin",
+      "label": "Begin",
+      "definition": "This property denotes the start date of a period of time.",
+      "domain": [],
+      "range": "xsd:string"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/end",
+      "label": "End",
+      "definition": "This property denotes the end date of a period of time.",
+      "domain": [],
+      "range": "xsd:string"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/type",
+      "label": "Europeana Type",
+      "definition": "The Europeana material type of the resource",
+      "domain": [],
+      "range": "xsd:string"
+    },
+    {
+      "uri": "http://www.europeana.eu/schemas/edm/ugc",
+      "label": "UGC",
+      "definition": "This element is used to identify user generated content (also called user created content).  It should be applied to all digitised or born digital content contributed by the general public and collected by Europeana through a crowdsourcing initiative or project.",
+      "domain": [],
+      "range": "xsd:string"
+    }
+  ],
+  "externalVocabularies": [
+    {
+      "prefix": "dc",
+      "namespace": "http://purl.org/dc/elements/1.1/",
+      "classes": [],
+      "properties": [
+        "dc:contributor",
+        "dc:coverage",
+        "dc:creator",
+        "dc:date",
+        "dc:description",
+        "dc:format",
+        "dc:language",
+        "dc:publisher",
+        "dc:relation",
+        "dc:source",
+        "dc:subject",
+        "dc:type"
+      ]
+    },
+    {
+      "prefix": "dcterms",
+      "namespace": "http://purl.org/dc/terms/",
+      "classes": [
+        "dcterms:PeriodOfTime"
+      ],
+      "properties": [
+        "dcterms:hasFormat",
+        "dcterms:hasVersion",
+        "dcterms:isFormatOf",
+        "dcterms:isReplacedBy",
+        "dcterms:isVersionOf",
+        "dcterms:provenance",
+        "dcterms:replaces",
+        "dcterms:spatial",
+        "dcterms:tableOfContents",
+        "dcterms:temporal"
+      ]
+    },
+    {
+      "prefix": "foaf",
+      "namespace": "http://xmlns.com/foaf/0.1/",
+      "classes": [
+        "foaf:Organization",
+        "foaf:Person"
+      ],
+      "properties": []
+    },
+    {
+      "prefix": "voaf",
+      "namespace": "http://purl.org/vocommons/voaf#",
+      "classes": [
+        "voaf:Vocabulary"
+      ],
+      "properties": []
+    },
+    {
+      "prefix": "ore",
+      "namespace": "http://www.openarchives.org/ore/terms/",
+      "classes": [
+        "ore:Aggregation"
+      ],
+      "properties": [
+        "ore:aggregates"
+      ]
+    },
+    {
+      "prefix": "crm",
+      "namespace": "http://www.cidoc-crm.org/cidoc-crm/",
+      "classes": [
+        "crm:E18_Physical_Thing",
+        "crm:E39_Actor",
+        "crm:E4_Period",
+        "crm:E52_Time-Span",
+        "crm:E53_Place",
+        "crm:E89_Propositional_Object"
+      ],
+      "properties": [
+        "crm:P129_is_about",
+        "crm:P12_occurred_in_the_presence_of",
+        "crm:P138_represents",
+        "crm:P67_refers_to",
+        "crm:P79_beginning_is_qualified_by",
+        "crm:P80_end_is_qualified_by"
+      ]
+    },
+    {
+      "prefix": "frbr_core",
+      "namespace": "http://purl.org/vocab/frbr/core#",
+      "classes": [
+        "frbr_core:Event",
+        "frbr_core:Place"
+      ],
+      "properties": []
+    },
+    {
+      "prefix": "frbroo",
+      "namespace": "http://iflastandards.info/ns/fr/frbr/frbroo/",
+      "classes": [
+        "frbroo:F8_Event",
+        "frbroo:F9_Place"
+      ],
+      "properties": []
+    },
+    {
+      "prefix": "abc",
+      "namespace": "http://metadata.net/harmony/abc#",
+      "classes": [
+        "abc:Place",
+        "abc:Temporality",
+        "abc:Time"
+      ],
+      "properties": []
+    },
+    {
+      "prefix": "DOLCE-Lite",
+      "namespace": "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#",
+      "classes": [
+        "DOLCE-Lite:space-region",
+        "DOLCE-Lite:time-interval"
+      ],
+      "properties": []
+    }
+  ]
+}

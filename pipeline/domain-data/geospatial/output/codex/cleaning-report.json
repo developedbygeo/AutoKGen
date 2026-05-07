@@ -1,0 +1,49 @@
+{
+  "originalRows": 790613,
+  "cleanedRows": 790613,
+  "rowsRemoved": 0,
+  "issues": [
+    {
+      "type": "invalid_admin1_code_code",
+      "count": 2395,
+      "severity": "warning"
+    },
+    {
+      "type": "invalid_cc2_code",
+      "count": 1,
+      "severity": "warning"
+    }
+  ],
+  "typeCoercions": [
+    {
+      "column": "dem",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "elevation",
+      "successCount": 59303,
+      "failCount": 0
+    },
+    {
+      "column": "latitude",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "longitude",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "modification_date",
+      "successCount": 790613,
+      "failCount": 0
+    },
+    {
+      "column": "population",
+      "successCount": 790613,
+      "failCount": 0
+    }
+  ]
+}

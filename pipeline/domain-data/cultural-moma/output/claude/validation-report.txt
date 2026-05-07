@@ -1,0 +1,59 @@
+================================================================================
+  ONTOLOGY VALIDATION REPORT
+================================================================================
+
+  Ontology:    Europeana Data Model (EDM) vocabulary v5.2.4
+  Validated:   2026-02-24T19:38:22.446Z
+  Graph:       /home/user/PhD Projects/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/graph-data.json
+
+--------------------------------------------------------------------------------
+  COMPLIANCE SCORE: 100/100 (Grade A)
+  STATUS: COMPLIANT
+--------------------------------------------------------------------------------
+
+  GRAPH STATISTICS
+    Total Nodes:            369,356
+    Total Relationships:    960,593
+    Nodes Analyzed:         369,356
+    Relationships Analyzed: 960,593
+
+  ISSUE SUMMARY
+    Errors:   0
+    Warnings: 0
+    Info:     2
+
+  VIOLATIONS BY CATEGORY
+    structure: 1
+    dataProperty: 1
+
+  ONTOLOGY REQUIREMENTS
+    Valid Labels:          PASS
+    Valid Namespaces:      FAIL (5 invalid)
+    Domain/Range:          PASS
+    Required Properties:   PASS
+
+--------------------------------------------------------------------------------
+  DETAILED VIOLATIONS
+--------------------------------------------------------------------------------
+
+  [INFO] empty_core_classes (structure)
+    Property: class_instantiation
+    Count:    8
+    8 ontology class(es) have no instances in the graph: Non-InformationResource, EuropeanaAggregation, EuropeanaObject, Aggregation, Event, InformationResource, PhysicalThing, Proxy
+    Examples:
+      - Class "Non-InformationResource" has 0 instances
+      - Class "EuropeanaAggregation" has 0 instances
+      - Class "EuropeanaObject" has 0 instances
+
+  [INFO] unknown_property (dataProperty)
+    Property: property_namespace
+    Count:    21
+    21 property key(s) not explicitly defined in the ontology.
+    Examples:
+      - Property "type_Cataloged" not found in ontology namespaces
+      - Property "Title" not found in ontology namespaces
+      - Property "format_Dimensions" not found in ontology namespaces
+
+================================================================================
+  Report generated at 2026-02-24T19:38:22.446Z
+================================================================================
