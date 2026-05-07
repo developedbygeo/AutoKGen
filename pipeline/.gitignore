@@ -57,3 +57,5 @@ domain-data/scientific-dblp/output/claude/graph-import.cypher
 
 
 domain-data/geospatial/output/*/graph-data.ttl
+
+domain-data/*/output/**/*.csv
