@@ -116,19 +116,19 @@ Input Data (CSV/XML/JSON/TSV/TXT) + optional Supplementary Files
     │
     ▼
 [4] Map to Ontology ── Map dataset columns → ontology classes & properties
-    │                   ┌─────────────────────────────┐
-    │                   │  GATEKEEPER #1               │
-    │                   │  Compliance score must be ≥70 │
-    │                   └─────────────────────────────┘
+    │                   ┌────────────────────────────────┐
+    │                   │  CK #1                         │
+    │                   │  Compliance score must be ≥70  │
+    │                   └────────────────────────────────┘
     ▼
 [5] Clean ──────────── Type coercion, dedup, null normalization
     │
     ▼
 [6] Generate Graph ─── Build nodes & relationships as JSON/Cypher/Turtle
     │                   ┌─────────────────────────────┐
-    │                   │  GATEKEEPER #2               │
-    │                   │  In-flight validation of      │
-    │                   │  every node & relationship    │
+    │                   │  CK #2                      |
+    │                   │  validation of              │
+    │                   │  every node & relationship  │
     │                   └─────────────────────────────┘
     ▼
 [7] Import Neo4j ───── Load graph into Neo4j via MCP tools
@@ -136,9 +136,17 @@ Input Data (CSV/XML/JSON/TSV/TXT) + optional Supplementary Files
     ▼
 [8] Validate ───────── Post-import audit against ontology constraints
                         ┌─────────────────────────────┐
-                        │  GATEKEEPER #3               │
-                        │  Generates automated fix      │
-                        │  queries for violations       │
+                        │  CK #3                      |
+                        │  Generates automated fix    │
+                        │  queries for violations     │
+                        └─────────────────────────────┘
+    │
+    ▼
+[8]B Validate ───────── Validation against pre-authored SHACL
+                        ┌─────────────────────────────┐
+                        │  CK #4                      |
+                        │  Validates against pre-     │
+                        │  authored SHACL shapes      │
                         └─────────────────────────────┘
 ```
 
@@ -152,7 +160,7 @@ Each pipeline step follows the same pattern:
 4. The TypeScript executes immediately, reading inputs and writing outputs
 5. Results go to `$DATA_DIR/output/` as JSON, CSV, Cypher, or Turtle
 
-To change how a step works, **edit the prompt in `prompts/<step>.sh`**, not the generated TypeScript. The generated code is ephemeral and will be overwritten on the next run.
+To change how a step works, **edit the prompt in `prompts/<step>.sh`**, not the generated TypeScript. The generated code will be overwritten on the next run.
 
 ### Three-Gatekeeper Compliance
 
