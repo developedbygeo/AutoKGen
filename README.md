@@ -37,7 +37,7 @@ A three-part system for autonomously building and querying knowledge graphs from
 
 | Directory                 | Role                                                                                                              | README                                  |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [pipeline/](pipeline/)    | Autonomous KG generation. Reads CSV/XML/JSON/TSV/TXT, parses an OWL/RDF ontology, and emits an ontology-compliant graph (JSON, Cypher, Turtle). 8 steps with 3 compliance gatekeepers. | [pipeline/README.md](pipeline/README.md) |
+| [pipeline/](pipeline/)    | Autonomous KG generation. Reads CSV/XML/JSON/TSV/TXT, parses an OWL/RDF ontology, and emits an ontology-compliant graph (JSON, Cypher, Turtle). 8 steps with 3 compliance gatekeepers. Each step delegates TypeScript generation to either [Claude Code or Codex](pipeline/README.md#prerequisites) (selected via `PROVIDER` in `.env`). | [pipeline/README.md](pipeline/README.md) |
 | [mcp/](mcp/)              | Stdio MCP server that wraps a Neo4j Bolt driver. The single seam between Claude/Codex agents and the database — used by both other components. | —                                       |
 | [chatbot/](chatbot/)      | React + Express chat UI. Forwards user questions to Claude, which uses the MCP server's Cypher tools to query the graph and stream answers back. | [chatbot/README.md](chatbot/README.md)   |
 
