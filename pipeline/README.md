@@ -1,6 +1,6 @@
 # Agentic KG Generation Pipeline
 
-Autonomous knowledge graph generation from structured data (CSV, XML, JSON, TSV, TXT) with strict **domain ontology** compliance. Powered by [Claude Code](https://claude.ai/code) for prompt-driven TypeScript generation and Neo4j MCP for graph persistence.
+Autonomous knowledge graph generation from structured data (CSV, XML, JSON, TSV, TXT) with strict **domain ontology** compliance. Each pipeline step delegates TypeScript generation to either the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) or [Codex](https://github.com/openai/codex) CLI (selected via `PROVIDER` in `.env`) and persists the resulting graph to Neo4j over MCP.
 
 ## Table of Contents
 
@@ -23,10 +23,10 @@ This project implements a fully autonomous pipeline that transforms raw structur
 - **Ontology-agnostic** — works with any OWL/RDF/XML ontology (EDM, FaBiO, Schema.org, etc.)
 - **Format-agnostic** — accepts CSV, XML, JSON, TSV, and TXT input files
 - **Domain-organized** — each dataset lives in its own directory with its own ontology and outputs
-- **Prompt-driven** — every pipeline step is a bash script that sends a specification to Claude Code, which generates and immediately executes TypeScript. The generated code is ephemeral (gitignored); the prompts are the source of truth.
+- **Prompt-driven** — every pipeline step is a bash script that sends a specification to Claude Code or Codex (whichever is set via `PROVIDER`), which generates and immediately executes TypeScript. The generated code is ephemeral (gitignored); the prompts are the source of truth.
 
 ```
-prompts/<step>.sh  →  claude -p "..."  →  src/generated/<domain>/<step>.ts  →  executes  →  $DATA_DIR/output/
+prompts/<step>.sh  →  <provider CLI> "..."  →  src/generated/<provider>/<domain>/<step>.ts  →  executes  →  $DATA_DIR/output/
 ```
 
 ## Datasets
@@ -155,10 +155,10 @@ Input Data (CSV/XML/JSON/TSV/TXT) + optional Supplementary Files
 Each pipeline step follows the same pattern:
 
 1. A bash script in `prompts/` contains a detailed specification
-2. The script invokes `claude -p "<specification>"` to send it to Claude Code
-3. Claude generates TypeScript to `src/generated/<domain>/<step>.ts`
+2. The script invokes either `claude -p "<spec>"` or `codex exec --full-auto "<spec>"` depending on `PROVIDER`
+3. The provider generates TypeScript to `src/generated/<provider>/<domain>/<step>.ts`
 4. The TypeScript executes immediately, reading inputs and writing outputs
-5. Results go to `$DATA_DIR/output/` as JSON, CSV, Cypher, or Turtle
+5. Results go to `$DATA_DIR/output/<provider>/` as JSON, CSV, Cypher, or Turtle
 
 To change how a step works, **edit the prompt in `prompts/<step>.sh`**, not the generated TypeScript. The generated code will be overwritten on the next run.
 
@@ -337,7 +337,9 @@ Violations are categorized by severity and automated Cypher fix queries are gene
 ### Prerequisites
 
 - Node.js 20+
-- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (`claude` command available)
+- One of these CLIs on `PATH`, matching `PROVIDER` in your `.env`:
+    - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — `claude` (default)
+    - [Codex](https://github.com/openai/codex) — `codex` (or set `CODEX_BIN` to its absolute path)
 - Neo4j 5+ (for import and validation steps)
 
 ### Setup
@@ -581,4 +583,4 @@ When running individual steps standalone (`npm run merge`, etc.), each gets its 
 
 ---
 
-Built with [Claude Code](https://claude.ai/code)
+Switch providers via `PROVIDER=claude` or `PROVIDER=codex` in `.env`. See [`lib/provider.sh`](lib/provider.sh) for the dispatch logic.
