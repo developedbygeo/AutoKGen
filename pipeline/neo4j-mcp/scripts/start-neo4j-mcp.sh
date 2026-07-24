@@ -5,7 +5,7 @@ set -euo pipefail
 # server living in the sibling repository.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MCP_REPO="/home/user/Proj/mcp-neo4j-server"
+MCP_REPO="/home/user/project/mcp-neo4j-server"
 ENV_FILE="$MCP_REPO/.env"
 SERVER_ENTRY="$MCP_REPO/dist/server.js"
 

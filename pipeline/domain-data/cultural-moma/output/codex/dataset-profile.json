@@ -1,9 +1,9 @@
 {
-  "datasetPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/input/dataset-merged.csv",
+  "datasetPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/cultural-moma/input/dataset-merged.csv",
   "totalRows": 157457,
   "totalColumns": 38,
   "generatedAt": "2026-04-02T08:45:17.792Z",
-  "supplementaryIndexPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/codex/supplementary-files-index.json",
+  "supplementaryIndexPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/codex/supplementary-files-index.json",
   "supplementaryFilesLoaded": false,
   "supplementaryFilesInspected": [],
   "columns": [

@@ -3,7 +3,7 @@
     "validatedAt": "2026-02-24T19:38:22.446Z",
     "ontologyName": "Europeana Data Model (EDM) vocabulary",
     "ontologyVersion": "5.2.4",
-    "graphSource": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/graph-data.json"
+    "graphSource": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/graph-data.json"
   },
   "overallCompliance": {
     "isCompliant": true,

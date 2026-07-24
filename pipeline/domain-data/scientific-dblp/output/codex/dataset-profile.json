@@ -1,11 +1,11 @@
 {
-  "datasetPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/input/dataset-merged.csv",
+  "datasetPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/input/dataset-merged.csv",
   "totalRows": 12358922,
   "totalColumns": 29,
   "fileSizeBytes": 3133336343,
   "generatedAt": "2026-04-02T12:21:02.511Z",
   "profilingTimeSec": 106.13,
-  "supplementaryIndexPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/codex/supplementary-files-index.json",
+  "supplementaryIndexPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/codex/supplementary-files-index.json",
   "supplementaryFilesLoaded": false,
   "supplementaryFilesInspected": [],
   "columns": [

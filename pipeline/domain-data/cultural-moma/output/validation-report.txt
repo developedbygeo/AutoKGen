@@ -4,7 +4,7 @@
 
   Ontology:    Europeana Data Model (EDM) vocabulary v5.2.4
   Validated:   2026-02-24T19:38:22.446Z
-  Graph:       /home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/graph-data.json
+  Graph:       /home/user/project/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/graph-data.json
 
 --------------------------------------------------------------------------------
   COMPLIANCE SCORE: 100/100 (Grade A)

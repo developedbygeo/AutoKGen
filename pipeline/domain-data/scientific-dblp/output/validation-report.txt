@@ -4,7 +4,7 @@
 
   Ontology:    FaBiO, the FRBR-aligned Bibliographic Ontology v2.2
   Validated:   2026-02-24T12:45:13.241Z
-  Graph:       /home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json
+  Graph:       /home/user/project/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json
 
 --------------------------------------------------------------------------------
   COMPLIANCE SCORE: 90/100 (Grade B)

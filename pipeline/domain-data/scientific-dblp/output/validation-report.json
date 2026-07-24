@@ -3,7 +3,7 @@
     "validatedAt": "2026-02-24T12:45:13.241Z",
     "ontologyName": "FaBiO, the FRBR-aligned Bibliographic Ontology",
     "ontologyVersion": "2.2",
-    "graphSource": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json"
+    "graphSource": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/scientific-dblp/output/graph-data.json"
   },
   "overallCompliance": {
     "isCompliant": true,

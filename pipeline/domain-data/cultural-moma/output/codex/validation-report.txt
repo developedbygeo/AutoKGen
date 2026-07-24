@@ -1,7 +1,7 @@
 Ontology Validation Report
 Validated At: 2026-04-02T11:47:36.070Z
 Ontology: Europeana Data Model (EDM) vocabulary v5.2.4
-Graph Source: /home/user/Proj/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/codex/graph-data.json (snapshot fallback; Neo4j connectivity unavailable for database neo4j)
+Graph Source: /home/user/project/agentic-kg-artifact-pipeline/domain-data/cultural-moma/output/codex/graph-data.json (snapshot fallback; Neo4j connectivity unavailable for database neo4j)
 
 Overall Compliance: 86/100 (B)
 Compliant Gate: FAIL

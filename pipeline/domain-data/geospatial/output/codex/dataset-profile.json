@@ -1,9 +1,9 @@
 {
-  "datasetPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/input/dataset-merged.csv",
+  "datasetPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/geospatial/input/dataset-merged.csv",
   "totalRows": 790613,
   "totalColumns": 20,
   "generatedAt": "2026-04-03T16:34:16.683Z",
-  "supplementaryIndexPath": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/output/codex/supplementary-files-index.json",
+  "supplementaryIndexPath": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/geospatial/output/codex/supplementary-files-index.json",
   "supplementaryFilesLoaded": true,
   "supplementaryFilesInspected": ["admin1CodesASCII.txt", "countryInfo.txt", "featureCodes_en.txt"],
   "columns": [

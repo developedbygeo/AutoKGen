@@ -1,6 +1,6 @@
 [
   {
-    "path": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/admin1CodesASCII.txt",
+    "path": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/admin1CodesASCII.txt",
     "name": "admin1CodesASCII.txt",
     "format": "txt",
     "sizeBytes": 145822,
@@ -9,7 +9,7 @@
     "rowCount": 3862
   },
   {
-    "path": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/countryInfo.txt",
+    "path": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/countryInfo.txt",
     "name": "countryInfo.txt",
     "format": "txt",
     "sizeBytes": 31668,
@@ -38,7 +38,7 @@
     "rowCount": 252
   },
   {
-    "path": "/home/user/Proj/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/featureCodes_en.txt",
+    "path": "/home/user/project/agentic-kg-artifact-pipeline/domain-data/geospatial/supplementary-files/featureCodes_en.txt",
     "name": "featureCodes_en.txt",
     "format": "txt",
     "sizeBytes": 58642,
