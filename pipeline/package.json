@@ -2,6 +2,7 @@
   "name": "agentic-kg-artifact-pipeline",
   "version": "2.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Agentic Knowledge Graph Generation Pipeline",
   "main": "dist/index.js",
   "bin": {
